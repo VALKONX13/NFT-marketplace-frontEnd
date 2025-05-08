@@ -1,6 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
-// import { motion } from "framer-motion";
 import RedarkButton from "@/components/RedarkButton/index";
 import Sidebar from "@/components/Sidebar";
 import SortDropdown from "@/components/SortDropdown";
@@ -101,7 +99,7 @@ const marketplace = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [open, setOpen] = useState(false);
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [activeFilter, setActiveFilter] = useState(""); // or null if none selected
+  const [activeFilter, setActiveFilter] = useState("");
 
   return (
     <div className="bg-redark-navy grid grid-cols-12 gap-8 h-auto">

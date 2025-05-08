@@ -409,7 +409,7 @@ export default function Sidebar({ className }: SidebarProps) {
               </Link>
             ))}
           </div>
-          <p className="max-w-[155px] ml-12 font-azeret text-[14px] text-gray-400">© 2025 RedArk Made By Dapponics</p>
+          <p className="max-w-[155px] ml-12 mt-18 font-azeret text-[14px] text-gray-400">© 2025 RedArk Made By Dapponics</p>
         </div>
       </div>
       {/* <!-- Component End  --> */}
