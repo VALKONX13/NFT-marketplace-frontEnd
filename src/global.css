@@ -17,12 +17,21 @@
   src: url("/assets/fonts/mokoto/ttf/mokoto-mokoto-regular-400.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: Azeret;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/Azeret_Mono/astatic/AzeretMono-Regular.ttf") format("truetype");
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-mokoto: "Mokoto", "sans-serif";
+  --font-azeret: "Azeret Mono", monospace;
 }
 
 @theme {

@@ -23,8 +23,8 @@ export default function NFTCard({
       <div className="flex items-center space-x-3 mb-4">
         <div className="w-4 h-4 bg-gray-400 rounded-full"></div>
         <div>
-          <p className="text-xs text-gray-400">Created by</p>
-          <p className="text-sm font-semibold">{creatorName}</p>
+          <p className="text-xs text-gray-400 font-azeret">Created by</p>
+          <p className="text-sm font-semibold font-azeret">{creatorName}</p>
         </div>
       </div>
 
@@ -45,7 +45,7 @@ export default function NFTCard({
       {/* Bid Info */}
       <div className="flex justify-between items-center">
         <div>
-          <p className="text-xs text-gray-400">Current Bid</p>
+          <p className="text-xs text-gray-400 font-azeret">Current Bid</p>
           <p className="text-sm font-bold">{currentBid} SOL</p>
         </div>
         <RedarkButton title='place Bid'

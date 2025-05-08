@@ -9,6 +9,7 @@ export default function Sidebar({ className }: SidebarProps) {
   const marketplaceItems = [
     {
       title: "Market",
+      href: "#",
       icon: (
         <svg
           className="fill-white hover:fill-redark-purple"
@@ -23,6 +24,7 @@ export default function Sidebar({ className }: SidebarProps) {
     },
     {
       title: "Bidding",
+      href: "#",
       icon: (
         <svg
           className="fill-white hover:fill-redark-purple"
@@ -37,6 +39,7 @@ export default function Sidebar({ className }: SidebarProps) {
     },
     {
       title: "Categories",
+      href: "#",
       icon: (
         <svg
           className="fill-white hover:fill-redark-purple"
@@ -51,6 +54,7 @@ export default function Sidebar({ className }: SidebarProps) {
     },
     {
       title: "Artists",
+      href: "#",
       icon: (
         <svg
           className="fill-white hover:fill-redark-purple"
@@ -65,6 +69,7 @@ export default function Sidebar({ className }: SidebarProps) {
     },
     {
       title: "pricing",
+      href: "#",
       icon: (
         <svg
           className="fill-white hover:fill-redark-purple"
@@ -364,13 +369,13 @@ export default function Sidebar({ className }: SidebarProps) {
           <p className="ml-2 text-sm font-bold font-mokoto">ARKHIVE</p>
         </Link>
         <RedarkButton title="CREATE NFT" />
-        <div className="w-full py-12">
-          <div className="flex flex-col items-baseline w-full mt-3 gap-4">
+        <div className="w-full pt-12 mb-5 flex flex-col h-[-webkit-fill-available]">
+          <div className="flex flex-col items-baseline w-full mt-3 gap-4 grow">
             <p className="text-white font-bold text-[14px] pl-10">Marketplace</p>
-            {marketplaceItems.map(({ title, icon }, index) => (
+            {marketplaceItems.map(({ title, icon, href }, index) => (
               <Link
                 key={index}
-                href="#"
+                href={href}
                 className="relative pl-10 group flex items-center gap-3 py-2 rounded-md text-white hover:text-redark-purple"
               >
                 {/* Left hover bar */}
@@ -404,6 +409,7 @@ export default function Sidebar({ className }: SidebarProps) {
               </Link>
             ))}
           </div>
+          <p className="max-w-[155px] ml-12 font-azeret text-[14px] text-gray-400">© 2025 RedArk Made By Dapponics</p>
         </div>
       </div>
       {/* <!-- Component End  --> */}
