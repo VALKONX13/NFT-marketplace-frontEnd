@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+@source "../node_modules/flowbite";
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@font-face {
+  font-family: Mokoto;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/mokoto/ttf/mokoto-mokoto-regular-400.ttf") format("truetype");
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-mokoto: "Mokoto", "sans-serif";
+}
+
+@theme {
+  --color-redark-navy: #110B34;
+  --color-redark-purple: #8C52FF;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.adjust-mokoto {
+  transform: translateY(0.5em);
+}
+
+[data-testid="flowbite-dropdown"] {
+  background-color: #110B34 !important; /* your redark-navy color */
+  color: white;
+  border-radius: 20px;
+  margin-top: 1rem;
+  padding: .5rem 4rem;
+  z-index: 50;
+}
+
+[data-testid="flowbite-dropdown"] > ul > li > button:hover{
+  background-color: #8C52FF;
+  border-radius: 20px;
+}
