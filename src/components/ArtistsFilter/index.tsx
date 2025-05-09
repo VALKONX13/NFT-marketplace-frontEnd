@@ -40,13 +40,6 @@ export default function ArtistFilter({ state }: ArtistFilterProps) {
 
   return (
     <div className="relative w-full flex flex-col items-center mt-8">
-      {/* <button
-        onClick={() => setOpen(!open)}
-        className="bg-purple-600 text-white px-4 py-2 rounded-md mb-4"
-      >
-        {open ? "Hide Filters" : "Show Filters"}
-      </button> */}
-
       <AnimatePresence>
         {state && (
           <motion.div
@@ -54,7 +47,7 @@ export default function ArtistFilter({ state }: ArtistFilterProps) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="bg-white/13 p-6 rounded-3xl text-white w-full max-w-5xl"
+            className="bg-white/13 mb-12 p-6 rounded-3xl text-white w-full max-w-5xl"
           >
             <h2 className="text-lg font-bold tracking-widest mb-4">
               FILTER: ARTISTS
