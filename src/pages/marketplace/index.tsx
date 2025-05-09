@@ -115,7 +115,7 @@ const marketplace = () => {
           </div>
         </div>
         <ArtistFilter state={open} />
-        <p className="text-4xl font-mokoto adjust-mokoto py-10">
+        <p className="text-4xl text-white font-mokoto adjust-mokoto py-10">
           Trending NFTs
         </p>
         <div className="flex items-center gap-2">

@@ -24,14 +24,13 @@ export default function Component() {
           />
         </svg>
         <Dropdown
-          className="focus:ring-0"
+          className="focus:ring-0 text-white"
           color="transparent"
           label={`Sort by: ${SortMode}`}
           size="custom"
           dismissOnClick={false}
         >
           <DropdownItem
-            // theme={customTheme.floating}
             onClick={() => setSortMode("Recently Added")}
           >
             Recently Added
