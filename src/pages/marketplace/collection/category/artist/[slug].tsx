@@ -54,7 +54,7 @@ export default function ArtistDetailPage() {
 
   return (
     <div className="bg-redark-navy grid grid-cols-12 gap-8">
-      <Sidebar className="col-start-1 col-end-3" />
+      <Sidebar button={true} className="col-start-1 col-end-3" />
       <div className="col-span-10 grid grid-cols-8 gap-5 gap-y-8 px-8 py-16">
         <div className="col-span-4 relative aspect-[4/5]">
           <div className="z-10 absolute top-[5%] left-[6%] bg-redark-purple p-6 rounded-full border-2 border-white w-[80px] h-[80px] flex items-center">

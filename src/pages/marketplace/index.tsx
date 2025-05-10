@@ -7,93 +7,7 @@ import RecentlyAddedSideCard from "@/components/RecentlyAddedSideCard";
 import TopCreators from "@/components/TopCreatorsSideCard";
 import HistorySideCard from "@/components/HistorySideCard";
 import ArtistFilter from "@/components/ArtistsFilter";
-
-const recentlyAddedItems = [
-  {
-    id: 1,
-    thumbnail: "/assets/img/thumb1.jpg",
-    name: "Jack Doeig",
-    date: "Mon, 08 May",
-  },
-  {
-    id: 2,
-    thumbnail: "/assets/img/thumb1.jpg",
-    name: "Jack Doeig",
-    date: "Mon, 08 May",
-  },
-  {
-    id: 3,
-    thumbnail: "/assets/img/thumb1.jpg",
-    name: "Jack Doeig",
-    date: "Mon, 08 May",
-  },
-];
-
-const TopCreatorsItems = [
-  {
-    id: 1,
-    name: "Nicolaus Kozlowsky",
-    avatar: "/assets/img/thumb1.jpg",
-  },
-  {
-    id: 2,
-    name: "Nicolaus Kozlowsky",
-    avatar: "/assets/img/thumb1.jpg",
-  },
-  {
-    id: 3,
-    name: "Nicolaus Kozlowsky",
-    avatar: "/assets/img/thumb1.jpg",
-  },
-  {
-    id: 4,
-    name: "Nicolaus Kozlowsky",
-    avatar: "/assets/img/thumb1.jpg",
-  },
-  {
-    id: 5,
-    name: "Nicolaus Kozlowsky",
-    avatar: "/assets/img/thumb1.jpg",
-  },
-];
-
-const historyData = [
-  {
-    id: "1",
-    avatar: "/assets/img/thumb1.jpg",
-    title: "Lorem NFT Sold",
-    subtitle: "1.22 SOL",
-    time: "Just now",
-  },
-  {
-    id: "2",
-    avatar: "/assets/img/thumb1.jpg",
-    title: "New NFT Uploaded",
-    subtitle: "by Marisol Pena",
-    time: "1h ago",
-  },
-  {
-    id: "3",
-    avatar: "/assets/img/thumb1.jpg",
-    title: "You followed a creator",
-    subtitle: "Jane Cooper",
-    time: "2h ago",
-  },
-  {
-    id: "4",
-    avatar: "/assets/img/thumb1.jpg",
-    title: "You placed a bod",
-    subtitle: "Funny Monkey NFT",
-    time: "6h ago",
-  },
-  {
-    id: "5",
-    avatar: "/assets/img/thumb1.jpg",
-    title: "You followed a creator",
-    subtitle: "Courtney Covv",
-    time: "08 May",
-  },
-];
+import MockData from "@/utils/mockData";
 
 const marketplace = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -103,7 +17,7 @@ const marketplace = () => {
 
   return (
     <div className="bg-redark-navy grid grid-cols-12 gap-8 h-auto">
-      <Sidebar className="col-start-1 col-end-3" />
+      <Sidebar button={true} className="col-start-1 col-end-3" />
       <div className="col-start-3 col-end-11 py-4">
         <div className="bg-[url('/assets/img/marketplace-header.jpg')] rounded-[40px] bg-cover px-[50px] py-[46px]">
           <p className="font-bold text-5xl text-white max-w-[416px] leading-16">
@@ -163,10 +77,13 @@ const marketplace = () => {
             category: "Category",
             timestamp: "16h ago",
           }}
-          items={recentlyAddedItems}
+          items={MockData.recentlyAddedItems}
         />
-        <TopCreators title="TOP CREATORS" creators={TopCreatorsItems} />
-        <HistorySideCard items={historyData} />
+        <TopCreators
+          title="TOP CREATORS"
+          creators={MockData.TopCreatorsItems}
+        />
+        <HistorySideCard items={MockData.historyData} />
       </div>
     </div>
   );

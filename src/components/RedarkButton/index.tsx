@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ButtonHTMLAttributes } from "react";
 import { ReactNode } from "react";
 
 interface ButtonProps {
@@ -7,11 +8,13 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   children?: ReactNode;
+    type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
 }
 
 export default function RedarkButton({
   title,
   href,
+  type,
   onClick,
   className = "",
 }: ButtonProps) {
@@ -23,13 +26,13 @@ export default function RedarkButton({
   if (href) {
     return (
       <Link href={href}>
-        <button className={combinedClass}>{title}</button>
+        <button type={type} className={combinedClass}>{title}</button>
       </Link>
     );
   }
 
   return (
-    <button className={combinedClass} onClick={onClick}>
+    <button type={type} className={combinedClass} onClick={onClick}>
       {title}
     </button>
   );

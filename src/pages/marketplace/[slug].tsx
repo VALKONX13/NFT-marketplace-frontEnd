@@ -20,59 +20,7 @@ import Table from "@/components/Table";
 import Link from "next/link";
 import SortDropdown from "@/components/SortDropdown";
 import { slugify } from "@/utils/slugify";
-
-const priceHistory = [
-  { name: "Jan", value: 60, bar: 60 },
-  { name: "Feb", value: 180, bar: 200 },
-  { name: "Mar", value: 100, bar: 100 },
-  { name: "Apr", value: 150, bar: 180 },
-  { name: "May", value: 70, bar: 70 },
-  { name: "Jun", value: 90, bar: 110 },
-  { name: "Jul", value: 40, bar: 50 },
-];
-
-const offersColumns = [
-  "Price",
-  "USD Price",
-  "Quantity",
-  "Reserve",
-  "Expiration",
-  "From",
-];
-const offersData = [
-  {
-    Price: "1.5749 SOL",
-    "USD Price": "$54.7894",
-    Quantity: "3",
-    Reserve: "10%",
-    Expiration: "in 26 days",
-    From: (
-      <Link className="text-redark-purple font-azeret" href="#">
-        273R40
-      </Link>
-    ),
-  },
-];
-
-const activityColumns = ["Event", "Price", "From", "To", "Timestamp"];
-const activityData = [
-  {
-    Event: "Transfer",
-    Price: "-/-",
-    From: (
-      <Link className="text-redark-purple font-azeret" href="#">
-        985DE3
-      </Link>
-    ),
-    To: (
-      <Link className="text-redark-purple font-azeret" href="#">
-        NosYu83
-      </Link>
-    ),
-    Timestamp: "19 h ago",
-  },
-  // repeat or map this structure
-];
+import MockData  from '@/utils/mockData';
 
 export default function NFTDetailPage() {
   const router = useRouter();
@@ -83,7 +31,7 @@ export default function NFTDetailPage() {
 
   return (
     <div className="bg-redark-navy grid grid-cols-12 gap-8">
-      <Sidebar className="col-start-1 col-end-3" />
+      <Sidebar button={true} className="col-start-1 col-end-3" />
       <div className="col-span-10 grid grid-cols-8 gap-5 gap-y-72 px-8 py-16">
         <div className="col-span-4 relative aspect-[4/5]">
           <div className="z-10 absolute top-[5%] left-[6%] bg-redark-purple p-6 rounded-full border-2 border-white w-[80px] h-[80px] flex items-center">
@@ -162,7 +110,7 @@ export default function NFTDetailPage() {
           <div className="bg-[#474747]/13 p-4 rounded-xl">
             <h2 className="text-lg font-semibold mb-4">Price History</h2>
             <ResponsiveContainer width="100%" height={200}>
-              <BarChart data={priceHistory}>
+              <BarChart data={MockData.priceHistory}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#342359" />
                 <XAxis dataKey="name" stroke="#aaa" />
                 <YAxis stroke="#aaa" />
@@ -215,8 +163,8 @@ export default function NFTDetailPage() {
           <div className="space-y-10 p-8">
             {/* <h2 className="text-xl font-semibold text-white">Offers</h2> */}
             <Table
-              columns={offersColumns}
-              data={offersData}
+              columns={MockData.offersColumns}
+              data={MockData.offersData}
               title="Offers"
               icon={
                 <svg
@@ -233,11 +181,10 @@ export default function NFTDetailPage() {
                 </svg>
               }
             />
-
             {/* <h2 className="text-xl font-semibold text-white">Item Activity</h2> */}
             <Table
-              columns={activityColumns}
-              data={activityData}
+              columns={MockData.activityColumns}
+              data={MockData.activityData}
               title="Item Activity"
               icon={
                 <svg

@@ -2,46 +2,7 @@
 
 import { useState } from "react";
 import NFTCard from "@/components/NftCard";
-
-const nftData = [
-  {
-    creatorName: "John Doe",
-    imageSrc: "/assets/img/duck-nft.jpg",
-    title: "Artwork Title Possible Text",
-    currentBid: "0.58",
-  },
-  {
-    creatorName: "Jane Smith",
-    imageSrc: "/assets/img/duck-nft.jpg",
-    title: "Cyber Cat Supreme",
-    currentBid: "0.73",
-  },
-  {
-    creatorName: "Jane Smith",
-    imageSrc: "/assets/img/duck-nft.jpg",
-    title: "Cyber Cat Supreme",
-    currentBid: "0.73",
-  },
-
-  {
-    creatorName: "Jane Smith",
-    imageSrc: "/assets/img/duck-nft.jpg",
-    title: "Cyber Cat Supreme",
-    currentBid: "0.73",
-  },
-  {
-    creatorName: "Jane Smith",
-    imageSrc: "/assets/img/duck-nft.jpg",
-    title: "Cyber Cat Supreme",
-    currentBid: "0.73",
-  },
-  {
-    creatorName: "Jane Smith",
-    imageSrc: "/assets/img/duck-nft.jpg",
-    title: "Cyber Cat Supreme",
-    currentBid: "0.73",
-  },
-];
+import MockData from "@/utils/mockData";
 
 type PaginatedNFTGalleryProps = {
   itemsPerPage?: number;
@@ -51,13 +12,13 @@ export default function PaginatedNFTGallery({
   itemsPerPage = 4,
 }: PaginatedNFTGalleryProps) {
   const [page, setPage] = useState(0);
-  const totalPages = Math.ceil(nftData.length / itemsPerPage);
+  const totalPages = Math.ceil(MockData.nftData.length / itemsPerPage);
 
   const handlePrev = () => setPage((prev) => Math.max(prev - 1, 0));
   const handleNext = () =>
     setPage((prev) => Math.min(prev + 1, totalPages - 1));
 
-  const currentItems = nftData.slice(
+  const currentItems = MockData.nftData.slice(
     page * itemsPerPage,
     (page + 1) * itemsPerPage
   );
