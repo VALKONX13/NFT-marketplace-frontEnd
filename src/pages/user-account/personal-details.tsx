@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
 import RedarkButton from "@/components/RedarkButton";
+import MockData from '@/utils/mockData';
 
 const defaultAvatars = [
   "/assets/img/duck-nft.jpg",
@@ -62,15 +63,19 @@ export default function UserAccount() {
 
   return (
     <div className="bg-redark-navy grid grid-cols-12 gap-8 h-auto">
-      <Sidebar button={false} className="col-start-1 col-end-3" />
+      <Sidebar
+        dividerTitles={["My Account"]}
+        navItems={[MockData.userAccountSideBarItems]}
+        button={false}
+        className="col-start-1 col-end-3"
+      />
       <motion.div
         className="p-10 min-h-screen text-white col-span-9 py-4 flex flex-col justify-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-3xl font-md mb-10 font-mokoto">USER CREDENTIALS</h1>
-
+        <h1 className="text-3xl font-md mb-10 font-mokoto uppercase">USER CREDENTIALS</h1>
         <div className="mb-6">
           <h2 className="text-xl font-md font-mokoto mb-20">AVATAR</h2>
           <div className="flex gap-4 flex-wrap">

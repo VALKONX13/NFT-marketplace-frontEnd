@@ -7,6 +7,7 @@ import PaginationContainer from "@/components/PaginationContainer";
 import ArtistFilter from "@/components/ArtistsFilter";
 import { useState } from "react";
 import NFTCard from "@/components/NftCard";
+import MockData from "@/utils/mockData";
 
 export default function ArtistDetailPage() {
   const router = useRouter();
@@ -54,7 +55,12 @@ export default function ArtistDetailPage() {
 
   return (
     <div className="bg-redark-navy grid grid-cols-12 gap-8">
-      <Sidebar button={true} className="col-start-1 col-end-3" />
+      <Sidebar
+        dividerTitles={["Marketplace", "Account"]}
+        navItems={[MockData.marketplace, MockData.accountItems]}
+        button={true}
+        className="col-start-1 col-end-3"
+      />
       <div className="col-span-10 grid grid-cols-8 gap-5 gap-y-8 px-8 py-16">
         <div className="col-span-4 relative aspect-[4/5]">
           <div className="z-10 absolute top-[5%] left-[6%] bg-redark-purple p-6 rounded-full border-2 border-white w-[80px] h-[80px] flex items-center">

@@ -17,7 +17,12 @@ const marketplace = () => {
 
   return (
     <div className="bg-redark-navy grid grid-cols-12 gap-8 h-auto">
-      <Sidebar button={true} className="col-start-1 col-end-3" />
+      <Sidebar
+        dividerTitles={["Marketplace", "Account"]}
+        navItems={[MockData.marketplaceItems, MockData.accountItems]}
+        button={true}
+        className="col-start-1 col-end-3"
+      />
       <div className="col-start-3 col-end-11 py-4">
         <div className="bg-[url('/assets/img/marketplace-header.jpg')] rounded-[40px] bg-cover px-[50px] py-[46px]">
           <p className="font-bold text-5xl text-white max-w-[416px] leading-16">

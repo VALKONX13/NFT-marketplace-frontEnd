@@ -20,7 +20,7 @@ import Table from "@/components/Table";
 import Link from "next/link";
 import SortDropdown from "@/components/SortDropdown";
 import { slugify } from "@/utils/slugify";
-import MockData  from '@/utils/mockData';
+import MockData from "@/utils/mockData";
 
 export default function NFTDetailPage() {
   const router = useRouter();
@@ -31,7 +31,12 @@ export default function NFTDetailPage() {
 
   return (
     <div className="bg-redark-navy grid grid-cols-12 gap-8">
-      <Sidebar button={true} className="col-start-1 col-end-3" />
+      <Sidebar
+        dividerTitles={["Marketplace", "Account"]}
+        navItems={[MockData.marketplace, MockData.accountItems]}
+        button={true}
+        className="col-start-1 col-end-3"
+      />
       <div className="col-span-10 grid grid-cols-8 gap-5 gap-y-72 px-8 py-16">
         <div className="col-span-4 relative aspect-[4/5]">
           <div className="z-10 absolute top-[5%] left-[6%] bg-redark-purple p-6 rounded-full border-2 border-white w-[80px] h-[80px] flex items-center">
@@ -62,7 +67,12 @@ export default function NFTDetailPage() {
               @JACKODREEYCollection05
             </Link>
             <h1 className="text-2xl font-bold">{title}</h1>
-            <Link href={`/marketplace/collection/category/artist/${slugify(artist)}`} className="text-sm text-gray-400">
+            <Link
+              href={`/marketplace/collection/category/artist/${slugify(
+                artist
+              )}`}
+              className="text-sm text-gray-400"
+            >
               Owned by <span className="text-white">{artist}</span>
             </Link>
             <div className="flex justify-center gap-3 text-xs mt-2">
@@ -73,7 +83,7 @@ export default function NFTDetailPage() {
                 <BsGraphUp /> <span>Trending #3</span>
               </div>
               <div className="flex items-center gap-1 bg-redark-purple/13 px-3 py-1 rounded-full">
-                <FaHeart /> <span>{'10'} Favorites</span>
+                <FaHeart /> <span>{"10"} Favorites</span>
               </div>
             </div>
           </div>
@@ -161,10 +171,16 @@ export default function NFTDetailPage() {
         </div>
         <div className="flex flex-col  col-span-12">
           <div className="space-y-10 p-8">
-            {/* <h2 className="text-xl font-semibold text-white">Offers</h2> */}
             <Table
-              columns={MockData.offersColumns}
-              data={MockData.offersData}
+              columns={[
+                "Price",
+                "USD Price",
+                "Quantity",
+                "Reserve",
+                "Expiration",
+                "From",
+              ]}
+              data={MockData.offersTableData}
               title="Offers"
               icon={
                 <svg
@@ -181,10 +197,9 @@ export default function NFTDetailPage() {
                 </svg>
               }
             />
-            {/* <h2 className="text-xl font-semibold text-white">Item Activity</h2> */}
             <Table
-              columns={MockData.activityColumns}
-              data={MockData.activityData}
+              columns={["Event", "Price", "From", "To", "Timestamp"]}
+              data={MockData.activityTableData}
               title="Item Activity"
               icon={
                 <svg

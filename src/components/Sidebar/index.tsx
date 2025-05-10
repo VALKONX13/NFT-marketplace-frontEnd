@@ -1,13 +1,26 @@
 import Link from "next/link";
-import RedarkButton from "../RedarkButton";
-import MockData from "@/utils/mockData";
+import { ReactElement } from "react";
+import RedarkButton from "@/components/RedarkButton/index";
+
+type NavItem = {
+  title: string;
+  href: string;
+  icon: ReactElement;
+};
 
 type SidebarProps = {
   className: string;
   button: boolean;
+  dividerTitles: string[];
+  navItems: NavItem[][];
 };
 
-export default function Sidebar({ className, button }: SidebarProps) {
+export default function Sidebar({
+  className,
+  button,
+  dividerTitles,
+  navItems,
+}: SidebarProps) {
   return (
     <div className={className}>
       {/* <!-- Component Start --> */}
@@ -209,13 +222,12 @@ export default function Sidebar({ className, button }: SidebarProps) {
           <p className="ml-2 text-sm font-bold font-mokoto">ARKHIVE</p>
         </Link>
         {button ? <RedarkButton title="CREATE NFT" /> : null}
-      
         <div className="w-full pt-12 mb-5 flex flex-col h-[-webkit-fill-available]">
           <div className="flex flex-col items-baseline w-full mt-3 gap-4 grow">
             <p className="text-white font-bold text-[14px] pl-10">
-              Marketplace
+              {dividerTitles[0] || ""}
             </p>
-            {MockData.marketplaceItems.map(({ title, icon, href }, index) => (
+            {navItems[0]?.map(({ title, icon, href }, index) => (
               <Link
                 key={index}
                 href={href}
@@ -233,8 +245,10 @@ export default function Sidebar({ className, button }: SidebarProps) {
                 <span className="text-sm font-medium">{title}</span>
               </Link>
             ))}
-            <p className="text-white font-bold text-[14px] pl-10">Account</p>
-            {MockData.accountItems.map(({ title, icon, href }, index) => (
+            <p className="text-white font-bold text-[14px] pl-10">
+              {dividerTitles[1] || ""}
+            </p>
+            {navItems[1]?.map(({ title, icon, href }, index) => (
               <Link
                 key={index}
                 href={href}

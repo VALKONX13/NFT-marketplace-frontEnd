@@ -7,7 +7,10 @@ type TableProps = {
   icon: ReactNode;
 };
 
+
 export default function Table({ columns, data, title, icon }: TableProps) {
+  console.log(data);
+
   return (
     <div className="w-full overflow-x-auto rounded-lg bg-[#474747]/13 p-4 text-white">
       <div className="flex items-center gap-4 px-4 pb-3 border-b border-gray-600">
@@ -31,7 +34,7 @@ export default function Table({ columns, data, title, icon }: TableProps) {
           {data.map((row, idx) => (
             <tr
               key={idx}
-              className="border-b border-gray-700 hover:bg-[#1a1040] text-gray-400 font-azeret"
+              className="border-b border-gray-700 hover:bg-[#1a1040] text-gray-500 font-azeret"
             >
               {columns.map((col) => (
                 <td key={col} className="px-4 py-2">
