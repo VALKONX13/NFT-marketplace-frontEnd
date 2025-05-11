@@ -1,17 +1,20 @@
 import Image from "next/image";
-import RedarkButton from '@/components/RedarkButton/index';
+import RedarkButton from "@/components/RedarkButton/index";
 
-export default function MintOptions() {
+interface MintOptionsProps {
+  onSelect: (option: string) => void;
+}
+
+export default function MintOptions({ onSelect }: MintOptionsProps) {
   return (
     <div className="items-center text-center text-white font-azeret px-4 py-6 md:flex-row md:justify-center gap-6">
       <div className="grid grid-cols-12 gap-8">
         {/* Mint Your Own NFT Section */}
         <div className="bg-redark-purple/13 rounded-2xl p-6 w-full col-span-6">
-          <h2 className="tracking-wider font-mokoto text-2xl my-8">
+          <h2 className="tracking-wider font-mokoto text-2xl py-8 text-start border-b border-b-white/25">
             MINT YOUR OWN NFT
           </h2>
-          <hr className="border-purple-600 mb-6" />
-          <div className="flex gap-4 justify-around mb-6">
+          <div className="flex gap-4 justify-around py-8">
             <Image
               src="/assets/img/NFT-art.png"
               alt="NFT 1"
@@ -85,18 +88,20 @@ export default function MintOptions() {
               <p>Set custom meta-data and properties</p>
             </li>
           </ul>
-          <RedarkButton title="START CREATING"/>
+          <RedarkButton
+            onClick={() => onSelect("Mint Your Own NFT")}
+            title="START CREATING"
+          />
           <p className="text-gray-500 text-xs text-start mt-16">
             Submitting: 100.00 ARKV, no additional costs
           </p>
         </div>
         {/* AI Generated Artwork Section */}
         <div className="bg-redark-purple/13 rounded-2xl p-6 w-full col-span-6">
-          <h2 className="tracking-wider font-mokoto text-2xl my-8">
+          <h2 className="tracking-wider font-mokoto text-2xl py-8 text-start border-b border-b-white/25">
             AI GENERATED ARTWORK MINTING
           </h2>
-          <hr className="border-purple-600 mb-6" />
-          <div className="flex gap-4 justify-around mb-6">
+          <div className="flex gap-4 justify-around py-8">
             <Image
               src="/assets/img/NFT-art.png"
               alt="NFT 1"
@@ -170,8 +175,11 @@ export default function MintOptions() {
               <p>Multiple variations to choose from</p>
             </li>
           </ul>
-          <button className="bg-gradient-to-r from-[#8C52FF] to-[#543199] border border-white font-mokoto
-            px-11 pb-2.5 pt-3 font-medium text-[16px] rounded-full hover:opacity-90 transition">
+          <button
+            onClick={() => onSelect("AI GENERATED ARTWORK MINTING")}
+            className="bg-gradient-to-r from-[#8C52FF] to-[#543199] border border-white font-mokoto
+            px-11 pb-2.5 pt-3 font-medium text-[16px] rounded-full hover:opacity-90 transition"
+          >
             GENERATE WITH AI
           </button>
           <p className="text-gray-500 text-xs mt-16 text-start">

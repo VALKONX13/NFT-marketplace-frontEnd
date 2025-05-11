@@ -1,31 +1,23 @@
-import React from "react";
-import { TabItem, Tabs } from "flowbite-react";
+import React, { useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import MockData from "@/utils/mockData";
-import { ThemeProvider, createTheme } from "flowbite-react";
 import MintOptions from "@/components/MintOptions";
 
-const customTheme = createTheme({
-  button: {
-    color: {
-      primary: "!bg-redark-purple hover:bg-red-600",
-      secondary: "!bg-redark-purple hover:bg-blue-600",
-    },
-    size: {
-      lg: "px-6 py-3 text-lg",
-    },
-  },
-  
-  pills: {
-    base: "",
-    active: {
-      on: "rounded-lg !bg-redark-purple text-white",
-      off: "rounded-lg hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white",
-    },
-  },
-});
+const tabTitles = [
+  "1. Step: Choose Minting",
+  "2. Step: Artwork Details",
+  "3. Step: Set Collections",
+];
 
 function CreateNft() {
+  const [activeTab, setActiveTab] = useState(0);
+  const [selectedMintOption, setSelectedMintOption] = useState("");
+
+  const handleOptionSelect = (option: string) => {
+    setSelectedMintOption(option);
+    setActiveTab(1); // move to next step
+  };
+
   return (
     <div className="bg-redark-navy grid grid-cols-12 gap-8 h-auto min-h-screen">
       <Sidebar
@@ -38,21 +30,50 @@ function CreateNft() {
         <h1 className="font-mokoto text-4xl font-medium mt-10 mb-8">
           Create Your Unique NFT
         </h1>
-        <ThemeProvider theme={customTheme}>
-          <Tabs aria-label="Pills" variant="pills">
-            <TabItem color="primary" className="!bg-redark-purple" active title="1. Step: Choose Minting">
-              <p className="text-sm text-white ">
-                <MintOptions />
+
+        {/* Custom Tabs Header */}
+        <div className="flex gap-4 mb-6">
+          {tabTitles.map((title, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                // Only allow going back to previous steps
+                if (index <= activeTab) setActiveTab(index);
+              }}
+              className={`text-white text-sm px-4 py-2 rounded-3xl border-2 transition-colors ${
+                activeTab === index
+                  ? "bg-redark-purple border-redark-purple"
+                  : "border-redark-purple bg-transparent"
+              }`}
+            >
+              {title}
+            </button>
+          ))}
+        </div>
+
+        {/* Tab Content */}
+        <div className="text-white">
+          {activeTab === 0 && (
+            <MintOptions onSelect={handleOptionSelect} />
+          )}
+          {activeTab === 1 && (
+            <div>
+              <p className="mb-4">
+                Selected option: <strong>{selectedMintOption}</strong>
               </p>
-            </TabItem>
-            <TabItem title="2. Step: Artwork Details">
-              <p className="text-sm text-white">Content 2</p>
-            </TabItem>
-            <TabItem title="3. Step: Set Collections">
-              <p className="text-sm text-white">Content 3</p>
-            </TabItem>
-          </Tabs>
-        </ThemeProvider>
+              {/* Next button to go to Step 3 */}
+              <button
+                onClick={() => setActiveTab(2)}
+                className="bg-purple-600 px-4 py-2 rounded-lg mt-4"
+              >
+                Continue to Step 3
+              </button>
+            </div>
+          )}
+          {activeTab === 2 && (
+            <p>Step 3 content goes here.</p>
+          )}
+        </div>
       </div>
     </div>
   );
