@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import MockData from "@/utils/mockData";
 import MintOptions from "@/components/MintOptions";
+import ArtworkDetailsForm from "@/components/ArtworkDetailsForm";
 
 const tabTitles = [
   "1. Step: Choose Minting",
@@ -16,6 +17,10 @@ function CreateNft() {
   const handleOptionSelect = (option: string) => {
     setSelectedMintOption(option);
     setActiveTab(1); // move to next step
+  };
+
+  const handleArtworkSubmitSuccess = () => {
+    setActiveTab(2); // Go to Step 3
   };
 
   return (
@@ -53,26 +58,16 @@ function CreateNft() {
 
         {/* Tab Content */}
         <div className="text-white">
-          {activeTab === 0 && (
-            <MintOptions onSelect={handleOptionSelect} />
-          )}
+          {activeTab === 0 && <MintOptions onSelect={handleOptionSelect} />}
           {activeTab === 1 && (
             <div>
               <p className="mb-4">
                 Selected option: <strong>{selectedMintOption}</strong>
               </p>
-              {/* Next button to go to Step 3 */}
-              <button
-                onClick={() => setActiveTab(2)}
-                className="bg-purple-600 px-4 py-2 rounded-lg mt-4"
-              >
-                Continue to Step 3
-              </button>
+              <ArtworkDetailsForm onSuccess={handleArtworkSubmitSuccess}/>
             </div>
           )}
-          {activeTab === 2 && (
-            <p>Step 3 content goes here.</p>
-          )}
+          {activeTab === 2 && <p>Step 3 content goes here.</p>}
         </div>
       </div>
     </div>
