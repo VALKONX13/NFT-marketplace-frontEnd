@@ -221,7 +221,7 @@ export default function Sidebar({
           </div>
           <p className="ml-2 text-sm font-bold font-mokoto">ARKHIVE</p>
         </Link>
-        {button ? <RedarkButton title="CREATE NFT" href="/create-nft" /> : null}
+        {button ? <RedarkButton title="CREATE NFT" href="/ark-tools/nft-mint-tool" /> : null}
         <div className="w-full pt-12 mb-5 flex flex-col h-[-webkit-fill-available]">
           <div className="flex flex-col items-baseline w-full mt-3 gap-4 grow">
             <p className="text-white font-bold text-[14px] pl-10">
