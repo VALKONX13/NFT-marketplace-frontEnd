@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import RedarkButton from "@/components/RedarkButton/index";
 import Sidebar from "@/components/Sidebar";
 import SortDropdown from "@/components/SortDropdown";
 import NFTCard from "@/components/NftCard";
@@ -8,6 +7,7 @@ import TopCreators from "@/components/TopCreatorsSideCard";
 import HistorySideCard from "@/components/HistorySideCard";
 import ArtistFilter from "@/components/ArtistsFilter";
 import MockData from "@/utils/mockData";
+import MainBanner from "@/components/MainBanner";
 
 const marketplace = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -24,15 +24,7 @@ const marketplace = () => {
         className="col-start-1 col-end-3"
       />
       <div className="col-start-3 col-end-11 py-4">
-        <div className="bg-[url('/assets/img/marketplace-header.jpg')] rounded-[40px] bg-cover px-[50px] py-[46px]">
-          <p className="font-bold text-5xl text-white max-w-[416px] leading-16">
-            Discover Rare & Unique Digital Art
-          </p>
-          <div className="pt-5 gap-10 flex">
-            <RedarkButton title="EXPLORE NFTS" />
-            <RedarkButton title="CREATE NFT" />
-          </div>
-        </div>
+        <MainBanner />
         <ArtistFilter state={open} />
         <p className="text-4xl text-white font-mokoto adjust-mokoto py-10">
           Trending NFTs

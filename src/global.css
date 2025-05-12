@@ -58,12 +58,14 @@ body {
 }
 
 [data-testid="flowbite-dropdown"] {
-  background-color: #110B34 !important; /* your redark-navy color */
+  background-color: #471e93 !important;
   color: white;
   border-radius: 20px;
-  margin-top: 1rem;
-  padding: .5rem 4rem;
+  margin-top: 0.5rem;
+  padding: .5rem 2rem;
   z-index: 50;
+  max-width: 100px !important;
+  height: fit-content !important;
 }
 
 [data-testid="flowbite-dropdown"] > ul > li > button:hover{
