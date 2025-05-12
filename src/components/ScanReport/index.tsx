@@ -40,9 +40,24 @@ const ScanReport = () => {
             key={index}
             className="bg-redark-purple/13 p-6 gap-4 rounded-[20px] flex flex-col text-white text-sm items-start max-w-2xs"
           >
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-6 h-6 bg-purple-700 text-white rounded-full flex items-center justify-center text-xs font-bold">
-                A
+            <div className="flex items-center gap-4 mb-2">
+              <div className="relative w-[42px] h-[42px] flex items-center justify-center">
+                <div className="absolute inset-0 bg-redark-purple rounded-full" />
+                <svg
+                  className="z-10"
+                  width="21"
+                  height="24"
+                  viewBox="0 0 21 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M4.13226 21.3933C2.69106 21.8111 1.30867 22.3684 0 23.0478L10.4895 0V0.246636L10.5 0L20.9878 23.0478C19.6791 22.3684 18.2967 21.8111 16.8555 21.3933L16.5317 21.0817L10.4992 7.93011L10.4886 7.77651V7.93011L4.45613 21.0817L4.13226 21.3933ZM15.4158 21.0264C13.8306 20.6771 12.184 20.4919 10.4936 20.4919C8.79871 20.4919 7.14862 20.678 5.55908 21.0291L7.48215 16.8362H13.4936L15.4158 21.0264Z"
+                    fill="white"
+                  />
+                </svg>
               </div>
               <p className="uppercase text-xs tracking-wide flex flex-col font-azeret text-gray-400">
                 Index {card.index}: <p className="text-white">{card.title}</p>
@@ -71,7 +86,6 @@ const ScanReport = () => {
         />
       </svg>
       <ScoreAnalysis />
-     
     </div>
   );
 };
