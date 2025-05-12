@@ -528,6 +528,41 @@ const MockData = {
       time: "08 May",
     },
   ],
+  scanCardData: [
+  {
+    index: "01",
+    title: "RARITY",
+    value: "91.07",
+    label: "Max: 100.00",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
+  },
+  {
+    index: "02",
+    title: "NFT ACTIVITY",
+    value: "3.27",
+    label: "Max: 5.00",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
+  },
+  {
+    index: "03",
+    title: "COLLECTION STRENGTH",
+    value: "QUANTUM",
+    label: "Active Tier",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
+  },
+  {
+    index: "04",
+    title: "MINTING FREQUENCY",
+    value: "17",
+    label: "Monthly",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
+  },
+],
+
 };
 
 export default MockData;
