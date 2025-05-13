@@ -598,6 +598,87 @@ const MockData = {
       desc: "Participate in future ARKHIVE ecosystem collaborations and funding initiatives with other Alliliated Artists",
     },
   ],
+  orbiters: [
+    { id: 1, name: "Orbiter_X742", points: "24,568", status: "ALPHA" },
+    { id: 2, name: "0x2222...5c1", points: "22,105", status: "GENESIS" },
+    { id: 3, name: "0x2222...5c1", points: "15,872", status: "OMEGA" },
+    { id: 4, name: "0x2222...5c1", points: "16,435", status: "BETA" },
+    { id: 5, name: "0x2222...5c1", points: "14,789", status: "ALPHA" },
+  ],
+  rewards: [
+    {
+      icon: "/assets/icons/orb.svg",
+      title: "ORB INTEGRATION",
+      subtitle: "Earn ARKV + Bonus Orb Rewards",
+      description:
+        "The more you engage with Orbs, the more you unlock exclusive ecosystem rewards. Orbs are embedded with NFT fragments, ARK bonuses, and future upgrade utilities.",
+      stats: [
+        { label: "Committed Orbs:", value: "∞" },
+        { label: "Orb Reward Rate:", value: "0.00 / HR" },
+        { label: "Bonus ARKV APY:", value: "0%" },
+      ],
+      link: "Learn More",
+    },
+    {
+      icon: "/assets/icons/airdrop.svg",
+      title: "WEEKLY AIRDROPS",
+      subtitle: "Earn ARKV + Weekly Ecosystem Payouts",
+      description:
+        "Claim your share of the growing reward pool, distributed automatically each week. Track the live pool increase and boost your earning potential by staying active.",
+      stats: [
+        { label: "Participation:", value: "∞" },
+        { label: "Airdrop Pool:", value: "$0.00" },
+        { label: "Airdrop Share:", value: "0%" },
+      ],
+      link: "Learn More",
+    },
+    {
+      icon: "/assets/icons/gamepad.svg",
+      title: "ARK GAME REWARDS",
+      subtitle: "Compete in the ARK Games and win ARKV",
+      description:
+        "Participate in high-stakes ARK Games for your chance to win major prize pools and exclusive rewards.",
+      stats: [
+        { label: "Pool Growth:", value: "LIVE COUNTER" },
+        { label: "Next Game:", value: "COMING SOON" },
+        { label: "Total Rewards:", value: "$0.00" },
+      ],
+      link: "Learn More",
+    },
+    {
+      icon: "/assets/icons/echo.svg",
+      title: "ECHO CHAIN REWARDS",
+      subtitle: "Earn ARKV + Echo Chain Bonuses",
+      description:
+        "Dive into our most advanced reward system, linked to ecosystem milestones and future token unlocks.",
+      stats: [
+        { label: "Participation:", value: "∞" },
+        { label: "Airdrop Pool:", value: "$0.00" },
+        { label: "Airdrop Share:", value: "0%" },
+      ],
+      link: "Learn More",
+    },
+  ],
+  updates: [
+    {
+      title: 'QUANTUM PROTOCOL ACTIVATED',
+      date: '04.14.2025',
+      description:
+        'The revolutionary quantum infrastructure has been integrated with the ARK protocol, enabling unprecedented processing capabilities and security measures.',
+    },
+    {
+      title: 'ARK & PULSECHAIN COLLABORATION',
+      date: '04.07.2025',
+      description:
+        'A groundbreaking partnership has been established between ARK and PulseChain, creating new opportunities for cross-chain functionality and expanded ecosystem benefits.',
+    },
+    {
+      title: 'EVENT: ARKHIVE LIVE SUMMIT',
+      date: '03.31.2025',
+      description:
+        'Join us for the first-ever global ARKHIVE summit, featuring keynote speakers, exclusive announcements, and networking opportunities with the community.',
+    },
+  ],
 };
 
 export default MockData;
