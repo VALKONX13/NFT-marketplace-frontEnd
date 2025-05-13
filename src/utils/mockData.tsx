@@ -529,40 +529,75 @@ const MockData = {
     },
   ],
   scanCardData: [
-  {
-    index: "01",
-    title: "RARITY",
-    value: "91.07",
-    label: "Max: 100.00",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
-  },
-  {
-    index: "02",
-    title: "NFT ACTIVITY",
-    value: "3.27",
-    label: "Max: 5.00",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
-  },
-  {
-    index: "03",
-    title: "COLLECTION STRENGTH",
-    value: "QUANTUM",
-    label: "Active Tier",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
-  },
-  {
-    index: "04",
-    title: "MINTING FREQUENCY",
-    value: "17",
-    label: "Monthly",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
-  },
-],
-
+    {
+      index: "01",
+      title: "RARITY",
+      value: "91.07",
+      label: "Max: 100.00",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
+    },
+    {
+      index: "02",
+      title: "NFT ACTIVITY",
+      value: "3.27",
+      label: "Max: 5.00",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
+    },
+    {
+      index: "03",
+      title: "COLLECTION STRENGTH",
+      value: "QUANTUM",
+      label: "Active Tier",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
+    },
+    {
+      index: "04",
+      title: "MINTING FREQUENCY",
+      value: "17",
+      label: "Monthly",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin enim quam, sodales ut eleifend ut, auctor eu augue. Sed id justo lectus. Praesent at arcu tellus. Cras quis urna at metus eleifend dictum sed at lorem.",
+    },
+  ],
+  ownerPerks: [
+    {
+      title: "Access to Exclusive Global Events",
+      desc: "Private Invitations to ARKHIVE hosted Events and ecperences Worldwide",
+    },
+    {
+      title: "Booster PLatform Vsibility",
+      desc: "Automatic Whitelist to Genesis level, positioning your creations at the top of the ecosystem",
+    },
+    {
+      title: "Higher on-chain ecosystem Ranking",
+      desc: "Stand out within the ARK with elevated status and ecosystem recognition",
+    },
+    {
+      title: "Physical NFT Delivery",
+      desc: "Receive premium physical version of your NFT, featuring an embedded QR code that connects directly to your piece in the ARKHIVE Marketplace",
+    },
+  ],
+  affiliatedArtistBenefits: [
+    {
+      title: "Extended Marketplace Visibility",
+      desc: "Premium Exposure for all your creations, within the ARKHIVE Marketplace",
+    },
+    {
+      title: "Bespoke Selling & Networking Opportunities",
+      desc: "Unlock tailored sales strategies, and invitations to ARKHUIVE ecosystem events worldwide",
+    },
+    {
+      title: "Physical NFT Implementation",
+      desc: "Your NFT can be physically produced with embeedded QR codes, linking directly to your marketplace listings",
+    },
+    {
+      title: "Enhanced Funding Opportunities",
+      desc: "Participate in future ARKHIVE ecosystem collaborations and funding initiatives with other Alliliated Artists",
+    },
+  ],
 };
 
 export default MockData;

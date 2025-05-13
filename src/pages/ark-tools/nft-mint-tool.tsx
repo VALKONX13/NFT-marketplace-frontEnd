@@ -149,8 +149,7 @@ function CreateNft() {
                   </p>
                 </label>
               </div>
-
-              <RedarkButton title="SUBMIT FINAL" disabled={!agreed} />
+              <RedarkButton title="SUBMIT FINAL" disabled={!agreed}/>
             </div>
           )}
         </div>
