@@ -42,7 +42,7 @@ const AccessLevels = () => {
                             alt="Spaceship"
                             width={24}
                             height={24}
-                            className="absolute w-[68px] top-[-8px] h-[45px] left-[calc(54%-12px)] transition-transform"
+                            className="absolute w-[68px] top-[-11px] h-[45px] left-[calc(54%-12px)] transition-transform"
                         />
                     </div>
                     <div className="flex justify-between text-xs font-mokoto mt-3">

@@ -6,6 +6,7 @@ import MockData from '@/utils/mockData';
 import Image from 'next/image';
 import React from 'react'
 import { motion } from 'framer-motion';
+import CountdownTimer from '@/components/CountdownTimer';
 
 function ArkStatusReport() {
     return (
@@ -52,56 +53,86 @@ function ArkStatusReport() {
                     {/* Vested Tokens + Leaderboard Grid */}
                     <div className="grid md:grid-cols-2 gap-8">
                         {/* Vested Tokens Box */}
-                        <div className="bg-[#1b153a] rounded-lg p-6">
-                            <h2 className="text-xl font-bold tracking-wider mb-6">VESTED TOKENS</h2>
-
-                            <div className="flex items-center gap-4 mb-4">
-                                <Image src="/assets/img/orbiter-character.png" alt="User Character" width={48} height={48} />
-                                <div>
-                                    <p className="text-sm">User Level: <span className="font-semibold">ORBITER</span></p>
-                                    <p className="text-xs text-gray-400">Batch 28 – Phase 130</p>
+                        <div className="">
+                            <h2 className="text-xl font-mokoto tracking-wider mb-6">VESTED TOKENS</h2>
+                            <div className='bg-white/13 rounded-[16px] py-8'>
+                                <div className='flex justify-between'>
+                                    <div className="flex items-center gap-4 mb-4 bg-redark-purple/25 w-fit py-3 pl-12 pr-9 rounded-tr-full rounded-br-full">
+                                        <Image src="/assets/img/astronaut.png" alt="User Character" width={48} height={48} />
+                                        <div className='flex flex-col gap-2'>
+                                            <p className="text-sm">User Level: <span className="font-semibold">ORBITER</span></p>
+                                            <p className="text-xs">Batch 28 – Phase 130</p>
+                                        </div>
+                                    </div>
+                                    {/* Countdown */}
+                                    <div className='flex flex-col w-fit pr-5'>
+                                        <p>Countdown to  Unlock 100%</p>
+                                        <CountdownTimer
+                                            startTime={Date.now()}
+                                            duration={30} // Converting months to days
+                                            static={false}
+                                            loop={true}
+                                        />
+                                    </div>
                                 </div>
-                            </div>
+                                <div className='p-6 pb-0'>
+                                    {/* Progress Bar */}
+                                    <div className="relative w-full h-[42px] bg-white/25 rounded-full mt-6 scale-x-[-1]">
+                                        <div className="absolute left-0 top-0 h-full w-[50%] bg-gradient-to-r from-purple-500 to-purple-700 rounded-full" />
+                                        <div className='absolute scale-x-[-1] bottom-[40%] right-[30%]'>
+                                            <svg width="183" height="63" viewBox="0 0 183 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 62L61.3721 1L182.5 1" stroke="white" />
+                                            </svg>
+                                            <div className="absolute left-[50%] top-[-25%] text-xs text-end">
+                                                <p>Locked Tokens:</p>
+                                                <p className="text-white">$127,557.67</p>
+                                            </div>
+                                        </div>
+                                        <div className='absolute top-[50%] right-[50%]'>
+                                            <svg className='scale-y-[-1]' width="183" height="63" viewBox="0 0 183 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 62L61.3721 1L182.5 1" stroke="white" />
+                                            </svg>
+                                            <div className="absolute right-2 top-[70%] text-xs text-start scale-x-[-1]">
+                                                <p>Unlocked Tokens:</p>
+                                                <p className="text-white">$127,557.67</p>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            {/* Countdown */}
-                            <div className="mb-4">
-                                <p className="text-sm text-gray-300 mb-1">Countdown to Unlock 100%</p>
-                                <div className="font-mono text-xl text-purple-400 tracking-widest">16:22:13:34</div>
-                                <div className="text-xs text-gray-400">Days &nbsp; Hours &nbsp; Mins &nbsp; Seconds</div>
-                            </div>
-
-                            {/* Progress Bar */}
-                            <div className="relative w-full h-6 bg-gray-700 rounded-full overflow-hidden mt-6">
-                                <div className="absolute left-0 top-0 h-full w-[50%] bg-gradient-to-r from-purple-500 to-purple-700 rounded-full" />
-                                <div className="absolute left-2 top-[-1.5rem] text-xs text-gray-300">Locked Tokens:<br /><span className="text-white">$127,557.67</span></div>
-                                <div className="absolute right-2 top-[-1.5rem] text-xs text-gray-300 text-right">Unlocked Tokens:<br /><span className="text-white">$127,557.67</span></div>
-                            </div>
-
-                            {/* Claim Button */}
-                            <div className="mt-6">
-                                <button className="bg-purple-700 hover:bg-purple-800 text-white font-semibold text-sm px-5 py-2 rounded-full">
-                                    CLAIM UNLOCKED
-                                </button>
-                                <p className="text-xs text-gray-400 mt-1">Unclaimed: <span className="text-white">1,678.879 ARKV</span></p>
+                                    {/* Claim Button */}
+                                    <div className="mt-22 flex flex-col justify-center items-center">
+                                        <button className="bg-gradient-to-r from-redark-purple to-[#543199] border-2 border-white font-mokoto hover:bg-purple-900 text-white text-sm px-7 pt-3 pb-2 rounded-full">
+                                            CLAIM UNLOCKED
+                                        </button>
+                                        <p className="text-xs mt-3">Unclaimed: 1,678.879 ARKV</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         {/* Leaderboard Box */}
-                        <div className="bg-[#1b153a] rounded-lg p-6">
-                            <h2 className="text-xl font-bold tracking-wider mb-6">LEADERBOARD</h2>
-                            <p className="text-sm mb-2">Top ARKV Spenders</p>
+                        <div className="">
+                            <h2 className="text-xl font-mokoto tracking-wider mb-6">LEADERBOARD</h2>
+                            <div className='bg-white/13 rounded-[16px]'>
+                                <p className="text-sm mb-2 py-6 px-8 text-gray-400 border-b border-white/10 pb-4">Top ARKV Spenders</p>
 
-                            <div className="space-y-3 text-sm">
-                                {[1, 2, 3, 4, 5].map((rank) => (
-                                    <div
-                                        key={rank}
-                                        className="flex justify-between items-center py-2 border-b border-white/10"
-                                    >
-                                        <span className="text-purple-400">#{`0${rank}`}</span>
-                                        <span className="text-gray-300">0x2222...5c1</span>
-                                        <span className="text-white font-medium text-right">$3,601,224.67</span>
-                                    </div>
-                                ))}
+                                <div className="space-y-3 text-sm">
+                                    {[1, 2, 3, 4, 5].map((rank) => (
+                                        <div
+                                            key={rank}
+                                            className="flex justify-between items-center py-2 px-8 mb-0 border-b border-white/10"
+                                        >
+                                            <div className='flex flex-col gap-2'>
+                                                <p className="text-redark-purple">#{`0${rank}`}</p>
+                                                <p className="text-gray-300">0x2222...5c1</p>
+                                            </div>
+                                            <div className='flex flex-col gap-2'>
+                                                <p>Total Transactions</p>
+                                                <p className="text-white font-extralight text-right">$3,601,224.67</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
