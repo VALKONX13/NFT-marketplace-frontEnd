@@ -11,9 +11,6 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { FaHeart } from "react-icons/fa";
-import { AiFillEye } from "react-icons/ai";
-import { BsGraphUp } from "react-icons/bs";
 import RedarkButton from "@/components/RedarkButton";
 import PaginatedNFTGallery from "@/components/PaginatedNFTGallery";
 import Table from "@/components/Table";
@@ -38,137 +35,193 @@ export default function NFTDetailPage() {
         button={true}
         className="col-start-1 col-end-3"
       />
-      <div className="col-span-10 grid grid-cols-8 gap-5 gap-y-72 px-8">
-        <Header />
-        <div>
-          <div className="col-span-4 relative aspect-[4/5]">
-            <div className="z-10 absolute top-[5%] left-[6%] bg-redark-purple p-6 rounded-full border-2 border-white w-[80px] h-[80px] flex items-center">
-              <svg
-                width="31"
-                height="36"
-                viewBox="0 0 31 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M18.9802 29.3344C17.8524 29.0039 16.6901 28.568 15.5 28.0406C14.3169 28.568 13.1475 28.9969 12.0198 29.3344C13.2928 32.0273 14.6075 32.625 15.5 32.625C16.3925 32.625 17.7072 32.0273 18.9802 29.3344ZM18.06 22.9008C19.084 22.275 20.0458 21.6281 20.9245 20.9602C20.9937 20.0109 21.0352 19.0195 21.0352 18C21.0352 16.9805 21.0006 15.9891 20.9245 15.0398C20.0388 14.3789 19.084 13.725 18.06 13.0992C17.1951 12.5719 16.3372 12.1008 15.5 11.6789C14.6628 12.1008 13.8049 12.5719 12.94 13.0992C11.916 13.725 10.9542 14.3719 10.0755 15.0398C10.0063 15.9891 9.96482 16.9805 9.96482 18C9.96482 19.0195 9.99942 20.0109 10.0755 20.9602C10.9612 21.6211 11.916 22.275 12.94 22.9008C13.8049 23.4281 14.6628 23.8992 15.5 24.3211C16.3372 23.8992 17.1951 23.4281 18.06 22.9008ZM26.3974 20.6367C25.6916 21.3539 24.9236 22.057 24.0864 22.7391C23.9204 24.1523 23.6851 25.4953 23.3738 26.7469C25.9476 26.9016 26.9647 26.107 27.373 25.3617C27.8227 24.5391 27.9403 23.0555 26.3974 20.6367ZM30.2789 9C31.7112 11.6086 30.9293 14.8219 28.646 18C30.9293 21.1781 31.7112 24.3914 30.2789 27C28.8813 29.5523 25.9546 30.4664 22.3083 30.0375C20.7861 33.7008 18.4613 36 15.5 36C12.5387 36 10.2139 33.7008 8.69173 30.0375C5.04543 30.4664 2.11871 29.5594 0.721073 27C-0.711154 24.3914 0.0706897 21.1781 2.35395 18C0.0706897 14.8219 -0.711154 11.6086 0.721073 9C2.11871 6.44766 5.04543 5.53359 8.69173 5.9625C10.2139 2.29922 12.5387 0 15.5 0C18.4613 0 20.7861 2.29922 22.3083 5.9625C25.9546 5.53359 28.8813 6.44062 30.2789 9ZM3.62704 25.3617C4.03526 26.107 5.05235 26.9086 7.62621 26.7469C7.31486 25.4953 7.07961 24.1523 6.91355 22.7391C6.08328 22.057 5.30835 21.3469 4.60262 20.6367C3.05969 23.0484 3.17039 24.5391 3.62704 25.3617ZM4.60262 15.3633C5.30835 14.6461 6.07636 13.943 6.91355 13.2609C7.07961 11.8477 7.31486 10.5047 7.62621 9.25313C5.05235 9.09141 4.03526 9.89297 3.62704 10.6383C3.17731 11.4609 3.05969 12.9445 4.60262 15.3633ZM15.5 7.95937C16.6831 7.43203 17.8524 7.00313 18.9802 6.66563C17.7072 3.97266 16.3925 3.375 15.5 3.375C14.6075 3.375 13.2928 3.97266 12.0198 6.66563C13.1475 6.99609 14.3099 7.43203 15.5 7.95937ZM24.0934 13.2609C24.9236 13.943 25.6986 14.6531 26.4043 15.3633C27.9472 12.9516 27.8296 11.4609 27.3799 10.6383C26.9717 9.89297 25.9546 9.09141 23.3807 9.25313C23.6921 10.5047 23.9273 11.8477 24.0934 13.2609ZM15.5 15.75C16.0872 15.75 16.6504 15.9871 17.0656 16.409C17.4808 16.831 17.7141 17.4033 17.7141 18C17.7141 18.5967 17.4808 19.169 17.0656 19.591C16.6504 20.0129 16.0872 20.25 15.5 20.25C14.9128 20.25 14.3496 20.0129 13.9344 19.591C13.5192 19.169 13.2859 18.5967 13.2859 18C13.2859 17.4033 13.5192 16.831 13.9344 16.409C14.3496 15.9871 14.9128 15.75 15.5 15.75Z"
-                  fill="white"
+      <div className="col-span-10 grid grid-cols-8 gap-5 px-8">
+        <div className="col-span-8">
+          <Header />
+        </div>
+        <div className="col-span-8 gap-6">
+          <div className="col-span-8 grid grid-cols-8 gap-4">
+            <div className="col-span-4">
+              <div className="col-span-4 relative aspect-square">
+                <div className="z-10 absolute top-[5%] left-[6%] bg-redark-purple p-6 rounded-full border-2 border-white w-[80px] h-[80px] flex items-center">
+                  <svg
+                    width="31"
+                    height="36"
+                    viewBox="0 0 31 36"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.9802 29.3344C17.8524 29.0039 16.6901 28.568 15.5 28.0406C14.3169 28.568 13.1475 28.9969 12.0198 29.3344C13.2928 32.0273 14.6075 32.625 15.5 32.625C16.3925 32.625 17.7072 32.0273 18.9802 29.3344ZM18.06 22.9008C19.084 22.275 20.0458 21.6281 20.9245 20.9602C20.9937 20.0109 21.0352 19.0195 21.0352 18C21.0352 16.9805 21.0006 15.9891 20.9245 15.0398C20.0388 14.3789 19.084 13.725 18.06 13.0992C17.1951 12.5719 16.3372 12.1008 15.5 11.6789C14.6628 12.1008 13.8049 12.5719 12.94 13.0992C11.916 13.725 10.9542 14.3719 10.0755 15.0398C10.0063 15.9891 9.96482 16.9805 9.96482 18C9.96482 19.0195 9.99942 20.0109 10.0755 20.9602C10.9612 21.6211 11.916 22.275 12.94 22.9008C13.8049 23.4281 14.6628 23.8992 15.5 24.3211C16.3372 23.8992 17.1951 23.4281 18.06 22.9008ZM26.3974 20.6367C25.6916 21.3539 24.9236 22.057 24.0864 22.7391C23.9204 24.1523 23.6851 25.4953 23.3738 26.7469C25.9476 26.9016 26.9647 26.107 27.373 25.3617C27.8227 24.5391 27.9403 23.0555 26.3974 20.6367ZM30.2789 9C31.7112 11.6086 30.9293 14.8219 28.646 18C30.9293 21.1781 31.7112 24.3914 30.2789 27C28.8813 29.5523 25.9546 30.4664 22.3083 30.0375C20.7861 33.7008 18.4613 36 15.5 36C12.5387 36 10.2139 33.7008 8.69173 30.0375C5.04543 30.4664 2.11871 29.5594 0.721073 27C-0.711154 24.3914 0.0706897 21.1781 2.35395 18C0.0706897 14.8219 -0.711154 11.6086 0.721073 9C2.11871 6.44766 5.04543 5.53359 8.69173 5.9625C10.2139 2.29922 12.5387 0 15.5 0C18.4613 0 20.7861 2.29922 22.3083 5.9625C25.9546 5.53359 28.8813 6.44062 30.2789 9ZM3.62704 25.3617C4.03526 26.107 5.05235 26.9086 7.62621 26.7469C7.31486 25.4953 7.07961 24.1523 6.91355 22.7391C6.08328 22.057 5.30835 21.3469 4.60262 20.6367C3.05969 23.0484 3.17039 24.5391 3.62704 25.3617ZM4.60262 15.3633C5.30835 14.6461 6.07636 13.943 6.91355 13.2609C7.07961 11.8477 7.31486 10.5047 7.62621 9.25313C5.05235 9.09141 4.03526 9.89297 3.62704 10.6383C3.17731 11.4609 3.05969 12.9445 4.60262 15.3633ZM15.5 7.95937C16.6831 7.43203 17.8524 7.00313 18.9802 6.66563C17.7072 3.97266 16.3925 3.375 15.5 3.375C14.6075 3.375 13.2928 3.97266 12.0198 6.66563C13.1475 6.99609 14.3099 7.43203 15.5 7.95937ZM24.0934 13.2609C24.9236 13.943 25.6986 14.6531 26.4043 15.3633C27.9472 12.9516 27.8296 11.4609 27.3799 10.6383C26.9717 9.89297 25.9546 9.09141 23.3807 9.25313C23.6921 10.5047 23.9273 11.8477 24.0934 13.2609ZM15.5 15.75C16.0872 15.75 16.6504 15.9871 17.0656 16.409C17.4808 16.831 17.7141 17.4033 17.7141 18C17.7141 18.5967 17.4808 19.169 17.0656 19.591C16.6504 20.0129 16.0872 20.25 15.5 20.25C14.9128 20.25 14.3496 20.0129 13.9344 19.591C13.5192 19.169 13.2859 18.5967 13.2859 18C13.2859 17.4033 13.5192 16.831 13.9344 16.409C14.3496 15.9871 14.9128 15.75 15.5 15.75Z"
+                      fill="white"
+                    />
+                  </svg>
+                </div>
+                <Image
+                  src="/assets/img/NFT-art.png"
+                  alt="NFT ARTWORK"
+                  fill
+                  className="object-cover rounded-xl !h-auto"
                 />
-              </svg>
+              </div>
+              <div className="col-span-4 relative aspect-square">
+                <Image
+                  src="/assets/img/NFT-art.png"
+                  alt="NFT ARTWORK"
+                  fill
+                  className="object-cover rounded-xl !h-auto"
+                />
+              </div>
+              <div className="col-span-4 relative aspect-square">
+                <Image
+                  src="/assets/img/NFT-art.png"
+                  alt="NFT ARTWORK"
+                  fill
+                  className="object-cover rounded-xl !h-auto"
+                />
+              </div>
             </div>
-            <Image
-              src="/assets/img/NFT-art.png"
-              alt="NFT ARTWORK"
-              fill
-              className="object-cover rounded-xl !h-auto"
-            />
-          </div>
-          <div className="text-white col-span-4 font-azeret pb-8 pr-8 space-y-6">
-            {/* Header */}
-            <div className="text-center space-y-1">
-              <Link href="#" className="text-sm text-[#84A1FF]">
-                @JACKODREEYCollection05
-              </Link>
-              <h1 className="text-2xl font-bold">{title}</h1>
-              <Link
-                href={`/marketplace/collection/category/artist/${slugify(
+
+
+            <div className="text-white col-span-4 pb-8 space-y-6">
+              <div className="text-center space-y-1">
+                <div className="flex justify-between">
+                  <Link href="#" className="text-sm text-redark-purple">
+                    @JACKODREEYCollection05
+                  </Link>
+                  <div className="flex gap-8">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18.8571 10.2857C21.6964 10.2857 24 7.98214 24 5.14286C24 2.30357 21.6964 0 18.8571 0C16.0179 0 13.7143 2.30357 13.7143 5.14286C13.7143 5.35714 13.725 5.57143 13.7518 5.78036L8.71071 8.29821C7.78929 7.40357 6.53036 6.85714 5.14286 6.85714C2.30357 6.85714 0 9.16071 0 12C0 14.8393 2.30357 17.1429 5.14286 17.1429C6.53036 17.1429 7.78929 16.5964 8.71071 15.7018L13.7518 18.2196C13.725 18.4286 13.7143 18.6375 13.7143 18.8571C13.7143 21.6964 16.0179 24 18.8571 24C21.6964 24 24 21.6964 24 18.8571C24 16.0179 21.6964 13.7143 18.8571 13.7143C17.4696 13.7143 16.2107 14.2607 15.2893 15.1554L10.2482 12.6375C10.275 12.4286 10.2857 12.2196 10.2857 12C10.2857 11.7804 10.275 11.5714 10.2482 11.3625L15.2893 8.84464C16.2107 9.73929 17.4696 10.2857 18.8571 10.2857Z" fill="#8C52FF" />
+                    </svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.45954 7.29268C3.23453 7.87385 2.68607 8.23473 2.09541 8.24879H2.0251C1.85634 8.2441 1.68289 8.2113 1.51414 8.14568C0.740661 7.84573 0.360955 6.97398 0.66097 6.20534C2.08135 2.57306 5.6159 0 9.75048 0C12.2303 0 14.4898 0.923302 16.2102 2.44652L17.579 1.07797C17.9024 0.754577 18.3853 0.660841 18.8072 0.834253C19.2291 1.00766 19.501 1.4201 19.501 1.87473V7.12396C19.501 7.7473 18.9994 8.24879 18.3759 8.24879H13.1256C12.6709 8.24879 12.2584 7.97696 12.085 7.55514C11.9115 7.13333 12.0053 6.65059 12.3287 6.3272L14.0819 4.57433C12.91 3.5901 11.4006 2.99956 9.75048 2.99956C6.89096 2.99956 4.44397 4.77586 3.45954 7.29268ZM16.0414 12.2045C16.2664 11.6233 16.8196 11.2624 17.4055 11.2484H17.4759C17.6446 11.253 17.8181 11.2858 17.9868 11.3515C18.7603 11.6514 19.14 12.5232 18.84 13.2918C18.5306 14.0839 18.1228 14.8244 17.6305 15.4993L23.5605 21.4375C24.1465 22.0233 24.1465 22.9748 23.5605 23.5606C22.9746 24.1465 22.0229 24.1465 21.437 23.5606L15.5023 17.6224C13.8897 18.8035 11.9021 19.4971 9.75048 19.4971C7.27067 19.4971 5.01118 18.5738 3.29079 17.0506L1.92197 18.4192C1.59852 18.7426 1.11568 18.8363 0.693784 18.6629C0.271888 18.4895 0 18.077 0 17.6224V12.3732C0 11.7498 0.501587 11.2484 1.12505 11.2484H6.37531C6.83002 11.2484 7.24254 11.5202 7.41599 11.942C7.58943 12.3638 7.49568 12.8466 7.17222 13.1699L5.41901 14.9228C6.59095 15.907 8.10508 16.4976 9.75516 16.4976C12.6147 16.4976 15.0617 14.7213 16.0461 12.2045H16.0414Z" fill="#8C52FF" />
+                    </svg>
+                    <svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.375 1.6875C3.375 0.754102 2.6209 0 1.6875 0C0.754102 0 0 0.754102 0 1.6875V3.375V19.4062V25.3125C0 26.2459 0.754102 27 1.6875 27C2.6209 27 3.375 26.2459 3.375 25.3125V18.5625L6.76582 17.7135C8.9332 17.1703 11.2271 17.4234 13.2258 18.4201C15.5566 19.5855 18.2619 19.7279 20.6982 18.8104L22.5281 18.1248C23.1873 17.877 23.625 17.2494 23.625 16.5428V3.48047C23.625 2.26758 22.3488 1.47656 21.2625 2.01973L20.7563 2.27285C18.3146 3.49629 15.4406 3.49629 12.999 2.27285C11.148 1.34473 9.02285 1.1127 7.01367 1.61367L3.375 2.53125V1.6875Z" fill="#8C52FF" />
+                    </svg>
+                  </div>
+                </div>
+                <h1 className="text-3xl font-mokoto text-start py-4">{title}</h1>
+                <Link href={`/marketplace/collection/category/artist/${slugify(
                   artist
-                )}`}
-                className="text-sm text-gray-400"
-              >
-                Owned by <span className="text-white">{artist}</span>
-              </Link>
-              <div className="flex justify-center gap-3 text-xs mt-2">
-                <div className="flex items-center gap-1 bg-redark-purple/13 px-3 py-1 rounded-full">
-                  <AiFillEye /> <span>200 Views</span>
-                </div>
-                <div className="flex items-center gap-1 bg-redark-purple/13 px-3 py-1 rounded-full">
-                  <BsGraphUp /> <span>Trending #3</span>
-                </div>
-                <div className="flex items-center gap-1 bg-redark-purple/13 px-3 py-1 rounded-full">
-                  <FaHeart /> <span>{"10"} Favorites</span>
+                )}`} className='flex gap-4 grow'>
+                  <Image
+                    src='/assets/img/thumb1.jpg'
+                    alt="avatar"
+                    width={50}
+                    height={50}
+                    className="rounded-full m-0 w-[40px] h-[40px]"
+                  />
+                  <div className='font-azeret text-sm'>
+                    <p className='text-gray-400'>Owned By</p>
+                    <p>{artist}</p>
+                  </div>
+                </Link>
+                <div className="flex justify-start pt-4 gap-3 text-xs mt-2">
+                  <div className="flex items-center gap-1 border border-redark-purple/50 px-4 pt-1.5 pb-1 rounded-full">
+                    <p>200 Views</p>
+                  </div>
+                  <div className="flex items-center gap-1 border border-redark-purple/50 px-4 pt-1.5 pb-1 rounded-full">
+                    <p>Trending #3</p>
+                  </div>
+                  <div className="flex items-center gap-1 border border-redark-purple/50 px-4 pt-1.5 pb-1 rounded-full">
+                    <p>{"10"} Favorites</p>
+                  </div>
+                  <div className="bg-redark-purple/25 border border-redark-purple/50 rounded-full w-[40px] h-[40px] flex justify-center items-center">
+                    <svg width="23" height="19" viewBox="0 0 23 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.076 12.4V10.324H8V9.064H10.076V7H11.336V9.064H13.4V10.324H11.336V12.4H10.076Z" fill="white" />
+                      <path d="M10.606 3.81694L10.0844 3.23013L9.90181 3.02584C8.77166 1.7566 7.06341 1.16544 5.38992 1.46971C3.07312 1.89134 1.39095 3.90822 1.39095 6.26414V6.41627C1.39095 7.82026 1.97341 9.15905 3.00358 10.1153L10.9972 17.5612C11.032 17.5917 11.0798 17.6134 11.1276 17.6134C11.1754 17.6134 11.2232 17.596 11.258 17.5612L19.2559 10.1153C20.2818 9.15905 20.8642 7.82026 20.8642 6.41627V6.26414C20.8642 3.90822 19.182 1.89134 16.8652 1.46971C15.1918 1.16544 13.4835 1.7566 12.3534 3.02584L12.1708 3.23013L11.6492 3.81694C11.5188 3.96473 11.3275 4.05166 11.1276 4.05166C10.9276 4.05166 10.7407 3.96473 10.606 3.81694ZM12.123 1.33497C13.5183 0.243941 15.3309 -0.221157 17.113 0.1005C20.0905 0.643839 22.2552 3.23883 22.2552 6.26414V6.41627C22.2552 7.98109 21.6857 9.48505 20.6643 10.6543C20.5165 10.8195 20.3643 10.9803 20.1992 11.1325L12.2012 18.5784C12.1664 18.6131 12.1273 18.6436 12.0882 18.674C11.8144 18.887 11.4753 19 11.1276 19C10.7277 19 10.3452 18.8479 10.0496 18.5784L2.05165 11.1368C1.88647 10.9847 1.73434 10.8238 1.58655 10.6587C0.569419 9.48505 0 7.98109 0 6.41627V6.26414C0 3.23883 2.16466 0.643839 5.14216 0.1005C6.91996 -0.221157 8.73254 0.239595 10.1278 1.33497C10.4191 1.56534 10.6929 1.81745 10.9407 2.09999L11.1232 2.30428L11.3058 2.09999C11.4884 1.89569 11.6796 1.70444 11.8839 1.53057C11.9621 1.46537 12.0404 1.40017 12.1186 1.33497H12.123Z" fill="white" />
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Price Card */}
-            <div className="bg-redark-purple/13 p-4 rounded-xl space-y-2">
-              <p className="text-xs text-gray-400">
-                Sale Ends 2025 May 22 07:30 AM EST
-              </p>
-              <div className="flex justify-between items-center">
-                <div>
-                  <p className="text-xs text-gray-400">Current Price</p>
-                  <p className="text-xl font-bold">32.027 SOL</p>
-                  <p className="text-xs text-gray-500">$841.07</p>
+              {/* Price Card */}
+              <div className="bg-redark-purple/13 p-4 rounded-xl space-y-2">
+                <div className="flex gap-4 items-center border-b border-b-white/25 pb-4">
+                  <svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.00098 0.937683C5.00098 0.41805 5.41903 0 5.93866 0H10.3145C10.8341 0 11.2522 0.41805 11.2522 0.937683C11.2522 1.45732 10.8341 1.87537 10.3145 1.87537H9.06427V3.80543C10.7599 4.00078 12.2993 4.71576 13.5105 5.7941L14.6513 4.64935C15.0186 4.28209 15.6124 4.28209 15.9758 4.64935C16.3391 5.0166 16.343 5.61047 15.9758 5.97382L14.7646 7.185C15.7023 8.50947 16.2532 10.127 16.2532 11.8734C16.2532 16.3626 12.6157 20 8.12659 20C3.63743 20 0 16.3665 0 11.8773C0 7.70463 3.14124 4.27037 7.1889 3.80543V1.87537H5.93866C5.41903 1.87537 5.00098 1.45732 5.00098 0.937683ZM8.12659 18.1285C9.78451 18.1285 11.3745 17.4699 12.5469 16.2976C13.7192 15.1253 14.3778 13.5352 14.3778 11.8773C14.3778 10.2194 13.7192 8.62937 12.5469 7.45704C11.3745 6.28471 9.78451 5.6261 8.12659 5.6261C6.46866 5.6261 4.87864 6.28471 3.70631 7.45704C2.53398 8.62937 1.87537 10.2194 1.87537 11.8773C1.87537 13.5352 2.53398 15.1253 3.70631 16.2976C4.87864 17.4699 6.46866 18.1285 8.12659 18.1285ZM9.06427 8.43915V12.5024C9.06427 13.0221 8.64622 13.4401 8.12659 13.4401C7.60695 13.4401 7.1889 13.0221 7.1889 12.5024V8.43915C7.1889 7.91952 7.60695 7.50147 8.12659 7.50147C8.64622 7.50147 9.06427 7.91952 9.06427 8.43915Z" fill="white" />
+                  </svg>
+                  <p className="text-xs">
+                    Sale Ends 2025 May 22 07:30 AM EST
+                  </p>
                 </div>
-                <RedarkButton title="PLACE BID" />
+                <div className="flex justify-between items-center py-3">
+                  <div>
+                    <p className="text-xs text-gray-400 font-azeret mb-3">Current Price</p>
+                    <p className="text-xl font-bold">32.027 SOL</p>
+                    <p className="text-xs text-gray-500">$841.07</p>
+                  </div>
+                  <RedarkButton title="PLACE BID" />
+                </div>
               </div>
-            </div>
 
-            {/* Description */}
-            <div className="bg-redark-purple/13 p-4 rounded-xl">
-              <h2 className="text-lg font-semibold mb-2 font-mokoto">
-                DESCRIPTION
-              </h2>
-              <p className="text-sm text-gray-400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-                tempor lobortis purus, non tempus neque. Nulla molestie, neque
-                venenatis iaculis sagittis, lacus mi finibus lacus, id fringilla
-                leo justo scelerisque lorem.
-              </p>
-            </div>
+              {/* Description */}
+              <div className="bg-redark-purple/13 p-4 rounded-xl">
+                <h2 className="text-lg border-b py-4 border-b-white/25 mb-2 font-mokoto">
+                  DESCRIPTION
+                </h2>
+                <p className="text-sm text-gray-400 py-3 font-azeret">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempor lobortis purus, non tempus neque. Nullam molestie, neque venenatis iaculis sagittis, lacus mi finibus lacus, id fringilla leo justo scelerisque lorem. Nunc convallis eget nisi quis laoreet. Morbi at risus erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus ex ut facilisis ullamcorper. Etiam elit odio, sagittis ac lacinia sed, fringilla non felis.
+                </p>
+              </div>
 
-            {/* Price History */}
-            <div className="bg-[#474747]/13 p-4 rounded-xl">
-              <h2 className="text-lg font-semibold mb-4">Price History</h2>
-              <ResponsiveContainer width="100%" height={200}>
-                <BarChart data={MockData.priceHistory}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#342359" />
-                  <XAxis dataKey="name" stroke="#aaa" />
-                  <YAxis stroke="#aaa" />
-                  <Tooltip />
-                  <Bar
-                    dataKey="bar"
-                    fill="#A48DF4"
-                    radius={[4, 4, 0, 0]}
-                    barSize={24}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="value"
-                    stroke="#fff"
-                    strokeWidth={2}
-                    dot={{ r: 3 }}
-                  />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
+              {/* Price History */}
+              <div className="bg-[#474747]/13 p-4 rounded-xl">
+                <div className="flex gap-6 items-center pt-3 pb-4 border-b border-b-white/25">
+                  <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 1.3125C14.2406 1.3125 14.4375 1.50937 14.4375 1.75V9.625C14.4375 9.86563 14.2406 10.0625 14 10.0625H9.20117C9.19297 10.0625 9.18477 10.0625 9.1793 10.0625H6.57617C6.56797 10.0625 6.55977 10.0625 6.5543 10.0625H1.75C1.50937 10.0625 1.3125 9.86563 1.3125 9.625V1.75C1.3125 1.50937 1.50937 1.3125 1.75 1.3125H14ZM1.75 11.375H5.78867L5.56992 12.6875H4.15625C3.79258 12.6875 3.5 12.9801 3.5 13.3438C3.5 13.7074 3.79258 14 4.15625 14H6.125H9.625H11.5938C11.9574 14 12.25 13.7074 12.25 13.3438C12.25 12.9801 11.9574 12.6875 11.5938 12.6875H10.1801L9.96133 11.375H14C14.9652 11.375 15.75 10.5902 15.75 9.625V1.75C15.75 0.784766 14.9652 0 14 0H1.75C0.784766 0 0 0.784766 0 1.75V9.625C0 10.5902 0.784766 11.375 1.75 11.375ZM6.89883 12.6875L7.11758 11.375H8.62969L8.84844 12.6875H6.89883ZM10.2812 2.625C9.91758 2.625 9.625 2.91758 9.625 3.28125C9.625 3.64492 9.91758 3.9375 10.2812 3.9375H10.8855L8.3125 6.51055L6.58984 4.78789C6.33281 4.53086 5.91719 4.53086 5.66289 4.78789L2.81641 7.62891C2.55938 7.88594 2.55938 8.30156 2.81641 8.55586C3.07344 8.81016 3.48906 8.81289 3.74336 8.55586L6.12227 6.17695L7.84492 7.89961C7.96797 8.02266 8.13477 8.09102 8.30977 8.09102C8.48477 8.09102 8.65156 8.02266 8.77461 7.89961L11.8098 4.86445V5.46875C11.8098 5.83242 12.1023 6.125 12.466 6.125C12.8297 6.125 13.1223 5.83242 13.1223 5.46875V3.28125C13.1223 2.91758 12.8297 2.625 12.466 2.625H10.2785H10.2812Z" fill="white" />
+                  </svg>
+                  <h2 className="text-lg">Price History</h2>
+                </div>
+                <ResponsiveContainer width="100%" height={300} className='pt-6'>
+                  <BarChart data={MockData.priceHistory}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#342359" />
+                    <XAxis dataKey="name" stroke="#aaa" />
+                    <YAxis stroke="#aaa" />
+                    <Tooltip />
+                    <Bar
+                      dataKey="bar"
+                      fill="#A48DF4"
+                      radius={[4, 4, 0, 0]}
+                      barSize={24}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="value"
+                      stroke="#fff"
+                      strokeWidth={2}
+                      dot={{ r: 3 }}
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
 
-            {/* Details */}
-            <div className="bg-[#474747]/13 p-4 rounded-xl">
-              <h2 className="text-lg font-semibold mb-2">Details</h2>
-              <div className="text-sm space-y-1 text-gray-300">
-                <p>
-                  <span className="text-gray-500">Contract Address:</span>{" "}
-                  0x1987...c81f
-                </p>
-                <p>
-                  <span className="text-gray-500">Token ID:</span> 027068
-                </p>
-                <p>
-                  <span className="text-gray-500">Standard:</span> ERC-721
-                </p>
-                <p>
-                  <span className="text-gray-500">Chain:</span> SOLANA
-                </p>
-                <p>
-                  <span className="text-gray-500">Last Updated:</span> 8 months
-                  ago
-                </p>
-                <p>
-                  <span className="text-gray-500">Creator Earnings:</span> 8.04%
-                </p>
+              {/* Details */}
+              <div className="bg-[#474747]/13 p-4 rounded-xl">
+                <h2 className="text-lg font-semibold mb-2">Details</h2>
+                <div className="text-sm space-y-1 text-gray-300">
+                  <p>
+                    <span className="text-gray-500">Contract Address:</span>{" "}
+                    0x1987...c81f
+                  </p>
+                  <p>
+                    <span className="text-gray-500">Token ID:</span> 027068
+                  </p>
+                  <p>
+                    <span className="text-gray-500">Standard:</span> ERC-721
+                  </p>
+                  <p>
+                    <span className="text-gray-500">Chain:</span> SOLANA
+                  </p>
+                  <p>
+                    <span className="text-gray-500">Last Updated:</span> 8 months
+                    ago
+                  </p>
+                  <p>
+                    <span className="text-gray-500">Creator Earnings:</span> 8.04%
+                  </p>
+                </div>
               </div>
             </div>
           </div>
