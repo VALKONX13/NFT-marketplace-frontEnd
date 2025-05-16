@@ -21,8 +21,7 @@ function ArkStatusReport() {
                 className="pr-10 min-h-screen text-white col-span-10 py-4 flex flex-col justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-            >
+                transition={{ duration: 0.5 }}>
                 <AccessLevels />
                 <section className="px-4 pb-10 space-y-8 text-white">
                     {/* Balances Header */}

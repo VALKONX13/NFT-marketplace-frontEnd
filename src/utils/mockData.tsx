@@ -46,7 +46,7 @@ const MockData = {
       href: "#",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="16"
           viewBox="0 0 16 16"
@@ -61,7 +61,7 @@ const MockData = {
       href: "#",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="14"
           viewBox="0 0 16 14"
@@ -76,15 +76,14 @@ const MockData = {
       href: "#",
       icon: (
         <svg
+          className="hover:fill-redark-purple"
           width="16"
           height="16"
           viewBox="0 0 16 16"
-          fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M1.71429 1.14286C1.4 1.14286 1.14286 1.4 1.14286 1.71429V5.14286C1.14286 5.45714 1.4 5.71429 1.71429 5.71429H5.14286C5.45714 5.71429 5.71429 5.45714 5.71429 5.14286V1.71429C5.71429 1.4 5.45714 1.14286 5.14286 1.14286H1.71429ZM0 1.71429C0 0.767857 0.767857 0 1.71429 0H5.14286C6.08929 0 6.85714 0.767857 6.85714 1.71429V5.14286C6.85714 6.08929 6.08929 6.85714 5.14286 6.85714H1.71429C0.767857 6.85714 0 6.08929 0 5.14286V1.71429ZM1.71429 10.2857C1.4 10.2857 1.14286 10.5429 1.14286 10.8571V14.2857C1.14286 14.6 1.4 14.8571 1.71429 14.8571H5.14286C5.45714 14.8571 5.71429 14.6 5.71429 14.2857V10.8571C5.71429 10.5429 5.45714 10.2857 5.14286 10.2857H1.71429ZM0 10.8571C0 9.91072 0.767857 9.14286 1.71429 9.14286H5.14286C6.08929 9.14286 6.85714 9.91072 6.85714 10.8571V14.2857C6.85714 15.2321 6.08929 16 5.14286 16H1.71429C0.767857 16 0 15.2321 0 14.2857V10.8571ZM14.2857 1.14286H10.8571C10.5429 1.14286 10.2857 1.4 10.2857 1.71429V5.14286C10.2857 5.45714 10.5429 5.71429 10.8571 5.71429H14.2857C14.6 5.71429 14.8571 5.45714 14.8571 5.14286V1.71429C14.8571 1.4 14.6 1.14286 14.2857 1.14286ZM10.8571 0H14.2857C15.2321 0 16 0.767857 16 1.71429V5.14286C16 6.08929 15.2321 6.85714 14.2857 6.85714H10.8571C9.91072 6.85714 9.14286 6.08929 9.14286 5.14286V1.71429C9.14286 0.767857 9.91072 0 10.8571 0ZM10.8571 10.2857C10.5429 10.2857 10.2857 10.5429 10.2857 10.8571V14.2857C10.2857 14.6 10.5429 14.8571 10.8571 14.8571H14.2857C14.6 14.8571 14.8571 14.6 14.8571 14.2857V10.8571C14.8571 10.5429 14.6 10.2857 14.2857 10.2857H10.8571ZM9.14286 10.8571C9.14286 9.91072 9.91072 9.14286 10.8571 9.14286H14.2857C15.2321 9.14286 16 9.91072 16 10.8571V14.2857C16 15.2321 15.2321 16 14.2857 16H10.8571C9.91072 16 9.14286 15.2321 9.14286 14.2857V10.8571Z"
-            fill="white"
           />
         </svg>
       ),
@@ -94,15 +93,15 @@ const MockData = {
       href: "#",
       icon: (
         <svg
+          className="hover:fill-redark-purple"
           width="16"
           height="16"
           viewBox="0 0 16 16"
-          fill="none"
+
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M14.4972 8.06875C14.4972 8.15313 14.4659 8.23125 14.3659 8.31875C14.2472 8.41563 14.0504 8.5 13.8098 8.5H10.7479C9.09198 8.5 7.74849 9.84375 7.74849 11.5C7.74849 11.7125 7.77036 11.9187 7.8141 12.1187C7.9172 12.6094 8.13279 13.0906 8.26401 13.3875C8.28588 13.4375 8.30775 13.4813 8.32337 13.5219C8.47959 13.8813 8.49834 14.0031 8.49834 14.0562C8.49834 14.2219 8.43898 14.3531 8.37961 14.425C8.35149 14.4594 8.32962 14.475 8.31713 14.4812C8.30775 14.4875 8.29213 14.4906 8.26714 14.4937C8.17653 14.4969 8.08905 14.5 7.99844 14.5C4.40851 14.5 1.49971 11.5906 1.49971 8C1.49971 4.40938 4.40851 1.5 7.99844 1.5C11.5884 1.5 14.4972 4.40938 14.4972 8C14.4972 8.02188 14.4972 8.04375 14.4972 8.06875ZM15.9969 8.08438C15.9969 8.05625 15.9969 8.02812 15.9969 8C15.9969 3.58125 12.4163 0 7.99844 0C3.58055 0 0 3.58125 0 8C0 12.4187 3.58055 16 7.99844 16C8.10779 16 8.22027 15.9969 8.32962 15.9937C9.32318 15.9531 9.99805 15.0531 9.99805 14.0562C9.99805 13.6031 9.80746 13.1719 9.62 12.7437C9.48565 12.4375 9.34818 12.1281 9.28256 11.8094C9.26069 11.7094 9.25132 11.6062 9.25132 11.5C9.25132 10.6719 9.92306 10 10.751 10H13.8098C14.9502 10 15.9875 9.225 16 8.08438H15.9969ZM4.99902 8C4.99902 7.73478 4.89369 7.48043 4.70619 7.29289C4.51869 7.10536 4.26438 7 3.99922 7C3.73405 7 3.47975 7.10536 3.29225 7.29289C3.10475 7.48043 2.99941 7.73478 2.99941 8C2.99941 8.26522 3.10475 8.51957 3.29225 8.70711C3.47975 8.89464 3.73405 9 3.99922 9C4.26438 9 4.51869 8.89464 4.70619 8.70711C4.89369 8.51957 4.99902 8.26522 4.99902 8ZM4.99902 6C5.26419 6 5.51849 5.89464 5.70599 5.70711C5.89349 5.51957 5.99883 5.26522 5.99883 5C5.99883 4.73478 5.89349 4.48043 5.70599 4.29289C5.51849 4.10536 5.26419 4 4.99902 4C4.73386 4 4.47956 4.10536 4.29206 4.29289C4.10456 4.48043 3.99922 4.73478 3.99922 5C3.99922 5.26522 4.10456 5.51957 4.29206 5.70711C4.47956 5.89464 4.73386 6 4.99902 6ZM8.99824 4C8.99824 3.73478 8.89291 3.48043 8.70541 3.29289C8.51791 3.10536 8.2636 3 7.99844 3C7.73327 3 7.47897 3.10536 7.29147 3.29289C7.10397 3.48043 6.99863 3.73478 6.99863 4C6.99863 4.26522 7.10397 4.51957 7.29147 4.70711C7.47897 4.89464 7.73327 5 7.99844 5C8.2636 5 8.51791 4.89464 8.70541 4.70711C8.89291 4.51957 8.99824 4.26522 8.99824 4ZM10.9979 6C11.263 6 11.5173 5.89464 11.7048 5.70711C11.8923 5.51957 11.9977 5.26522 11.9977 5C11.9977 4.73478 11.8923 4.48043 11.7048 4.29289C11.5173 4.10536 11.263 4 10.9979 4C10.7327 4 10.4784 4.10536 10.2909 4.29289C10.1034 4.48043 9.99805 4.73478 9.99805 5C9.99805 5.26522 10.1034 5.51957 10.2909 5.70711C10.4784 5.89464 10.7327 6 10.9979 6Z"
-            fill="white"
           />
         </svg>
       ),
@@ -114,7 +113,7 @@ const MockData = {
       href: "#",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="16"
           viewBox="0 0 16 16"
@@ -129,7 +128,7 @@ const MockData = {
       href: "#",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="14"
           viewBox="0 0 16 14"
@@ -164,7 +163,7 @@ const MockData = {
       href: "#",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="12"
           viewBox="0 0 16 12"
@@ -179,7 +178,7 @@ const MockData = {
       href: "#",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="13"
           viewBox="0 0 16 13"
@@ -194,7 +193,7 @@ const MockData = {
       href: "#",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="14"
           viewBox="0 0 16 14"
@@ -209,7 +208,7 @@ const MockData = {
       href: "#",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="16"
           viewBox="0 0 16 16"
@@ -224,7 +223,7 @@ const MockData = {
       href: "#",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="16"
           viewBox="0 0 16 16"
@@ -239,7 +238,7 @@ const MockData = {
       href: "#",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="14"
           viewBox="0 0 16 14"
@@ -256,7 +255,7 @@ const MockData = {
       href: "/user-account",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="12"
           viewBox="0 0 16 12"
@@ -271,7 +270,7 @@ const MockData = {
       href: "/user-account/my-watchlist",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="12"
           viewBox="0 0 16 12"
@@ -286,7 +285,7 @@ const MockData = {
       href: "/user-account/my-purchases",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="16"
           viewBox="0 0 16 16"
@@ -301,7 +300,7 @@ const MockData = {
       href: "/user-account/my-creations",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="16"
           viewBox="0 0 16 16"
@@ -316,7 +315,7 @@ const MockData = {
       href: "/user-account/ark-status-report",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="16"
           viewBox="0 0 16 16"
@@ -331,7 +330,7 @@ const MockData = {
       href: "#",
       icon: (
         <svg
-          className="fill-white hover:fill-redark-purple"
+          className="hover:fill-redark-purple"
           width="16"
           height="14"
           viewBox="0 0 16 14"
