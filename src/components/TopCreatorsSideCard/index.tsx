@@ -13,7 +13,7 @@ type TopCreatorsProps = {
 
 export default function TopCreators({ title, creators }: TopCreatorsProps) {
   return (
-    <div className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-4 w-full max-w-xs text-white">
+    <div className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-4 w-full text-white">
       <h2 className="text-xl font-mokoto w-fit mx-auto tracking-widest mb-6 mt-2">{title}</h2>
       <div className="space-y-5">
         {creators.map((creator) => (

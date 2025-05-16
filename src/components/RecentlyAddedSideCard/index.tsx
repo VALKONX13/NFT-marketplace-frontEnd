@@ -20,7 +20,7 @@ type RecentlyAddedSideCardProps = {
 
 export default function RecentlyAddedSideCard({ title, mainImage, items }: RecentlyAddedSideCardProps) {
   return (
-    <div className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-5 w-full max-w-xs text-white">
+    <div className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-5 w-full text-white">
       {/* Header */}
       <h2 className="text-lg w-fit mx-auto font-mokoto tracking-widest mb-4">{title}</h2>
 
