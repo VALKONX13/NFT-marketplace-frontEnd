@@ -53,9 +53,9 @@ export default function PaginationContainer({
       </div>}
 
 
-      <div className="flex justify-between items-center gap-4">
+      <div className="flex justify-between items-center gap-4 h-[240px] sm:h-[350px] md:h-[450px]">
         <motion.div
-          className="flex gap-6 w-full overflow-x-auto justify-center"
+          className="flex gap-6 w-full overflow-x-auto justify-center h-full"
           key={currentPage} // ensure animation triggers on page change
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
