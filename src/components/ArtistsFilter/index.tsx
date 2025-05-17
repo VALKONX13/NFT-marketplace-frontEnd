@@ -39,7 +39,7 @@ export default function ArtistFilter({ state }: ArtistFilterProps) {
   };
 
   return (
-    <div className="relative w-full flex flex-col items-center mt-8">
+    <div className="relative w-full flex flex-col items-center lg:mt-8">
       <AnimatePresence>
         {state && (
           <motion.div

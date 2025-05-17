@@ -13,11 +13,11 @@ type TopCreatorsProps = {
 
 export default function TopCreators({ title, creators }: TopCreatorsProps) {
   return (
-    <div className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-4 w-full text-white">
-      <h2 className="text-xl font-mokoto w-fit mx-auto tracking-widest mb-6 mt-2">{title}</h2>
+    <div className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-4 w-full text-white md:max-w-[60%] xl:max-w-full">
+      <h2 className="lg:text-xl font-mokoto w-fit mx-auto tracking-widest mb-6 mt-2">{title}</h2>
       <div className="space-y-5">
         {creators.map((creator) => (
-          <div key={creator.id} className="flex items-center gap-6 space-x-4">
+          <div key={creator.id} className="flex items-center lg:gap-6 gap-3 space-x-4">
             <Image
               src={creator.avatar}
               alt={creator.name}

@@ -21,7 +21,7 @@ export default function RedarkButton({
   className = "",
 }: ButtonProps) {
   const baseClass =
-    "font-mokoto bg-white rounded-full text-redark-purple text-[16px] pb-2.5 pt-3 px-[45px] uppercase hover:bg-redark-purple hover:text-white";
+    "font-mokoto bg-white rounded-full text-redark-purple pb-2.5 pt-3 px-8 uppercase hover:bg-redark-purple hover:text-white";
 
   const combinedClass = `${baseClass} ${className}`;
 

@@ -20,9 +20,9 @@ type RecentlyAddedSideCardProps = {
 
 export default function RecentlyAddedSideCard({ title, mainImage, items }: RecentlyAddedSideCardProps) {
   return (
-    <div className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-5 w-full text-white">
+    <div className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-5 w-full text-white md:max-w-[60%] xl:max-w-full">
       {/* Header */}
-      <h2 className="text-lg w-fit mx-auto font-mokoto tracking-widest mb-4">{title}</h2>
+      <h2 className="lg:text-lg w-fit mx-auto font-mokoto tracking-widest mb-4">{title}</h2>
 
       {/* Main Image */}
       <div className="rounded-[20px] overflow-hidden mb-3 relative">
@@ -42,7 +42,7 @@ export default function RecentlyAddedSideCard({ title, mainImage, items }: Recen
       {/* Recent Items List */}
       <div className="space-y-4 mt-6 flex flex-col gap-6">
         {items.map((item) => (
-          <div key={item?.id} className="flex items-center space-x-3 gap-6 m-0">
+          <div key={item?.id} className="flex items-center space-x-3 lg:gap-6 gap-3 m-0">
             <Image
               src={item?.thumbnail}
               alt={item?.name}

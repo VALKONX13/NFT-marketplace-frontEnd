@@ -14,12 +14,12 @@ type Props = {
 
 export default function HistorySideCard({ items }: Props) {
   return (
-    <div className="bg-redark-purple/13 mb-6 text-white p-4 rounded-tl-3xl rounded-bl-3xl w-full max-w-md space-y-6">
-      <h2 className="text-xl font-mokoto w-fit mx-auto tracking-widest mb-6 mt-2">
+    <div className="bg-redark-purple/13 mb-6 text-white p-4 rounded-tl-3xl rounded-bl-3xl w-full space-y-6 md:max-w-[60%] xl:max-w-full">
+      <h2 className="lg:text-xl font-mokoto w-fit mx-auto tracking-widest mb-6 mt-2">
         HISTORY
       </h2>
       {items.map((item) => (
-        <div key={item.id} className="space-y-5 flex gap-6 items-center">
+        <div key={item.id} className="space-y-5 flex lg:gap-6 gap-3 items-center">
           {item.avatar ? (
             <div className="flex items-center gap-6 space-x-4 min-w-[50px] m-0">
               <Image

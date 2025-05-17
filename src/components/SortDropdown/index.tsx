@@ -10,7 +10,7 @@ export default function Component() {
   const [SortMode, setSortMode] = useState("Recently Added");
   return (
     <ThemeProvider >
-      <div className="flex items-center border-1 py-2 px-6 gap-3 !bg-transparent p-0 border-redark-purple rounded-[40px] w-fit">
+      <div className="flex items-center border-1 lg:py-2 py-1.5 md:gap-3 lg:px-6 px-2 lg:gap-3 !bg-transparent p-0 border-redark-purple rounded-[40px] w-fit">
         <svg
           width="17"
           height="14"
@@ -26,7 +26,9 @@ export default function Component() {
         <Dropdown
           className="focus:ring-0 text-white"
           color="transparent"
-          label={`Sort by: ${SortMode}`}
+          label={
+            <span className="hidden md:inline text-sm">{`Sort by: ${SortMode}`}</span>
+          }
           size="custom"
           dismissOnClick={false}
         >

@@ -24,7 +24,7 @@ export default function PromptInputSection() {
     },
     validationSchema,
     onSubmit: () => {
-      onSuccess();
+      // onSuccess();
     },
   });
   return (

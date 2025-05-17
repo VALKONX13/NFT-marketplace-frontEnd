@@ -24,7 +24,7 @@ export default function NFTCard({
 
   return (
     <Link href={href} passHref>
-      <div className="bg-redark-purple/13 grid rounded-2xl shadow-lg py-5 pl-6 pr-3 max-w-xs text-white font-sans !box-content">
+      <div className="bg-redark-purple/13 grid rounded-2xl shadow-lg py-5 pl-6 pr-3 mb-3 text-white font-sans !box-content">
         {/* Creator Info */}
         <div className="flex items-center space-x-3 mb-4">
           <div className="w-4 h-4 bg-gray-400 rounded-full"></div>
@@ -49,15 +49,15 @@ export default function NFTCard({
         <p className="text-sm font-medium mb-2">{title}</p>
 
         {/* Bid Info */}
-        <div className="flex justify-between items-center">
-          <div>
-            <p className="text-xs text-gray-400 font-azeret">Current Bid</p>
-            <p className="text-sm font-bold">{currentBid} SOL</p>
+        <div className="flex justify-between items-center gap-3 " >
+          <div className="w-fit max-w-[30%]">
+            <p className="text-xs w-fit text-gray-400 font-azeret">Current Bid</p>
+            <p className="text-xs w-fit">{currentBid} SOL</p>
           </div>
           <RedarkButton
             title="place Bid"
             onClick={onPlaceBid}
-            className="bg-[#cfc2ff] text-[#1a1440] text-sm font-semibold !py-[14px] !px-[28px] rounded-full transition hover:bg-[#b5a8f0]"
+            className="!px-4 xl:!px-4 text-[10px] xl:text-[12px] 2xl:text-xs 2xl:px-3"
           >
             PLACE BID
           </RedarkButton>

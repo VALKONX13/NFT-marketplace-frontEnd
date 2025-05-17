@@ -68,6 +68,12 @@ body {
   height: fit-content !important;
 }
 
+@media (width <= 48rem) { 
+  [data-testid="flowbite-dropdown"] {
+      padding: 0;
+  }
+ }
+
 [data-testid="flowbite-dropdown"] > ul > li > button:hover {
   background-color: #8c52ff;
   border-radius: 20px;

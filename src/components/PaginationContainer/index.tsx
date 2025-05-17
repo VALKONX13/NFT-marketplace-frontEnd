@@ -5,12 +5,14 @@ type PaginationContainerProps = {
   title: string;
   children: React.ReactNode[];
   itemsPerPage?: number;
+  className?: string;
 };
 
 export default function PaginationContainer({
   title,
   children,
   itemsPerPage = 5,
+  className,
 }: PaginationContainerProps) {
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = Math.ceil(children.length / itemsPerPage);
@@ -26,13 +28,13 @@ export default function PaginationContainer({
 
   return (
     <motion.div
-      className="bg-[#474747]/13 p-4 rounded-2xl"
+      className={`bg-[#474747]/13 lg:p-4 p-1 rounded-2xl ${className}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="flex justify-between items-center mb-4 border-b border-white/20 pb-2">
+      {(title === "") ? "" : <div className="flex justify-between items-center mb-4 border-b border-white/20 pb-2">
         <h2 className="text-white font-semibold text-lg flex items-center gap-2">
           <svg
             width="12"
@@ -48,7 +50,8 @@ export default function PaginationContainer({
           </svg>
           {title} ({children.length})
         </h2>
-      </div>
+      </div>}
+
 
       <div className="flex justify-between items-center gap-4">
         <motion.div
@@ -90,9 +93,8 @@ export default function PaginationContainer({
             whileTap={{ scale: 0.95 }}
             key={i}
             onClick={() => goToPage(i)}
-            className={`text-xl font-bold transition ${
-              i === currentPage ? "fill-redark-purple" : "fill-gray-500"
-            }`}
+            className={`text-xl font-bold transition ${i === currentPage ? "fill-redark-purple" : "fill-gray-500"
+              }`}
           >
             <svg
               width="12"
