@@ -12,7 +12,7 @@ type NavItem = {
 };
 
 type SidebarProps = {
-  className: string;
+  className?: string;
   button: boolean;
   dividerTitles: string[];
   navItems: NavItem[][];
@@ -70,7 +70,7 @@ export default function Sidebar({
     });
 
   return (
-    <div className={className}>
+    <div className={`${className} h-full`}>
       {/* <!-- Component Start --> */}
       <div className="flex flex-col items-center w-full h-full py-8 overflow-hidden text-white lg:bg-[#1F144F] bg-[#4B309F] rounded">
         <Link

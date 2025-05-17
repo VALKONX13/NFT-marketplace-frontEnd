@@ -1,16 +1,6 @@
 import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
 import { useRouter } from "next/router";
-// import {
-//   Line,
-//   Bar,
-//   BarChart,
-//   XAxis,
-//   YAxis,
-//   CartesianGrid,
-//   Tooltip,
-//   ResponsiveContainer,
-// } from "recharts";
 import RedarkButton from "@/components/RedarkButton";
 import PaginatedNFTGallery from "@/components/PaginatedNFTGallery";
 import Table from "@/components/Table";
@@ -21,6 +11,7 @@ import MockData from "@/utils/mockData";
 import Header from "@/components/Header";
 import PaginationContainer from "@/components/PaginationContainer";
 import ApexChart from "@/components/ApexChart";
+import { motion } from 'framer-motion';
 
 export default function NFTDetailPage() {
   const router = useRouter();
@@ -30,7 +21,11 @@ export default function NFTDetailPage() {
   const [title, artist] = ((slug as string) || "").split("_");
 
   return (
-    <div className="bg-redark-navy grid grid-cols-5 md:grid-cols-8 lg:grid-cols-12 lg:gap-5 md:gap-5 gap-2">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="bg-redark-navy grid grid-cols-5 md:grid-cols-8 lg:grid-cols-12 lg:gap-5 md:gap-5 gap-2">
       <Sidebar
         dividerTitles={["Marketplace", "Account"]}
         navItems={[MockData.marketplace, MockData.accountItems]}
@@ -42,20 +37,24 @@ export default function NFTDetailPage() {
           <Header />
         </div>
         <div className="col-span-8 gap-6">
-          <div className="flex flex-col items-center mx-auto">
+          <motion.div initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.4 }} className="flex flex-col items-center mx-auto">
             <p className="lg:hidden block font-mokoto text-sm text-redark-purple mb-4">NFT Details</p>
             <RedarkButton title="CREATE NFT" href="/ark-tools/nft-mint-tool" className="!mx-3 !px-12 text-[10px] lg:hidden block" />
-          </div>
+          </motion.div>
           <div className="col-span-8 grid grid-cols-8 gap-4">
             <div className="text-center space-y-1 w-fit lg:hidden inline">
-              <div className="flex justify-between">
+              <motion.div initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.4 }} className="flex justify-between">
                 <div>
                   <p className="lg:hidden block font-mokoto text-xs mb-4 pt-8">ARTWORK Details</p>
                   <Link href="#" className="text-sm text-redark-purple">
                     @JACKODREEYCollection05
                   </Link>
                 </div>
-              </div>
+              </motion.div>
               <Link href={`/marketplace/collection/category/artist/${slugify(
                 artist
               )}`} className='flex gap-4 grow py-4'>
@@ -66,13 +65,17 @@ export default function NFTDetailPage() {
                   height={50}
                   className="rounded-full m-0 w-[40px] h-[40px]"
                 />
-                <div className='font-azeret text-sm'>
+                <motion.div initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.4 }} className='font-azeret text-sm'>
                   <p className='text-gray-400'>Owned By</p>
                   <p>{artist}</p>
-                </div>
+                </motion.div>
               </Link>
               <h1 className="lg:text-3xl text-lg font-mokoto text-start py-4">{title}</h1>
-              <div className="gap-10 flex">
+              <motion.div initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.4 }} className="gap-10 flex">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M18.8571 10.2857C21.6964 10.2857 24 7.98214 24 5.14286C24 2.30357 21.6964 0 18.8571 0C16.0179 0 13.7143 2.30357 13.7143 5.14286C13.7143 5.35714 13.725 5.57143 13.7518 5.78036L8.71071 8.29821C7.78929 7.40357 6.53036 6.85714 5.14286 6.85714C2.30357 6.85714 0 9.16071 0 12C0 14.8393 2.30357 17.1429 5.14286 17.1429C6.53036 17.1429 7.78929 16.5964 8.71071 15.7018L13.7518 18.2196C13.725 18.4286 13.7143 18.6375 13.7143 18.8571C13.7143 21.6964 16.0179 24 18.8571 24C21.6964 24 24 21.6964 24 18.8571C24 16.0179 21.6964 13.7143 18.8571 13.7143C17.4696 13.7143 16.2107 14.2607 15.2893 15.1554L10.2482 12.6375C10.275 12.4286 10.2857 12.2196 10.2857 12C10.2857 11.7804 10.275 11.5714 10.2482 11.3625L15.2893 8.84464C16.2107 9.73929 17.4696 10.2857 18.8571 10.2857Z" fill="#8C52FF" />
                 </svg>
@@ -82,8 +85,10 @@ export default function NFTDetailPage() {
                 <svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3.375 1.6875C3.375 0.754102 2.6209 0 1.6875 0C0.754102 0 0 0.754102 0 1.6875V3.375V19.4062V25.3125C0 26.2459 0.754102 27 1.6875 27C2.6209 27 3.375 26.2459 3.375 25.3125V18.5625L6.76582 17.7135C8.9332 17.1703 11.2271 17.4234 13.2258 18.4201C15.5566 19.5855 18.2619 19.7279 20.6982 18.8104L22.5281 18.1248C23.1873 17.877 23.625 17.2494 23.625 16.5428V3.48047C23.625 2.26758 22.3488 1.47656 21.2625 2.01973L20.7563 2.27285C18.3146 3.49629 15.4406 3.49629 12.999 2.27285C11.148 1.34473 9.02285 1.1127 7.01367 1.61367L3.375 2.53125V1.6875Z" fill="#8C52FF" />
                 </svg>
-              </div>
-              <div className="flex justify-start w-max pt-4 gap-3 md:text-xs text-[8px] mt-2 items-center">
+              </motion.div>
+              <motion.div initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.4 }} className="flex justify-start w-max pt-4 gap-3 md:text-xs text-[8px] mt-2 items-center">
                 <div className="flex items-center gap-1 border border-redark-purple/50 md:px-4 px-2 h-fit pt-1.5 pb-1 rounded-full">
                   <p>200 Views</p>
                 </div>
@@ -104,11 +109,13 @@ export default function NFTDetailPage() {
                     <path d="M10.606 3.81694L10.0844 3.23013L9.90181 3.02584C8.77166 1.7566 7.06341 1.16544 5.38992 1.46971C3.07312 1.89134 1.39095 3.90822 1.39095 6.26414V6.41627C1.39095 7.82026 1.97341 9.15905 3.00358 10.1153L10.9972 17.5612C11.032 17.5917 11.0798 17.6134 11.1276 17.6134C11.1754 17.6134 11.2232 17.596 11.258 17.5612L19.2559 10.1153C20.2818 9.15905 20.8642 7.82026 20.8642 6.41627V6.26414C20.8642 3.90822 19.182 1.89134 16.8652 1.46971C15.1918 1.16544 13.4835 1.7566 12.3534 3.02584L12.1708 3.23013L11.6492 3.81694C11.5188 3.96473 11.3275 4.05166 11.1276 4.05166C10.9276 4.05166 10.7407 3.96473 10.606 3.81694ZM12.123 1.33497C13.5183 0.243941 15.3309 -0.221157 17.113 0.1005C20.0905 0.643839 22.2552 3.23883 22.2552 6.26414V6.41627C22.2552 7.98109 21.6857 9.48505 20.6643 10.6543C20.5165 10.8195 20.3643 10.9803 20.1992 11.1325L12.2012 18.5784C12.1664 18.6131 12.1273 18.6436 12.0882 18.674C11.8144 18.887 11.4753 19 11.1276 19C10.7277 19 10.3452 18.8479 10.0496 18.5784L2.05165 11.1368C1.88647 10.9847 1.73434 10.8238 1.58655 10.6587C0.569419 9.48505 0 7.98109 0 6.41627V6.26414C0 3.23883 2.16466 0.643839 5.14216 0.1005C6.91996 -0.221157 8.73254 0.239595 10.1278 1.33497C10.4191 1.56534 10.6929 1.81745 10.9407 2.09999L11.1232 2.30428L11.3058 2.09999C11.4884 1.89569 11.6796 1.70444 11.8839 1.53057C11.9621 1.46537 12.0404 1.40017 12.1186 1.33497H12.123Z" fill="white" />
                   </svg>
                 </div>
-              </div>
+              </motion.div>
             </div>
             <div className="lg:col-span-4 col-span-8">
-              <PaginationContainer title="" itemsPerPage={1} className="!bg-transparent lg:hidden">
-                <div className="col-span-4 relative aspect-square">
+              <PaginationContainer title="" itemsPerPage={1} className="!bg-transparent lg:hidden" height="h-[240px]">
+                <motion.div initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.4 }} className="col-span-4 relative aspect-square">
                   <div className="z-10 absolute top-[5%] left-[6%] justify-center bg-redark-purple rounded-full border-2 border-white md:w-[80px] md:h-[80px] w-[50px] h-[50px] flex items-center">
                     <svg className="w-[50%] md:w-[70%]"
                       width="31"
@@ -129,25 +136,31 @@ export default function NFTDetailPage() {
                     fill
                     className="object-cover rounded-xl !h-auto"
                   />
-                </div>
-                <div className="col-span-4 relative aspect-square">
+                </motion.div>
+                <motion.div initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.4 }} className="col-span-4 relative aspect-square">
                   <Image
                     src="/assets/img/NFT-art.png"
                     alt="NFT ARTWORK"
                     fill
                     className="object-cover rounded-xl !h-auto"
                   />
-                </div>
-                <div className="col-span-4 relative aspect-square">
+                </motion.div>
+                <motion.div initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.4 }} className="col-span-4 relative aspect-square">
                   <Image
                     src="/assets/img/NFT-art.png"
                     alt="NFT ARTWORK"
                     fill
                     className="object-cover rounded-xl !h-auto"
                   />
-                </div>
+                </motion.div>
               </PaginationContainer>
-              <div className="hidden lg:inline">
+              <motion.div initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.4 }} className="hidden lg:inline">
                 <div className="col-span-4 relative aspect-square">
                   <div className="z-10 absolute top-[5%] left-[6%] justify-center bg-redark-purple rounded-full border-2 border-white md:w-[80px] md:h-[80px] w-[50px] h-[50px] flex items-center">
                     <svg className="w-[50%] md:w-[70%]"
@@ -186,13 +199,15 @@ export default function NFTDetailPage() {
                     className="object-cover rounded-xl !h-auto"
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
 
 
             <div className="text-white lg:col-span-4 col-span-8 pr-2 md:pr-5 pb-8 space-y-6">
               <div className="text-center space-y-1 hidden lg:inline">
-                <div className="flex justify-between md:gap-3">
+                <motion.div initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.4 }} className="flex justify-between md:gap-3">
                   <div>
                     <p className="lg:hidden block font-mokoto text-xs mb-4 pt-4">ARTWORK Details</p>
                     <Link href="#" className="text-sm text-redark-purple">
@@ -210,7 +225,7 @@ export default function NFTDetailPage() {
                       <path d="M3.375 1.6875C3.375 0.754102 2.6209 0 1.6875 0C0.754102 0 0 0.754102 0 1.6875V3.375V19.4062V25.3125C0 26.2459 0.754102 27 1.6875 27C2.6209 27 3.375 26.2459 3.375 25.3125V18.5625L6.76582 17.7135C8.9332 17.1703 11.2271 17.4234 13.2258 18.4201C15.5566 19.5855 18.2619 19.7279 20.6982 18.8104L22.5281 18.1248C23.1873 17.877 23.625 17.2494 23.625 16.5428V3.48047C23.625 2.26758 22.3488 1.47656 21.2625 2.01973L20.7563 2.27285C18.3146 3.49629 15.4406 3.49629 12.999 2.27285C11.148 1.34473 9.02285 1.1127 7.01367 1.61367L3.375 2.53125V1.6875Z" fill="#8C52FF" />
                     </svg>
                   </div>
-                </div>
+                </motion.div>
                 <h1 className="text-3xl font-mokoto text-start py-4">{title}</h1>
                 <Link href={`/marketplace/collection/category/artist/${slugify(
                   artist
@@ -284,27 +299,6 @@ export default function NFTDetailPage() {
                   </svg>
                   <h2 className="text-lg">Price History</h2>
                 </div>
-                {/* <ResponsiveContainer width="100%" height={300} className='pt-6'>
-                  <BarChart data={MockData.priceHistory}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#342359" />
-                    <XAxis dataKey="name" stroke="#aaa" />
-                    <YAxis stroke="#aaa" />
-                    <Tooltip />
-                    <Bar
-                      dataKey="bar"
-                      fill="#A48DF4"
-                      radius={[4, 4, 0, 0]}
-                      barSize={24}
-                    />
-                    <Line
-                      type="monotone"
-                      dataKey="value"
-                      stroke="#fff"
-                      strokeWidth={2}
-                      dot={{ r: 3 }}
-                    />
-                  </BarChart>
-                </ResponsiveContainer> */}
                 <div className="py-8">
                   <ApexChart />
                 </div>
@@ -410,6 +404,6 @@ export default function NFTDetailPage() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

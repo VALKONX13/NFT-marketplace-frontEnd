@@ -6,6 +6,7 @@ type PaginationContainerProps = {
   children: React.ReactNode[];
   itemsPerPage?: number;
   className?: string;
+  height?: string;
 };
 
 export default function PaginationContainer({
@@ -13,6 +14,7 @@ export default function PaginationContainer({
   children,
   itemsPerPage = 5,
   className,
+  height,
 }: PaginationContainerProps) {
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = Math.ceil(children.length / itemsPerPage);
@@ -53,7 +55,7 @@ export default function PaginationContainer({
       </div>}
 
 
-      <div className="flex justify-between items-center gap-4 h-[240px] sm:h-[350px] md:h-[450px]">
+      <div className={`flex justify-between items-center gap-4 min-h-[240px] sm:h-[350px] md:min-h-[450px] ${height}`}>
         <motion.div
           className="flex gap-6 w-full overflow-x-auto justify-center h-full"
           key={currentPage} // ensure animation triggers on page change
