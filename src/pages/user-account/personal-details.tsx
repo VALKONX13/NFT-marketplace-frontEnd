@@ -78,13 +78,16 @@ export default function UserAccount() {
       />
       <div className="md:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4">
         <Header searchBar={false} wallet={false} />
+
         <motion.div
           className="md:py-10 min-h-screen text-white col-span-9 py-4 flex flex-col"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="inline md:hidden font-mokoto text-xs">My Account</p>
+          <p className="block md:hidden mt-2 text-white font-mokoto text-xs uppercase mb-4">
+            My Account
+          </p>
           <p className="inline md:hidden text-sm my-6">Personal Details</p>
           <h1 className="md:text-3xl text-xl font-md mb-10 font-mokoto uppercase hidden md:inline">USER CREDENTIALS</h1>
           <motion.div
@@ -96,7 +99,6 @@ export default function UserAccount() {
             <p className="block md:hidden text-center text-white font-mokoto text-xs uppercase mb-4">
               My Account
             </p>
-
             <h2 className="text-xl font-md font-mokoto 2xl:mb-20 md:mb-10 mb-5 hidden md:flex">
               AVATAR
             </h2>

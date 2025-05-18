@@ -376,7 +376,7 @@ const MockData = {
   biddingActivityTableData: [
     {
       Title: (
-        <p className="text-redark-purple underline">Others from Otherside</p>
+        <p className="text-redark-purple underline w-max px-4">Others from Otherside</p>
       ),
       Item: (
         <Image

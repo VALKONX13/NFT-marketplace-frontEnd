@@ -14,7 +14,7 @@ const OverlappingAvatars = ({ images }: { images: string[] }) => {
             alt="Avatar"
             width={32}
             height={32}
-            className="rounded-full w-12 h-12 object-cover"
+            className="rounded-full w-12 h-12 object-cover aspect-square"
           />
         ))}
       </div>
