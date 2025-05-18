@@ -8,6 +8,7 @@ import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
 import RedarkButton from "@/components/RedarkButton";
 import MockData from '@/utils/mockData';
+import Header from "@/components/Header";
 
 const defaultAvatars = [
   "/assets/img/duck-nft.jpg",
@@ -44,6 +45,12 @@ export default function UserAccount() {
     },
   });
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 40 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
   const handleAvatarClick = (avatar: string) => {
     setSelectedAvatar(avatar);
   };
@@ -62,133 +69,165 @@ export default function UserAccount() {
   };
 
   return (
-    <div className="bg-redark-navy grid grid-cols-12 gap-8 h-auto">
+    <div className="bg-redark-navy grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 md:gap-8 gap-2 h-auto">
       <Sidebar
         dividerTitles={["My Account"]}
         navItems={[MockData.userAccountSideBarItems]}
         button={false}
-        className="col-start-1 col-end-3"
+        className="col-span-1 md:col-span-2 lg:col-span-3"
       />
-      <motion.div
-        className="p-10 min-h-screen text-white col-span-9 py-4 flex flex-col justify-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h1 className="text-3xl font-md mb-10 font-mokoto uppercase">USER CREDENTIALS</h1>
-        <div className="mb-6">
-          <h2 className="text-xl font-md font-mokoto mb-20">AVATAR</h2>
-          <div className="flex gap-4 flex-wrap">
-            {/* Upload Box */}
-            <label className="w-[165px] h-[165px] bg-white/25 flex items-center justify-center rounded-[20px] cursor-pointer">
-              <span className="text-3xl font-bold">
-                <svg
-                  width="39"
-                  height="39"
-                  viewBox="0 0 39 39"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M35.9467 12.5867C37.6533 12.5867 38.5067 13.5467 38.5067 15.4667V22.9333C38.5067 24.8533 37.6533 25.8133 35.9467 25.8133H25.92V35.84C25.92 37.6178 24.96 38.5067 23.04 38.5067H15.5733C13.6533 38.5067 12.6933 37.6178 12.6933 35.84V25.8133H2.66667C0.888889 25.8133 0 24.8533 0 22.9333V15.4667C0 13.5467 0.888889 12.5867 2.66667 12.5867H12.6933V2.56001C12.6933 0.853335 13.6533 0 15.5733 0H23.04C24.96 0 25.92 0.853335 25.92 2.56001V12.5867H35.9467Z"
-                    fill="white"
-                    fill-opacity="0.25"
-                  />
-                </svg>
-              </span>
-              <input
-                type="file"
-                accept="image/*"
-                className="hidden"
-                onChange={handleImageUpload}
-              />
-            </label>
-            {/* Avatars */}
-            {avatars.map((avatar, index) => (
-              <div
-                key={index}
-                className={`w-[165px] h-[165px] rounded-[20px] overflow-hidden border-4 ${
-                  selectedAvatar === avatar
-                    ? "border-redark-purple"
-                    : "border-transparent"
-                } cursor-pointer relative`} // add relative for Image `fill`
-                onClick={() => handleAvatarClick(avatar)}
-              >
-                <Image
-                  src={avatar}
-                  alt="avatar"
-                  fill
-                  className="object-cover"
-                  sizes="165px"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="md:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4">
+        <Header searchBar={false} wallet={false} />
+        <motion.div
+          className="md:py-10 min-h-screen text-white col-span-9 py-4 flex flex-col"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="inline md:hidden font-mokoto text-xs">My Account</p>
+          <p className="inline md:hidden text-sm my-6">Personal Details</p>
+          <h1 className="md:text-3xl text-xl font-md mb-10 font-mokoto uppercase hidden md:inline">USER CREDENTIALS</h1>
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+            className="mb-6 w-full">
+            {/* Mobile Title */}
+            <p className="block md:hidden text-center text-white font-mokoto text-xs uppercase mb-4">
+              My Account
+            </p>
 
-        <form onSubmit={formik.handleSubmit} className="space-y-6">
-          <div className="max-w-[50%]">
-            <h2 className="text-xl font-medium mt-14 mb-16 font-mokoto">
-              PERSONAL DETAILS
+            <h2 className="text-xl font-md font-mokoto 2xl:mb-20 md:mb-10 mb-5 hidden md:flex">
+              AVATAR
             </h2>
 
-            <input
-              type="text"
-              name="name"
-              placeholder="John Doe"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.name}
-              className="block w-full bg-white/25 p-4 rounded-full text-white"
-            />
-            {formik.touched.name && formik.errors.name && (
-              <div className="text-red-500 text-sm mt-1">
-                {formik.errors.name}
-              </div>
-            )}
+            {/* Avatar Scroll Container */}
+            <motion.div initial="initial"
+              animate="animate"
+              variants={fadeInUp}
+              className="flex md:flex-wrap gap-4 overflow-x-auto md:overflow-visible scroll-snap-x snap-x snap-mandatory px-1 md:px-0">
+              {/* Upload Box */}
+              <label className="md:w-[165px] md:h-[165px] snap-start md:bg-white/10 pl-4 md:pl-0 flex items-center justify-center rounded-[20px] cursor-pointer shrink-0">
+                <span className="text-3xl font-bold">
+                  <svg
+                    width="39"
+                    height="39"
+                    viewBox="0 0 39 39"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M35.9467 12.5867C37.6533 12.5867 38.5067 13.5467 38.5067 15.4667V22.9333C38.5067 24.8533 37.6533 25.8133 35.9467 25.8133H25.92V35.84C25.92 37.6178 24.96 38.5067 23.04 38.5067H15.5733C13.6533 38.5067 12.6933 37.6178 12.6933 35.84V25.8133H2.66667C0.888889 25.8133 0 24.8533 0 22.9333V15.4667C0 13.5467 0.888889 12.5867 2.66667 12.5867H12.6933V2.56001C12.6933 0.853335 13.6533 0 15.5733 0H23.04C24.96 0 25.92 0.853335 25.92 2.56001V12.5867H35.9467Z"
+                      fill="white"
+                      fillOpacity="0.25"
+                    />
+                  </svg>
+                </span>
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleImageUpload}
+                />
+              </label>
 
-            <input
-              type="email"
-              name="email"
-              placeholder="john@doe.co"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-              className="block w-full bg-white/25 p-4 rounded-full text-white mt-4"
-            />
-            {formik.touched.email && formik.errors.email && (
-              <div className="text-red-500 text-sm mt-1">
-                {formik.errors.email}
-              </div>
-            )}
-          </div>
+              {/* Avatar Images */}
+              {avatars.map((avatar, index) => (
+                <motion.div
+                  initial="initial"
+                  animate="animate"
+                  variants={fadeInUp}
+                  key={index}
+                  className={`min-w-[130px] h-[130px] md:w-[165px] md:h-[165px] snap-start shrink-0 rounded-[20px] overflow-hidden border-4 ${selectedAvatar === avatar
+                    ? "border-redark-purple"
+                    : "border-transparent"
+                    } cursor-pointer relative`}
+                  onClick={() => handleAvatarClick(avatar)}
+                >
+                  <Image
+                    src={avatar}
+                    alt="avatar"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 130px, 165px"
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
 
-          <div className="flex items-center gap-2 font-azeret text-gray-400">
-            <label className="flex items-center space-x-2 cursor-pointer">
+
+          <form onSubmit={formik.handleSubmit} className="space-y-6 md:pr-6 pr-2 flex flex-col items-center lg:items-baseline">
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={fadeInUp}
+              className="xl:max-w-[60%] 2xl:max-w-[50%] w-[80%] px-3">
+              <h2 className="md:text-xl text-center md:text-start text-xs font-medium mt-14 md:mb-16 mb-4 font-mokoto">
+                PERSONAL DETAILS
+              </h2>
+
               <input
-                type="checkbox"
-                name="terms"
+                type="text"
+                name="name"
+                placeholder="John Doe"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                checked={formik.values.terms}
-                className="hidden peer"
+                value={formik.values.name}
+                className="block w-full bg-white/25 p-4 rounded-full text-white"
               />
-              <div
-                className={`w-4 h-4 rounded-sm border border-white peer-checked:bg-redark-purple peer-checked:border-white transition
-                    `}
-              />
-              <p className="font-azeret text-[14px]">
-                I agree with the Terms & Conditions
-              </p>
-            </label>
-          </div>
+              {formik.touched.name && formik.errors.name && (
+                <div className="text-red-500 text-sm mt-1">
+                  {formik.errors.name}
+                </div>
+              )}
 
-          {formik.touched.terms && formik.errors.terms && (
-            <div className="text-red-500 text-sm">{formik.errors.terms}</div>
-          )}
-          <RedarkButton type="submit" title="APPLY CHANGES" />
-        </form>
-      </motion.div>
+              <input
+                type="email"
+                name="email"
+                placeholder="john@doe.co"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
+                className="block w-full bg-white/25 p-4 rounded-full text-white mt-4"
+              />
+              {formik.touched.email && formik.errors.email && (
+                <div className="text-red-500 text-sm mt-1">
+                  {formik.errors.email}
+                </div>
+              )}
+            </motion.div>
+
+            <motion.div initial="initial"
+              animate="animate"
+              variants={fadeInUp}
+              className="flex items-center font-azeret text-gray-400 px-4">
+              <label className="flex items-center gap-2 space-x-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="terms"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  checked={formik.values.terms}
+                  className="hidden peer"
+                />
+                <div
+                  className={`w-4 h-4 aspect-square rounded-sm border border-white peer-checked:bg-redark-purple peer-checked:border-white transition
+                    `}
+                />
+                <p className="font-azeret text-[14px]">
+                  I agree with the Terms & Conditions
+                </p>
+              </label>
+            </motion.div>
+
+            {formik.touched.terms && formik.errors.terms && (
+              <div className="text-red-500 text-sm">{formik.errors.terms}</div>
+            )}
+            <RedarkButton type="submit" title="APPLY CHANGES" className="!px-5 lg:!px-10 !py-3 !pb-2 text-sm md:text-lg" />
+          </form>
+        </motion.div>
+      </div>
     </div>
   );
 }

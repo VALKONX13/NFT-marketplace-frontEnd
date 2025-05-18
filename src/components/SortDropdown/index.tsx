@@ -5,12 +5,16 @@ import {
 } from "flowbite-react";
 import { useState } from "react";
 
+type DropDownProps = {
+  className?: string;
+};
 
-export default function Component() {
+
+export default function Component({ className }: DropDownProps) {
   const [SortMode, setSortMode] = useState("Recently Added");
   return (
     <ThemeProvider >
-      <div className="flex items-center border-1 lg:py-2 py-1.5 md:gap-3 lg:px-6 px-2 lg:gap-3 !bg-transparent p-0 border-redark-purple rounded-[40px] w-fit">
+      <div className={`${className} flex items-center border-1 lg:py-2 py-1.5 md:gap-3 lg:px-6 px-2 lg:gap-3 !bg-transparent p-0 border-redark-purple rounded-[40px] w-fit`}>
         <svg
           width="17"
           height="14"

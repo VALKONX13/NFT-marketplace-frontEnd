@@ -27,7 +27,7 @@ export default function NFTCard({
       <div className="bg-redark-purple/13 grid rounded-2xl shadow-lg py-5 pl-6 pr-3 mb-3 text-white font-sans !box-content">
         {/* Creator Info */}
         <div className="flex items-center space-x-3 mb-4">
-          <div className="w-4 h-4 bg-gray-400 rounded-full"></div>
+          <div className="w-8 h-8 bg-gray-400 rounded-full"></div>
           <div>
             <p className="text-xs text-gray-400 font-azeret">Created by</p>
             <p className="text-sm font-semibold font-azeret">{creatorName}</p>

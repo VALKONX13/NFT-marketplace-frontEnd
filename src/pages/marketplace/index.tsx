@@ -54,7 +54,7 @@ const Marketplace = () => {
       </motion.div>
 
       <motion.div variants={itemVariants} className="xl:col-span-10 lg:col-span-9 md:col-span-7 col-span-4">
-        <Header />
+        <Header searchBar={true} wallet={true}/>
         <div className="lg:grid lg:grid-cols-8 gap-6">
           <motion.div variants={itemVariants} className="flex flex-col items-center mx-auto">
             <p className="lg:hidden block font-mokoto text-sm text-redark-purple mb-4 pt-4">

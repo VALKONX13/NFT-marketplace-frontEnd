@@ -34,7 +34,7 @@ export default function NFTDetailPage() {
       />
       <div className="xl:col-span-10 lg:col-span-9 md:col-span-7 col-span-4 grid grid-cols-8 gap-5 lg:px-8">
         <div className="col-span-8">
-          <Header />
+          <Header searchBar={true} wallet={true}/>
         </div>
         <div className="col-span-8 gap-6">
           <motion.div initial={{ scale: 0.95, opacity: 0 }}
@@ -274,8 +274,8 @@ export default function NFTDetailPage() {
                 <div className="flex justify-between items-center py-3 gap-4 flex-col md:flex-row">
                   <div>
                     <p className="text-xs text-gray-400 font-azeret mb-3">Current Price</p>
-                    <p className="md:text-xl text-3xl font-bold">32.027 SOL</p>
-                    <p className="text-xs text-gray-500">$841.07</p>
+                    <p className="text-3xl 2xl:text-4xl font-bold">32.027 SOL</p>
+                    <p className="text-xs text-gray-500 text-center md:text-start">$841.07</p>
                   </div>
                   <RedarkButton title="PLACE BID" className="text-xs" />
                 </div>
