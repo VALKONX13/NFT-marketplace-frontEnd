@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import OverlappingAvatars from '@/components/OverlappingAvatars';
+import { motion } from 'framer-motion';
 
 type TableProps = {
   columns: string[];
@@ -12,7 +13,10 @@ type TableProps = {
 export default function Table({ columns, data, title, icon }: TableProps) {
 
   return (
-    <div className="w-full overflow-x-auto rounded-lg bg-[#474747]/13 p-4 text-white">
+    <motion.div initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="w-full overflow-x-auto rounded-lg bg-[#474747]/13 p-4 text-white">
       <div className="flex items-center gap-4 px-4 pb-3 border-b border-gray-600">
         {icon}
         <h2 className="lg:text-xl text-sm font-semibold text-white overflow-scroll">{title}</h2>
@@ -49,6 +53,6 @@ export default function Table({ columns, data, title, icon }: TableProps) {
           ))}
         </tbody>
       </table>
-    </div>
+    </motion.div>
   );
 }

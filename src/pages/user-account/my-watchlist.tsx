@@ -5,16 +5,28 @@ import { motion } from "framer-motion";
 import Table from "@/components/Table";
 import Header from "@/components/Header";
 
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: "easeOut" }
+};
+
 function MyWatchlist() {
   return (
-    <div className="bg-redark-navy grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 md:gap-8 gap-2 h-auto">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="bg-redark-navy grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 md:gap-8 gap-2 h-auto">
       <Sidebar
         dividerTitles={["My Account"]}
         navItems={[MockData.userAccountSideBarItems]}
         button={false}
         className="col-span-1 md:col-span-2 lg:col-span-3"
       />
-      <div className="md:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4">
+      <motion.div initial="initial"
+        animate="animate"
+        variants={fadeInUp} className="md:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4">
         <Header searchBar={false} wallet={false} />
         <motion.div
           className="lg:p-10 min-h-screen text-white col-span-9 py-4 flex flex-col lg:justify-center"
@@ -22,10 +34,21 @@ function MyWatchlist() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="flex lg:hidden font-mokoto text-xs pb-6 pt-2">My Account</p>
-          <p className="mb-2 flex lg:hidden">My Watchlist</p>
+          <motion.p
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+            className="flex lg:hidden font-mokoto text-xs pb-6 pt-2">My Account</motion.p>
+          <motion.p
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+            className="mb-2 flex lg:hidden">My Watchlist</motion.p>
           <div className="flex flex-col  col-span-12">
-            <div className="space-y-10 lg:p-8 py-6 pr-4 pl-2">
+            <motion.div initial="initial"
+              animate="animate"
+              variants={fadeInUp}
+              className="space-y-10 lg:p-8 py-6 pr-4 pl-2">
               <h1 className="text-3xl hidden lg:flex font-md mb-10 font-mokoto uppercase">
                 Bidding Activity
               </h1>
@@ -86,11 +109,11 @@ function MyWatchlist() {
                   </svg>
                 }
               />
-            </div>
+            </motion.div>
           </div>
         </motion.div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
