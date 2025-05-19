@@ -418,7 +418,7 @@ const MockData = {
       Royalty: "7.5%",
       Status: "Published",
       Edit: (
-        <svg
+        <svg className="ml-5"
           width="16"
           height="17"
           viewBox="0 0 16 17"

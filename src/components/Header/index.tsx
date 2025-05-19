@@ -4,16 +4,18 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 type HeaderProps = {
+    className?: string;
     searchBar?: boolean;
     wallet?: boolean;
+    searchIcon?: boolean;
 }
 
-function Header({ searchBar, wallet }: HeaderProps) {
+function Header({ className, searchBar, wallet, searchIcon = false }: HeaderProps) {
     const pathname = usePathname();
     const isActive = pathname?.startsWith('/user-account');
 
     return (
-        <div className={`flex justify-between lg:gap-12 lg:pt-8 pt-4 lg:pr-10 pr-4 ${!searchBar ? 'justify-end' : ""}`}>
+        <div className={`flex justify-between lg:gap-12 lg:pt-8 pt-4 lg:pr-10 pr-4 ${className} ${!searchBar ? 'justify-end' : ""}`}>
             {/* Search */}
             {searchBar ? (<div className="max-w-xl w-full hidden lg:inline">
                 <div className="flex items-center space-x-2 bg-white/25 font-azeret rounded-[10px] px-5 py-4">
@@ -35,7 +37,11 @@ function Header({ searchBar, wallet }: HeaderProps) {
                         border-white rounded-full font-mokoto lg:px-6 px-3 lg:pt-3 lg:pb-2 pt-2 pb-1 !text-xs'>Wallet</button>) : ""}
 
                     {/* icons */}
-                    <div className='flex gap-10'>
+                    <div className='flex lg:gap-10 gap-6 items-center'>
+                        {searchIcon ? (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.501 9.74857C19.501 11.8998 18.8025 13.887 17.6259 15.4993L23.5605 21.4375C24.1465 22.0233 24.1465 22.9748 23.5605 23.5606C22.9746 24.1465 22.0229 24.1465 21.437 23.5606L15.5023 17.6224C13.8897 18.8035 11.9021 19.4971 9.75048 19.4971C4.36428 19.4971 0 15.1337 0 9.74857C0 4.36342 4.36428 0 9.75048 0C15.1367 0 19.501 4.36342 19.501 9.74857ZM9.75048 16.4976C10.6369 16.4976 11.5147 16.323 12.3337 15.9838C13.1527 15.6447 13.8969 15.1475 14.5237 14.5208C15.1505 13.8941 15.6477 13.1501 15.987 12.3313C16.3262 11.5125 16.5008 10.6349 16.5008 9.74857C16.5008 8.86228 16.3262 7.98466 15.987 7.16584C15.6477 6.34701 15.1505 5.603 14.5237 4.9763C13.8969 4.3496 13.1527 3.85247 12.3337 3.5133C11.5147 3.17413 10.6369 2.99956 9.75048 2.99956C8.86401 2.99956 7.98622 3.17413 7.16724 3.5133C6.34825 3.85247 5.6041 4.3496 4.97727 4.9763C4.35045 5.603 3.85322 6.34701 3.51398 7.16584C3.17475 7.98466 3.00015 8.86228 3.00015 9.74857C3.00015 10.6349 3.17475 11.5125 3.51398 12.3313C3.85322 13.1501 4.35045 13.8941 4.97727 14.5208C5.6041 15.1475 6.34825 15.6447 7.16724 15.9838C7.98622 16.323 8.86401 16.4976 9.75048 16.4976Z" fill="white" />
+                        </svg>
+                        ) : ''}
                         <Link href='/user-account'>
                             <Image
                                 src={isActive ? '/assets/img/icons/user-fill.svg' : '/assets/img/icons/user.svg'}

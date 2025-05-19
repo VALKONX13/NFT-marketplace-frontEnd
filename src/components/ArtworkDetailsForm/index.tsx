@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import RedarkButton from "@/components/RedarkButton/index";
 import Link from "next/link";
 import PromptInputSection from "../PromptInputSection";
+import { motion } from 'framer-motion';
 
 const validationSchema = Yup.object({
   file: Yup.mixed().required("File is required"),
@@ -43,14 +44,27 @@ const ArtworkDetailsForm: React.FC<Props> = ({
     formik.setFieldValue("file", file);
   };
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 40 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
   return (
-    <form
+    <motion.form
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
       onSubmit={formik.handleSubmit}
       className="grid grid-cols-2 gap-8 text-white"
     >
       {/* Upload Box */}
       {selectedMintOption === "Mint Your Own NFT" ? (
-        <div className="bg-white/13 border-2 border-redark-purple rounded-[40px] flex flex-col items-center justify-center text-center h-[700px] py-16 px-6">
+        <motion.div
+          initial="initial"
+          animate="animate"
+          variants={fadeInUp}
+          className="bg-white/13 lg:col-span-1 col-span-2 border-2 border-redark-purple rounded-[40px] flex flex-col items-center justify-center text-center lg:h-[700px] lg:py-16 py-10 px-4 lg:px-6">
           <div className="text-4xl mb-4">
             <svg
               width="48"
@@ -65,9 +79,9 @@ const ArtworkDetailsForm: React.FC<Props> = ({
               />
             </svg>
           </div>
-          <h3 className="text-lg font-semibold mb-2">Upload File</h3>
-          <p className="text-sm mb-4 text-gray-400 font-azeret">
-            Drag or choose your file to upload
+          <h3 className="text-lg mb-2">Upload File</h3>
+          <p className="lg:text-sm text-xs mb-4 text-gray-400 font-azeret">
+            <span className="text-white">Drag or choose your file to upload</span>
             <br />
             PNG, GIF, WEBP, MP4 – Max. 10 GB
           </p>
@@ -81,7 +95,7 @@ const ArtworkDetailsForm: React.FC<Props> = ({
           />
           <label
             htmlFor="fileInput"
-            className="bg-white text-redark-purple px-6 py-2 rounded-full text-sm font-semibold cursor-pointer"
+            className="bg-white text-redark-purple px-6 pt-3 pb-2 rounded-full lg:text-sm text-xs font-mokoto cursor-pointer"
           >
             BROWSE FILES
           </label>
@@ -90,13 +104,17 @@ const ArtworkDetailsForm: React.FC<Props> = ({
               {formik.errors.file}
             </div>
           )}
-        </div>
+        </motion.div>
       ) : (
         <PromptInputSection />
       )}
 
       {/* Form Fields */}
-      <div className="flex flex-col gap-4 justify-between h-[100%]">
+      <motion.div
+        initial="initial"
+        animate="animate"
+        variants={fadeInUp}
+        className={`xl:col-span-1 col-span-2 flex flex-col gap-4 justify-between h-[100%] ${(selectedMintOption === 'AI GENERATED ARTWORK MINTING') ? 'lg:flex hidden' : 'flex'}`}>
         <input
           type="text"
           name="productName"
@@ -104,7 +122,7 @@ const ArtworkDetailsForm: React.FC<Props> = ({
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.productName}
-          className="bg-white/25 p-4 h-[72px] rounded-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-redark-purple"
+          className="bg-white/25 p-4 h-[72px] lg:text-start text-center rounded-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-redark-purple"
         />
         {formik.touched.productName && formik.errors.productName && (
           <div className="text-red-400 text-sm">
@@ -118,7 +136,7 @@ const ArtworkDetailsForm: React.FC<Props> = ({
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.productDescription}
-          className="bg-white/25 p-4 rounded-3xl h-[440px] resize-none placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-redark-purple"
+          className="bg-white/25 p-4 rounded-3xl h-[440px] lg:text-start text-center resize-none placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-redark-purple"
         />
         {formik.touched.productDescription &&
           formik.errors.productDescription && (
@@ -127,10 +145,13 @@ const ArtworkDetailsForm: React.FC<Props> = ({
             </div>
           )}
 
-        <div className="grid grid-cols-7 gap-1">
-          <div className="flex col-start-1 col-end-4 h-[72px] items-center bg-white/25 focus:ring-2 focus:ring-redark-purple rounded-full">
+        <div className="lg:grid flex flex-col grid-cols-7 lg:gap-1 gap-4">
+          <motion.div initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+            className="flex col-start-1 col-end-4 h-[72px] items-center bg-white/25 focus:ring-2 focus:ring-redark-purple rounded-full">
             <svg
-              className="ml-5"
+              className="lg:ml-5 min-w-[20%]"
               width="20"
               height="20"
               viewBox="0 0 20 20"
@@ -151,17 +172,19 @@ const ArtworkDetailsForm: React.FC<Props> = ({
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.price}
-              className=" p-4 placeholder-gray-400 focus:outline-none "
+              className="lg:p-4 py-4 w-[80%] placeholder-gray-400 lg:text-start text-center focus:outline-none "
             />
-          </div>
-          <input
+          </motion.div>
+          <motion.input initial="initial"
+            animate="animate"
+            variants={fadeInUp}
             type="number"
             name="royalties"
             placeholder="Set Royalties (Max. 10%)"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.royalties}
-            className="bg-white/25 p-4 h-[72px] rounded-full col-start-5 col-end-8 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-redark-purple"
+            className="bg-white/25 p-4 h-[72px] lg:text-start text-center rounded-full col-start-5 col-end-8 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-redark-purple"
           />
         </div>
         <div className="flex gap-4 text-sm text-red-400">
@@ -172,9 +195,13 @@ const ArtworkDetailsForm: React.FC<Props> = ({
             <span>{formik.errors.royalties}</span>
           )}
         </div>
-      </div>
+      </motion.div>
       {/* Action Buttons */}
-      <div className="flex gap-4 m-0 col-start-1 col-end-3 justify-between items-center">
+      <motion.div
+        initial="initial"
+        animate="animate"
+        variants={fadeInUp}
+        className={`flex xl:flex-row flex-col gap-4 m-0 col-start-1 col-end-3 justify-between items-center text-center lg:text-start text-xs lg:text-md ${(selectedMintOption === 'AI GENERATED ARTWORK MINTING') ? 'lg:flex hidden' : 'flex'}`}>
         <p className="font-azeret">
           You need promotion? Drop a line to{" "}
           <Link href="#" className="text-redark-purple">
@@ -182,21 +209,21 @@ const ArtworkDetailsForm: React.FC<Props> = ({
           </Link>{" "}
           and we will contact you soon!
         </p>
-        <div className="flex items-center justify-center gap-12">
+        <div className="flex lg:flex-row flex-col items-center justify-center lg:gap-12 gap-6">
           <button
             type="button"
-            className="bg-redark-purple border border-white font-mokoto px-18 pt-3 pb-2.5 rounded-full text-white"
+            className="bg-redark-purple border border-white font-mokoto lg:px-18 px-6 lg:pt-3 lg:pb-2.5 pt-2 pb-1 text-xs mg:text-md rounded-full text-white"
           >
             PREVIEW
           </button>
           <RedarkButton
             title="NEXT"
             type="submit"
-            className="!px-24 border border-white"
+            className="lg:!px-24 px-6 !pt-2 !pb-1 lg:!pt-3 lg:!pb-2.5 border border-white text-xs mg:text-md "
           />
         </div>
-      </div>
-    </form>
+      </motion.div>
+    </motion.form>
   );
 };
 

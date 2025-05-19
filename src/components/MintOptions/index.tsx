@@ -1,49 +1,68 @@
 import Image from "next/image";
 import RedarkButton from "@/components/RedarkButton/index";
+import { motion } from 'framer-motion';
 
 interface MintOptionsProps {
   onSelect: (option: string) => void;
-}
+};
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: "easeOut" }
+};
 
 export default function MintOptions({ onSelect }: MintOptionsProps) {
   return (
-    <div className="items-center text-center text-white font-azeret px-4 py-6 md:flex-row md:justify-center gap-6">
-      <div className="grid grid-cols-12 gap-8">
+    <div className="items-center text-center text-white font-azeret lg:px-4 lg:py-6 py-3 md:flex-row md:justify-center gap-6">
+      <div className="grid xl:grid-cols-12 grid-cols-4 lg:gap-8">
         {/* Mint Your Own NFT Section */}
-        <div className="bg-redark-purple/13 rounded-2xl p-6 w-full col-span-6">
-          <h2 className="tracking-wider font-mokoto text-2xl py-8 text-start border-b border-b-white/25">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="bg-redark-purple/13 rounded-2xl lg:p-6 w-full lg:col-span-6 col-span-4 lg:mb-0 mb-4">
+          <h2 className="tracking-wider font-mokoto lg:text-xl lg:py-8 pt-5 pb-3 px-6 xl:px-2 text-xs text-start border-b border-b-white/25">
             MINT YOUR OWN NFT
           </h2>
-          <div className="flex gap-4 justify-around py-8">
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+            className="flex lg:gap-4 gap-2 justify-around lg:py-8 py-4 px-2">
             <Image
               src="/assets/img/NFT-art.png"
               alt="NFT 1"
               width={200}
               height={208}
-              className="rounded-xl object-cover"
+              className="rounded-xl object-cover w-[30%] aspect-square"
             />
             <Image
               src="/assets/img/duck-nft.jpg"
               alt="NFT 2"
               width={200}
               height={208}
-              className="rounded-xl object-cover"
+              className="rounded-xl object-cover w-[30%] aspect-square"
             />
             <Image
               src="/assets/img/lizard-main.jpg"
               alt="NFT 3"
               width={200}
               height={208}
-              className="rounded-xl object-cover"
+              className="rounded-xl object-cover w-[30%] aspect-square"
             />
-          </div>
-          <p className="text-gray-400 mb-6 text-start">
+          </motion.div>
+          <p className="text-gray-400 mb-6 text-start lg:text-lg text-xs px-3">
             Take full control of your creation process. Upload your artwork, set
             properties, and mint directly to the blockchain.
           </p>
-          <ul className="text-left space-y-2 mb-6 text-sm text-gray-400">
-            <li className="flex items-center gap-5 mb-3">
-              <svg
+          <motion.ul
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+            className="text-left space-y-2 mb-6 lg:text-sm text-xs px-3 text-gray-400">
+            <li className="flex items-center lg:gap-5 gap-3 mb-3">
+              <svg className="w-[8%] lg:w-fit"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -55,10 +74,10 @@ export default function MintOptions({ onSelect }: MintOptionsProps) {
                   fill="#8C52FF"
                 />
               </svg>
-              <p>Create one-of-a-kind masterpieces</p>
+              <p className="flex-1">Create one-of-a-kind masterpieces</p>
             </li>
-            <li className="flex items-center gap-5 mb-3">
-              <svg
+            <li className="flex items-center lg:gap-5 gap-3 mb-3">
+              <svg className="w-[8%] lg:w-fit"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -70,10 +89,10 @@ export default function MintOptions({ onSelect }: MintOptionsProps) {
                   fill="#8C52FF"
                 />
               </svg>
-              <p>Build entire collections</p>
+              <p className="flex-1">Build entire collections</p>
             </li>
-            <li className="flex items-center gap-5 mb-3">
-              <svg
+            <li className="flex items-center lg:gap-5 gap-3 mb-3">
+              <svg className="w-[8%] lg:w-fit"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -85,52 +104,65 @@ export default function MintOptions({ onSelect }: MintOptionsProps) {
                   fill="#8C52FF"
                 />
               </svg>
-              <p>Set custom meta-data and properties</p>
+              <p className="flex-1">Set custom meta-data and properties</p>
             </li>
-          </ul>
+          </motion.ul>
           <RedarkButton
             onClick={() => onSelect("Mint Your Own NFT")}
             title="START CREATING"
+            className="text-xs lg:text-lg !pt-3 !pb-2 lg:mt-6"
           />
-          <p className="text-gray-500 text-xs text-start mt-16">
+          <p className="text-gray-500 text-xs lg:text-start text-center lg:mt-16 my-4 px-3">
             Submitting: 100.00 ARKV, no additional costs
           </p>
-        </div>
+        </motion.div>
         {/* AI Generated Artwork Section */}
-        <div className="bg-redark-purple/13 rounded-2xl p-6 w-full col-span-6">
-          <h2 className="tracking-wider font-mokoto text-2xl py-8 text-start border-b border-b-white/25">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="bg-redark-purple/13 rounded-2xl lg:p-6 w-full lg:col-span-6 col-span-4">
+          <h2 className="tracking-wider font-mokoto lg:text-xl lg:py-8 pt-5 pb-3 px-6 xl:px-2 text-xs text-start border-b border-b-white/25">
             AI GENERATED ARTWORK MINTING
           </h2>
-          <div className="flex gap-4 justify-around py-8">
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+            className="flex lg:gap-4 gap-2 justify-around lg:py-8 py-4 px-2">
             <Image
               src="/assets/img/NFT-art.png"
               alt="NFT 1"
               width={200}
               height={208}
-              className="rounded-xl object-cover"
+              className="rounded-xl object-cover w-[30%] aspect-square"
             />
             <Image
               src="/assets/img/duck-nft.jpg"
               alt="NFT 2"
               width={200}
               height={208}
-              className="rounded-xl object-cover"
+              className="rounded-xl object-cover w-[30%] aspect-square"
             />
             <Image
               src="/assets/img/lizard-main.jpg"
               alt="NFT 3"
               width={200}
               height={208}
-              className="rounded-xl object-cover"
+              className="rounded-xl object-cover w-[30%] aspect-square"
             />
-          </div>
-          <p className="text-gray-400 mb-6 text-sm text-start">
+          </motion.div>
+          <p className="text-gray-400 mb-6 lg:text-lg text-xs lg:px-0 px-3 text-start">
             A NEW WAY to create Digital Assets. Let our AI technology transform
             your vision into stunning digital art.
           </p>
-          <ul className="text-left space-y-2 mb-6 text-sm text-gray-400">
+          <motion.ul
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+            className="text-left space-y-2 mb-6 lg:text-sm text-xs text-gray-400 lg:px-0 px-3">
             <li className="flex items-center gap-5 mb-3">
-              <svg
+              <svg className="w-[8%] lg:w-fit"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -142,10 +174,10 @@ export default function MintOptions({ onSelect }: MintOptionsProps) {
                   fill="#8C52FF"
                 />
               </svg>
-              <p>Text-to-image generation</p>
+              <p className="flex-1">Text-to-image generation</p>
             </li>
             <li className="flex items-center gap-5 mb-3">
-              <svg
+              <svg className="w-[8%] lg:w-fit"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -157,10 +189,10 @@ export default function MintOptions({ onSelect }: MintOptionsProps) {
                   fill="#8C52FF"
                 />
               </svg>
-              <p>Style-customization options</p>
+              <p className="flex-1">Style-customization options</p>
             </li>
             <li className="flex items-center gap-5 mb-3">
-              <svg
+              <svg className="w-[8%] lg:w-fit"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -172,28 +204,32 @@ export default function MintOptions({ onSelect }: MintOptionsProps) {
                   fill="#8C52FF"
                 />
               </svg>
-              <p>Multiple variations to choose from</p>
+              <p className="flex-1">Multiple variations to choose from</p>
             </li>
-          </ul>
+          </motion.ul>
           <button
             onClick={() => onSelect("AI GENERATED ARTWORK MINTING")}
-            className="bg-gradient-to-r from-[#8C52FF] to-[#543199] border border-white font-mokoto
-            px-11 pb-2.5 pt-3 font-medium text-[16px] rounded-full hover:opacity-90 transition"
+            className="bg-gradient-to-r from-[#8C52FF] to-[#543199] border border-white font-mokoto lg:mt-6
+            lg:px-11 px-6 pb-2 pt-3 font-medium lg:text-[16px] text-xs rounded-full hover:opacity-90 transition"
           >
             GENERATE WITH AI
           </button>
-          <p className="text-gray-500 text-xs mt-16 text-start">
+          <p className="text-gray-500 text-xs lg:mt-16 my-4 lg:text-start text-center px-3">
             Submitting: 100.00 ARKV, Generating: 10.00 ARKV /3 attempt
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Wallet Info */}
-      <p className="text-sm text-gray-300 w-full text-center mt-12">
+      <motion.p
+        initial="initial"
+        animate="animate"
+        variants={fadeInUp}
+        className="lg:text-sm text-xs text-gray-300 w-full text-center lg:mt-12 mt-6">
         Your current wallet Balance is{" "}
-        <span className="text-purple-400 font-semibold">107.68 ARKV</span> – you
+        <span className="text-redark-purple">107.68 ARKV</span> – you
         are all set to mint your NFT.
-      </p>
+      </motion.p>
     </div>
   );
 }

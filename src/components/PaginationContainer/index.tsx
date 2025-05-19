@@ -9,6 +9,9 @@ type PaginationContainerProps = {
   height?: string;
   display?: string;
   position?: string;
+  nextButton?: string;
+  prevButton?: string;
+  indicators?: string;
 };
 
 export default function PaginationContainer({
@@ -19,6 +22,9 @@ export default function PaginationContainer({
   height,
   display,
   position,
+  nextButton,
+  prevButton,
+  indicators,
 }: PaginationContainerProps) {
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = Math.ceil(children.length / itemsPerPage);
@@ -77,11 +83,14 @@ export default function PaginationContainer({
         <motion.button
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.95 }}
-          className={`fill-redark-purple transition disabled:fill-gray-500 disabled:cursor-not-allowed disabled:opacity-50`}
+          className={`fill-redark-purple transition disabled:fill-gray-500 disabled:cursor-not-allowed disabled:opacity-50 ${nextButton}`}
           onClick={() => goToPage(currentPage - 1)}
           disabled={currentPage === 0}
         >
-          <svg
+          {(indicators === 'hidden') ? (<svg width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.502093 10.7897C-0.167325 11.4591 -0.167325 12.5462 0.502093 13.2157L10.7844 23.4979C11.4538 24.1674 12.5409 24.1674 13.2103 23.4979C13.8798 22.8285 13.8798 21.7414 13.2103 21.072L4.13838 12L13.205 2.92804C13.8744 2.25862 13.8744 1.17148 13.205 0.502064C12.5356 -0.167355 11.4484 -0.167355 10.779 0.502064L0.496738 10.7843L0.502093 10.7897Z" fill="white" />
+          </svg>
+          ) : (<svg
             width="17"
             height="14"
             viewBox="0 0 17 14"
@@ -92,7 +101,8 @@ export default function PaginationContainer({
               d="M0.269915 7.63694C0.0985508 7.47287 0.000106812 7.24317 0.000106812 7.00253C0.000106812 6.76189 0.0985508 6.53583 0.269915 6.36811L6.68699 0.242725C7.03701 -0.0927129 7.59121 -0.0781286 7.923 0.271894C8.2548 0.621916 8.24386 1.17612 7.89384 1.50791L3.05915 6.12747H15.4594C15.9443 6.12747 16.3345 6.5176 16.3345 7.00253C16.3345 7.48745 15.9443 7.87758 15.4594 7.87758H3.05915L7.89748 12.4935C8.2475 12.8289 8.25844 13.3795 7.92665 13.7295C7.59486 14.0795 7.04066 14.0905 6.69063 13.7587L0.273561 7.6333L0.269915 7.63694Z"
               fill="white"
             />
-          </svg>
+          </svg>)}
+
         </motion.button>
 
         {Array.from({ length: totalPages }, (_, i) => (
@@ -101,8 +111,7 @@ export default function PaginationContainer({
             whileTap={{ scale: 0.95 }}
             key={i}
             onClick={() => goToPage(i)}
-            className={`text-xl font-bold transition ${i === currentPage ? "fill-redark-purple" : "fill-gray-500"
-              }`}
+            className={`text-xl font-bold transition ${i === currentPage ? "fill-redark-purple" : "fill-gray-500"} ${indicators}`}
           >
             <svg
               width="12"
@@ -118,11 +127,15 @@ export default function PaginationContainer({
         <motion.button
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.95 }}
-          className={`fill-redark-purple transition disabled:fill-gray-500 disabled:cursor-not-allowed disabled:opacity-50 scale-x-[-1]`}
+          className={`fill-redark-purple transition disabled:fill-gray-500 disabled:opacity-15 disabled:cursor-not-allowed scale-x-[-1] ${prevButton}`}
           onClick={() => goToPage(currentPage + 1)}
           disabled={currentPage === totalPages - 1}
         >
-          <svg
+          {(indicators === 'hidden') ? (<svg width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.502093 10.7897C-0.167325 11.4591 -0.167325 12.5462 0.502093 13.2157L10.7844 23.4979C11.4538 24.1674 12.5409 24.1674 13.2103 23.4979C13.8798 22.8285 13.8798 21.7414 13.2103 21.072L4.13838 12L13.205 2.92804C13.8744 2.25862 13.8744 1.17148 13.205 0.502064C12.5356 -0.167355 11.4484 -0.167355 10.779 0.502064L0.496738 10.7843L0.502093 10.7897Z" fill="white" />
+          </svg>
+
+          ) : (<svg
             width="17"
             height="14"
             viewBox="0 0 17 14"
@@ -133,7 +146,8 @@ export default function PaginationContainer({
               d="M0.269915 7.63694C0.0985508 7.47287 0.000106812 7.24317 0.000106812 7.00253C0.000106812 6.76189 0.0985508 6.53583 0.269915 6.36811L6.68699 0.242725C7.03701 -0.0927129 7.59121 -0.0781286 7.923 0.271894C8.2548 0.621916 8.24386 1.17612 7.89384 1.50791L3.05915 6.12747H15.4594C15.9443 6.12747 16.3345 6.5176 16.3345 7.00253C16.3345 7.48745 15.9443 7.87758 15.4594 7.87758H3.05915L7.89748 12.4935C8.2475 12.8289 8.25844 13.3795 7.92665 13.7295C7.59486 14.0795 7.04066 14.0905 6.69063 13.7587L0.273561 7.6333L0.269915 7.63694Z"
               fill="white"
             />
-          </svg>
+          </svg>)}
+
         </motion.button>
       </div>
     </motion.div>

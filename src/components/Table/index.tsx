@@ -27,7 +27,7 @@ export default function Table({ columns, data, title, icon }: TableProps) {
             {columns.map((col) => (
               <th
                 key={col}
-                className="px-4 py-2 uppercase tracking-wide font-azeret"
+                className={`px-4 py-2 uppercase tracking-wide font-azeret ${col === "Items" ? 'min-w-[170px]' : ''}`}
               >
                 {col}
               </th>

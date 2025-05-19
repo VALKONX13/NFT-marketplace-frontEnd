@@ -26,7 +26,8 @@ function MyWatchlist() {
       />
       <motion.div initial="initial"
         animate="animate"
-        variants={fadeInUp} className="md:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4">
+        variants={fadeInUp}
+        className="md:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4">
         <Header searchBar={false} wallet={false} />
         <motion.div
           className="lg:p-10 min-h-screen text-white col-span-9 py-4 flex flex-col lg:justify-center"
@@ -49,7 +50,7 @@ function MyWatchlist() {
               animate="animate"
               variants={fadeInUp}
               className="space-y-10 lg:p-8 py-6 pr-4 pl-2">
-              <h1 className="text-3xl hidden lg:flex font-md mb-10 font-mokoto uppercase">
+              <h1 className="text-3xl hidden lg:flex font-medium mb-10 font-mokoto uppercase">
                 Bidding Activity
               </h1>
               <Table
@@ -79,7 +80,7 @@ function MyWatchlist() {
                   </svg>
                 }
               />
-              <h1 className="text-3xl hidden lg:flex font-md mb-10 font-mokoto uppercase">
+              <h1 className="text-3xl hidden lg:flex font-medium mb-10 font-mokoto uppercase">
                 Watched NFTs
               </h1>
               <Table

@@ -89,7 +89,7 @@ export default function UserAccount() {
             My Account
           </p>
           <p className="inline md:hidden text-sm my-6">Personal Details</p>
-          <h1 className="md:text-3xl text-xl font-md mb-10 font-mokoto uppercase hidden md:inline">USER CREDENTIALS</h1>
+          <h1 className="md:text-3xl text-xl font-medium mb-10 font-mokoto uppercase hidden md:inline">USER CREDENTIALS</h1>
           <motion.div
             initial="initial"
             animate="animate"
@@ -99,7 +99,7 @@ export default function UserAccount() {
             <p className="block md:hidden text-center text-white font-mokoto text-xs uppercase mb-4">
               My Account
             </p>
-            <h2 className="text-xl font-md font-mokoto 2xl:mb-20 md:mb-10 mb-5 hidden md:flex">
+            <h2 className="text-xl font-medium font-mokoto 2xl:mb-20 md:mb-10 mb-5 hidden md:flex">
               AVATAR
             </h2>
 

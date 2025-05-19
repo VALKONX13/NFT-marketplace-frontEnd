@@ -7,10 +7,10 @@ export default function BalanceWarningModal() {
     <>
       {isOpen && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center">
-          <div className="bg-gradient-to-br from-[#EBE0FF] to-[#FFFFFF] text-center border border-redark-purple text-[#543199] rounded-[40px] w-full max-w-2xl px-6 py-16 shadow-lg relative">
+          <div className="bg-gradient-to-br from-[#EBE0FF] to-[#FFFFFF] text-center border border-redark-purple text-[#543199] lg:rounded-[40px] h-full lg:h-auto w-full max-w-2xl px-6 py-16 shadow-lg relative">
             {/* Close Button */}
             <button
-              className="absolute top-4 right-4 p-4 text-redark-purple text-2xl font-bold"
+              className="absolute hidden lg:flex top-4 right-4 p-4 text-redark-purple text-2xl font-bold"
               onClick={() => {
                 setIsOpen(!isOpen);
               }}
