@@ -1,17 +1,26 @@
 import React from "react";
 import RedarkButton from '@/components/RedarkButton/index';
+import { motion } from 'framer-motion';
 
-function MainBanner() {
+type bannerProps = {
+  className?: string,
+}
+
+function MainBanner({ className }: bannerProps) {
   return (
-    <div className="bg-[url('/assets/img/marketplace-header.jpg')] rounded-[40px] w-full bg-center bg-cover px-[50px] py-[46px] hidden lg:block">
-      <p className="font-bold text-5xl text-white max-w-[416px] leading-16">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className={`${className} bg-[url('/assets/img/marketplace-header.jpg')] rounded-[40px] w-full bg-center bg-cover p-6 lg:px-[50px] lg:py-[46px]`}>
+      <p className="font-bold xl:text-5xl text-2xl text-white max-w-[416px] xl:leading-16">
         Discover Rare & Unique Digital Art
       </p>
-      <div className="pt-5 gap-10 flex">
-        <RedarkButton title="EXPLORE NFTS" />
-        <RedarkButton title="CREATE NFT" />
+      <div className="pt-5 lg:gap-10 gap-4 flex md:flex-row flex-col">
+        <RedarkButton title="EXPLORE NFTS" className="!px-4 text-xs" />
+        <RedarkButton title="CREATE NFT" className="!px-4 text-xs" />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

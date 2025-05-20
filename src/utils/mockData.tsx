@@ -40,10 +40,10 @@ const MockData = {
       currentBid: "0.73",
     },
   ],
-  marketplaceItems: [
+  mainPageSidebar: [
     {
       title: "Market",
-      href: "#",
+      href: "/marketplace",
       icon: (
         <svg
           className="hover:fill-redark-purple"
@@ -107,10 +107,10 @@ const MockData = {
       ),
     },
   ],
-  marketplace: [
+  marketplaceSidebar: [
     {
       title: "Market",
-      href: "#",
+      href: "/marketplace",
       icon: (
         <svg
           className="hover:fill-redark-purple"

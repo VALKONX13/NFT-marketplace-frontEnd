@@ -6,6 +6,8 @@ import MockData from "@/utils/mockData";
 import MainBanner from "@/components/MainBanner";
 import ScanReport from "@/components/ScanReport";
 import ScoreAnalysis from "@/components/ScoreAnalysis";
+import Header from "@/components/Header";
+import { motion } from 'framer-motion';
 
 export default function ArkScore() {
   const formik = useFormik({
@@ -24,113 +26,157 @@ export default function ArkScore() {
     },
   });
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 40 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
   const [isScanning, setIsScanning] = useState(false);
 
   return (
-    <div className="bg-redark-navy grid grid-cols-12 gap-8">
+    <div className="bg-redark-navy grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 lg:gap-8">
       <Sidebar
         dividerTitles={["Marketplace", "Account"]}
-        navItems={[MockData.marketplace, MockData.accountItems]}
+        navItems={[MockData.marketplaceSidebar, MockData.accountItems]}
         button={true}
-        className="col-start-1 col-end-3"
+        className="col-span-1 lg:col-span-3 2xl:col-span-2"
       />
-      <div className="col-span-10 text-white min-h-screen flex flex-col items-center justify-center py-8 pr-8">
-        <MainBanner />
-        {!isScanning ? (
-          <div className="w-[60%] flex flex-col items-center">
-            <h2 className="text-2xl font-mokoto uppercase tracking-widest mt-20 mb-8">
-              Create New Score
-            </h2>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="md:col-span-11 lg:col-span-9 2xl:col-span-10 sm:col-span-7 col-span-4">
+        <Header className="hidden lg:flex" searchBar={true} wallet={true} searchIcon={false} />
+        {/* Mobile Header */}
+        <Header className="lg:hidden pl-2" userIcon={false} searchBar={false} wallet={false} searchIcon={false} />
 
-            {/* Form Box */}
-            <form
-              onSubmit={formik.handleSubmit}
-              className="bg-redark-purple/6 border border-redark-purple rounded-[20px] px-8 py-14 w-full"
-            >
-              <div className="flex flex-col gap-6 px-20">
-                <input
-                  name="url1"
-                  placeholder="URL1"
-                  value={formik.values.url1}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  className="w-full bg-white/25 h-[72px] rounded-full px-8 py-6 outline-none text-sm placeholder-white"
+        <div className="col-span-10 text-white min-h-screen flex flex-col items-center lg:justify-center py-8 lg:pr-8">
+          <p className="font-azeret pl-2 text-gray-400 self-baseline mb-5 lg:text-md text-xs">ARKHive / Art Tools / ARK Score</p>
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+            className="mx-4 w-full px-3">
+            <MainBanner />
+          </motion.div>
+          {!isScanning ? (
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={fadeInUp}
+              className="2xl:w-[68%] lg:w-[90%] w-[-webkit-fill-available] flex flex-col items-center">
+              <h2 className="lg:text-2xl text-sm font-mokoto uppercase tracking-widest lg:mt-20 mt-9 lg:mb-8 mb-4">
+                Create New Score
+              </h2>
+
+              {/* Form Box */}
+              <motion.form
+                initial="initial"
+                animate="animate"
+                variants={fadeInUp}
+                onSubmit={formik.handleSubmit}
+                className="bg-redark-purple/6 lg:border lg:border-redark-purple border-t border-b border-t-redark-purple border-b-redark-purple lg:rounded-[20px] lg:px-8 md:px-12 sm:px-10 px-4 lg:py-14 py-4 w-full"
+              >
+                <div className="flex flex-col gap-6 lg:px-20">
+                  <input
+                    name="url1"
+                    placeholder="URL1"
+                    value={formik.values.url1}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    className="w-full bg-white/25 lg:h-[72px] h-[40px] rounded-full px-8 py-6 outline-none text-sm placeholder-white"
+                  />
+                  {formik.touched.url1 && formik.errors.url1 && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {formik.errors.url1}
+                    </p>
+                  )}
+
+                  <input
+                    name="url2"
+                    placeholder="URL2"
+                    value={formik.values.url2}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    className="w-full bg-white/25 lg:h-[72px] h-[40px] rounded-full px-8 py-6 outline-none text-sm placeholder-white"
+                  />
+                  {formik.touched.url2 && formik.errors.url2 && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {formik.errors.url2}
+                    </p>
+                  )}
+                </div>
+              </motion.form>
+              {/* Mobile vertical line */}
+              <svg className="lg:hidden" width="2" height="22" viewBox="0 0 2 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 0L1 22" stroke="#8C52FF" stroke-opacity="0.53" />
+              </svg>
+
+
+              <svg className="md:w-[90%] md:h-[90%] hidden lg:flex"
+                width="795"
+                height="141"
+                viewBox="0 0 795 141"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 0V33.2598C1 55.3512 18.9086 73.2598 41 73.2598H366C388.091 73.2598 406 91.1684 406 113.26M406 113.26V141M406 113.26C406 91.1684 423.909 73.2598 446 73.2598H754C776.091 73.2598 794 55.3512 794 33.2598V0M234 0V73M561 0V73"
+                  stroke="#8C52FF"
+                  stroke-opacity="0.53"
                 />
-                {formik.touched.url1 && formik.errors.url1 && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {formik.errors.url1}
-                  </p>
-                )}
+              </svg>
 
-                <input
-                  name="url2"
-                  placeholder="URL2"
-                  value={formik.values.url2}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  className="w-full bg-white/25 h-[72px] rounded-full px-8 py-6 outline-none text-sm placeholder-white"
-                />
-                {formik.touched.url2 && formik.errors.url2 && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {formik.errors.url2}
-                  </p>
-                )}
-              </div>
-            </form>
-            <svg
-              width="795"
-              height="141"
-              viewBox="0 0 795 141"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 0V33.2598C1 55.3512 18.9086 73.2598 41 73.2598H366C388.091 73.2598 406 91.1684 406 113.26M406 113.26V141M406 113.26C406 91.1684 423.909 73.2598 446 73.2598H754C776.091 73.2598 794 55.3512 794 33.2598V0M234 0V73M561 0V73"
-                stroke="#8C52FF"
-                stroke-opacity="0.53"
-              />
-            </svg>
-
-            {/* Score Box */}
-            <ScoreAnalysis />
-
-            {/* Button */}
-            <div className="relative flex flex-col items-center mt-10">
-              {/* Vertical Line */}
-              <div className="w-[1px] h-10 bg-redark-purple absolute top-[-40px]"></div>
+              {/* Score Box */}
+              <ScoreAnalysis />
 
               {/* Button */}
-              <button
-                type="submit"
-                onClick={() => {
-                  formik.handleSubmit();
-                  setIsScanning(true);
-                }}
-                className="px-10 pt-[22px] pb-4 uppercase rounded-full border-4 border-white bg-[url('/assets/img/scan-bttn-bg.jpg')] bg-center text-white text-xl font-mokoto tracking-widest"
-              >
-                INITIATE SCAN
-              </button>
-            </div>
-          </div>
-        ) : (
-          <div>
-            <ScanReport />
-            <div className="relative flex flex-col items-center mt-10">
-              {/* Vertical Line */}
-              <div className="w-[1px] h-10 bg-redark-purple absolute top-[-40px]"></div>
+              <motion.div
+                initial="initial"
+                animate="animate"
+                variants={fadeInUp}
+                className="relative flex flex-col items-center mt-10">
+                {/* Vertical Line */}
+                <div className="w-[1px] h-10 bg-redark-purple absolute top-[-40px]"></div>
 
-              {/* Button */}
-              <button
-                onClick={() => setIsScanning(false)}
-                className="px-10 pt-[22px] pb-4 rounded-full border-4 border-white bg-[url('/assets/img/scan-bttn-bg.jpg')]
-            bg-center text-white text-xl font-mokoto tracking-widest uppercase"
-              >
-                RESCAN
-              </button>
+                {/* Button */}
+                <button
+                  type="submit"
+                  onClick={() => {
+                    formik.handleSubmit();
+                    setIsScanning(true);
+                  }}
+                  className="lg:px-10 px-4 lg:pt-[22px] lg:pb-4 pt-3 pb-2 uppercase rounded-full border-4 border-white bg-[url('/assets/img/scan-bttn-bg.jpg')] bg-center text-white lg:text-xl text-lg font-mokoto tracking-widest"
+                >
+                  INITIATE SCAN
+                </button>
+              </motion.div>
+            </motion.div>
+          ) : (
+            <div className="w-full">
+              <ScanReport />
+              <motion.div
+                initial="initial"
+                animate="animate"
+                variants={fadeInUp} 
+                className="relative flex flex-col items-center mt-10">
+                {/* Vertical Line */}
+                <div className="w-[1px] h-10 bg-redark-purple/25 absolute top-[-40px] "></div>
+
+                {/* Button */}
+                <button
+                  onClick={() => setIsScanning(false)}
+                  className="px-10 pt-[22px] pb-4 rounded-full border-4 border-white bg-[url('/assets/img/scan-bttn-bg.jpg')]
+                  bg-center text-white text-xl font-mokoto tracking-widest uppercase"
+                >
+                  RESCAN
+                </button>
+              </motion.div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      </motion.div>
     </div>
   );
 }

@@ -48,13 +48,13 @@ const Marketplace = () => {
       <motion.div variants={itemVariants} className="lg:col-span-3 xl:col-span-2 col-span-1">
         <Sidebar
           dividerTitles={["Marketplace", "Account"]}
-          navItems={[MockData.marketplaceItems, MockData.accountItems]}
+          navItems={[MockData.mainPageSidebar, MockData.accountItems]}
           button={true}
         />
       </motion.div>
 
       <motion.div variants={itemVariants} className="xl:col-span-10 lg:col-span-9 md:col-span-7 col-span-4">
-        <Header searchBar={true} wallet={true}/>
+        <Header searchBar={true} wallet={true} />
         <div className="lg:grid lg:grid-cols-8 gap-6">
           <motion.div variants={itemVariants} className="flex flex-col items-center mx-auto">
             <p className="lg:hidden block font-mokoto text-sm text-redark-purple mb-4 pt-4">
@@ -64,9 +64,10 @@ const Marketplace = () => {
           </motion.div>
 
           <div className="col-span-8 xl:col-start-1 xl:col-end-7 gap-6 py-4 xl:pr-0 pr-2 md:pr-5">
-            <motion.div variants={itemVariants}><MainBanner /></motion.div>
+            <motion.div variants={itemVariants}><MainBanner className="hidden lg:block" /></motion.div>
             <motion.div variants={itemVariants}><ArtistFilter state={open} /></motion.div>
 
+            {/* trending NFTS */}
             <motion.div variants={itemVariants} className="flex items-center justify-between mb-4">
               <p className="lg:text-4xl md:text-2xl text-xs -mb-1 text-white font-mokoto adjust-mokoto lg:py-10 pb-4">
                 Trending NFTs
@@ -76,6 +77,7 @@ const Marketplace = () => {
               </span>
             </motion.div>
 
+            {/* Filter Options */}
             <motion.div variants={itemVariants} className="flex items-center gap-2">
               <div className="flex items-center gap-2 grow justify-center md:justify-start pr-2">
                 <div className="flex lg:gap-2 gap-1">
@@ -88,11 +90,10 @@ const Marketplace = () => {
                         setActiveFilter(filter);
                         if (filter === "artist") setOpen(!open);
                       }}
-                      className={`rounded-[40px] py-2 lg:px-5 px-2 transition-all text-xs lg:text-md ${
-                        activeFilter === filter
-                          ? "bg-redark-purple text-white"
-                          : "bg-transparent border border-redark-purple text-white"
-                      }`}
+                      className={`rounded-[40px] py-2 lg:px-5 px-2 transition-all text-xs lg:text-md ${activeFilter === filter
+                        ? "bg-redark-purple text-white"
+                        : "bg-transparent border border-redark-purple text-white"
+                        }`}
                     >
                       {filter}
                     </motion.button>
@@ -108,6 +109,7 @@ const Marketplace = () => {
               variants={containerVariants}
               className="md:grid md:grid-cols-6 lg:grid-cols-12 md:gap-6 gap-3 lg:my-12 my-4"
             >
+              {/* Mobile cards */}
               <PaginationContainer title="" itemsPerPage={1} className="!bg-transparent md:hidden">
                 {[...Array(4)].map((_, index) => (
                   <motion.div key={index} variants={itemVariants} className="xl:col-span-4 2xl:col-span-3 lg:col-span-4">
@@ -123,6 +125,80 @@ const Marketplace = () => {
               </PaginationContainer>
 
               {[...Array(4)].map((_, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="xl:col-span-4 2xl:col-span-3 lg:col-span-4 md:col-span-3 hidden md:inline"
+                >
+                  <NFTCard
+                    creatorName="John Doe"
+                    imageSrc="/assets/img/duck-nft.jpg"
+                    title={`Cyber Duck #${index + 1}`}
+                    currentBid="0.58"
+                    onPlaceBid={() => alert(`Bid placed on Duck #${index + 1}`)}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* trending NFTS */}
+            <motion.div variants={itemVariants} className="flex items-center justify-between mb-4">
+              <p className="lg:text-4xl md:text-2xl text-xs -mb-1 text-white font-mokoto adjust-mokoto lg:py-10 pb-4">
+                Trending NFTs
+              </p>
+              <span className="lg:hidden inline">
+                <SortDropdown />
+              </span>
+            </motion.div>
+
+            {/* Filter Options */}
+            <motion.div variants={itemVariants} className="flex items-center gap-2">
+              <div className="flex items-center gap-2 grow justify-center md:justify-start pr-2">
+                <div className="flex lg:gap-2 gap-1">
+                  {["category", "artist", "status", "pricing"].map((filter) => (
+                    <motion.button
+                      key={filter}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => {
+                        setActiveFilter(filter);
+                        if (filter === "artist") setOpen(!open);
+                      }}
+                      className={`rounded-[40px] py-2 lg:px-5 px-2 transition-all text-xs lg:text-md ${activeFilter === filter
+                        ? "bg-redark-purple text-white"
+                        : "bg-transparent border border-redark-purple text-white"
+                        }`}
+                    >
+                      {filter}
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+              <span className="hidden lg:inline">
+                <SortDropdown />
+              </span>
+            </motion.div>
+
+            <motion.div
+              variants={containerVariants}
+              className="md:grid md:grid-cols-6 lg:grid-cols-12 md:gap-6 gap-3 lg:my-12 my-4"
+            >
+              {/* Mobile cards */}
+              <PaginationContainer title="" itemsPerPage={1} className="!bg-transparent md:hidden">
+                {[...Array(8)].map((_, index) => (
+                  <motion.div key={index} variants={itemVariants} className="xl:col-span-4 2xl:col-span-3 lg:col-span-4">
+                    <NFTCard
+                      creatorName="John Doe"
+                      imageSrc="/assets/img/duck-nft.jpg"
+                      title={`Cyber Duck #${index + 1}`}
+                      currentBid="0.58"
+                      onPlaceBid={() => alert(`Bid placed on Duck #${index + 1}`)}
+                    />
+                  </motion.div>
+                ))}
+              </PaginationContainer>
+
+              {[...Array(8)].map((_, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}

@@ -1,18 +1,36 @@
 import Image from "next/image";
 import React from "react";
+import { motion } from 'framer-motion';
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: "easeOut" }
+};
 
 function ScoreAnalysis() {
   return (
-    <div className="bg-redark-purple/6 border border-redark-purple rounded-xl px-8 py-5 w-full max-w-3xl text-center relative">
-      <div className="pb-4">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="bg-redark-purple/6 lg:border lg:border-redark-purple border-t border-b border-t-redark-purple border-b-redark-purple lg:rounded-[20px] px-8 py-5 w-full lg:max-w-3xl text-center relative">
+      <motion.div
+        initial="initial"
+        animate="animate"
+        variants={fadeInUp}
+        className="pb-4">
         <p className="text-xs mb-1 font-azeret text-gray-400">Analysis</p>
-        <p className="text-sm font-semibold tracking-wide font-azeret">
+        <p className="text-sm font-semibold tracking-wide font-azeret lg:mb-0 mb-4">
           SCORE SIGNIFICANCE
         </p>
-      </div>
+      </motion.div>
 
       {/* Progress Bar */}
-      <div className="mt-6 flex items-center justify-center relative">
+      <motion.div initial="initial"
+        animate="animate"
+        variants={fadeInUp}
+        className="mt-6 flex items-center justify-center relative">
         <div className="w-[90%] h-8 bg-[#3A3457] rounded-full overflow-hidden relative flex">
           <div className="w-[30%] bg-[#C9AEFF]" />
           <div className="w-[40%] bg-redark-purple" />
@@ -20,9 +38,9 @@ function ScoreAnalysis() {
         </div>
 
         {/* Astronaut & Label */}
-        <div className="absolute -top-5 left-[65%] flex flex-col items-center">
-          <div className="absolute top-[-20%] left-[20%]">
-            <p className="text-xs font-mokoto absolute bottom-[10%] left-[50px]">
+        <div className="absolute -top-5 lg:left-[58%] left-[60%] right-[20%] flex flex-col items-center">
+          <div className="absolute top-[-20%] left-[20%] right-[10%]">
+            <p className="text-xs font-mokoto absolute bottom-[10%] sm:left-[75px] left-[55px] xl:left-[85px]">
               801
             </p>
             <svg
@@ -44,24 +62,27 @@ function ScoreAnalysis() {
             height={40}
           />
         </div>
-      </div>
+      </motion.div>
 
       {/* Labels */}
-      <div className="mt-4 flex justify-between text-xs px-12 font-azeret">
-        <div>
+      <motion.div initial="initial"
+        animate="animate"
+        variants={fadeInUp}
+        className="mt-4 flex lg:flex-row flex-col justify-between gap-2 lg:gap-0 text-xs lg:px-12 font-azeret">
+        <div className="flex flex-col">
           <p>EXPLORER TIER</p>
           <p className="text-gray-400">300-599</p>
         </div>
-        <div>
+        <div className="flex flex-col">
           <p>CORE OPERATOR</p>
           <p className="text-gray-400">600-799</p>
         </div>
-        <div>
+        <div className="flex flex-col">
           <p>ELITE ARCORBITER</p>
           <p className="text-gray-400">800-999</p>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

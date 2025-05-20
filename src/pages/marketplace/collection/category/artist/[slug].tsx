@@ -54,7 +54,7 @@ export default function ArtistDetailPage() {
     <div className="bg-redark-navy grid grid-cols-5 md:grid-cols-8 lg:grid-cols-12 lg:gap-5 md:gap-5 gap-2 h-auto">
       <Sidebar
         dividerTitles={["Marketplace", "Account"]}
-        navItems={[MockData.marketplace, MockData.accountItems]}
+        navItems={[MockData.mainPageSidebar, MockData.accountItems]}
         button={true}
         className="lg:col-span-3 xl:col-span-2 col-span-1"
       />

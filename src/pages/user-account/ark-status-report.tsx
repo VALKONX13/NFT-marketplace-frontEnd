@@ -108,7 +108,7 @@ function ArkStatusReport() {
                                             </div>
                                         </div>
                                         {/* Countdown */}
-                                        <div className='flex-col w-fit pr-5 hidden lg:flex'>
+                                        <div className='flex-col w-fit px-5 hidden lg:flex'>
                                             <p>Countdown to  Unlock 100%</p>
                                             <CountdownTimer
                                                 startTime={Date.now()}
@@ -131,7 +131,7 @@ function ArkStatusReport() {
                                                     <p className="text-white">$127,557.67</p>
                                                 </div>
                                             </div>
-                                            <div className='absolute top-[50%] lg:right-[50%] right-[5%]'>
+                                            <div className='absolute top-[50%] xl:right-[50%] lg:right-[35%] sm:right-[25%] right-[12%]'>
                                                 <svg className='scale-y-[-1]' width="183" height="63" viewBox="0 0 183 63" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M1 62L61.3721 1L182.5 1" stroke="white" />
                                                 </svg>
