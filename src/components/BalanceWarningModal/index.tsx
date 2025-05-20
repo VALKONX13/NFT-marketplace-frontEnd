@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from 'framer-motion';
 
 export default function BalanceWarningModal() {
   const [isOpen, setIsOpen] = useState(true);
@@ -6,11 +7,15 @@ export default function BalanceWarningModal() {
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center">
-          <div className="bg-gradient-to-br from-[#EBE0FF] to-[#FFFFFF] text-center border border-redark-purple text-[#543199] lg:rounded-[40px] h-full lg:h-auto w-full max-w-2xl px-6 py-16 shadow-lg relative">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }} 
+          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center">
+          <div className="bg-gradient-to-br from-[#EBE0FF] to-[#FFFFFF] text-center border border-redark-purple text-[#543199] sm:mx-5 sm:rounded-[40px] h-full sm:h-auto w-full max-w-2xl px-6 py-16 shadow-lg relative">
             {/* Close Button */}
             <button
-              className="absolute hidden lg:flex top-4 right-4 p-4 text-redark-purple text-2xl font-bold"
+              className="absolute top-4 right-4 p-4 text-redark-purple text-2xl font-bold"
               onClick={() => {
                 setIsOpen(!isOpen);
               }}
@@ -46,7 +51,7 @@ export default function BalanceWarningModal() {
             </p>
 
             {/* Buttons */}
-            <div className="flex justify-center gap-4 mt-4">
+            <div className="flex sm:flex-row flex-col justify-center gap-4 mt-4">
               <button className="bg-gradient-to-r from-redark-purple to-[#543199] font-mokoto text-white px-8 pt-3 pb-2.5 rounded-full text-sm">
                 CHECK ICO
               </button>
@@ -58,7 +63,7 @@ export default function BalanceWarningModal() {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   );

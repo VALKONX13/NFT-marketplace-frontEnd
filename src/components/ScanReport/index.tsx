@@ -99,7 +99,6 @@ const ScanReport = () => {
         ))}
       </div>
 
-
       {/* Desktop connecting lines */}
       <svg className="hidden h-fit xl:flex xl:w-[78%] max-w-[969px] 2xl:!h-auto xl:-mt-2 z-0" width="971" height="141" viewBox="0 0 971 141" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 0V33C1 55.0914 18.9086 73 41 73H453.5C475.591 73 493.5 90.9086 493.5 113V140.5M970 0V33C970 55.0914 952.091 73 930 73H534C511.909 73 494 90.9086 494 113V140.5M322 0V73M649 0V73" stroke="#8C52FF" stroke-opacity="0.53" />

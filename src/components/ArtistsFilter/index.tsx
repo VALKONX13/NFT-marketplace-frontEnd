@@ -15,7 +15,6 @@ type ArtistFilterProps = {
 const ITEMS_PER_PAGE = 24;
 
 export default function ArtistFilter({ state }: ArtistFilterProps) {
-  //   const [open, setOpen] = useState(state);
   const [selected, setSelected] = useState<number[]>([]);
   const [page, setPage] = useState(1);
 
@@ -52,7 +51,7 @@ export default function ArtistFilter({ state }: ArtistFilterProps) {
             <h2 className="text-lg font-bold tracking-widest mb-4">
               FILTER: ARTISTS
             </h2>
-            <div className="grid grid-cols-6 gap-4 mb-6">
+            <div className="grid lg:grid-cols-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4 mb-6">
               {currentItems.map((artist) => (
                 <label
                   key={artist.id}
@@ -89,7 +88,6 @@ export default function ArtistFilter({ state }: ArtistFilterProps) {
                   <path
                     d="M0.269915 7.63694C0.0985508 7.47287 0.000106812 7.24317 0.000106812 7.00253C0.000106812 6.76189 0.0985508 6.53583 0.269915 6.36811L6.68699 0.242725C7.03701 -0.0927129 7.59121 -0.0781286 7.923 0.271894C8.2548 0.621916 8.24386 1.17612 7.89384 1.50791L3.05915 6.12747H15.4594C15.9443 6.12747 16.3345 6.5176 16.3345 7.00253C16.3345 7.48745 15.9443 7.87758 15.4594 7.87758H3.05915L7.89748 12.4935C8.2475 12.8289 8.25844 13.3795 7.92665 13.7295C7.59486 14.0795 7.04066 14.0905 6.69063 13.7587L0.273561 7.6333L0.269915 7.63694Z"
                     fill="white"
-                    // fill-opacity="0.25"
                   />
                 </svg>
               </button>

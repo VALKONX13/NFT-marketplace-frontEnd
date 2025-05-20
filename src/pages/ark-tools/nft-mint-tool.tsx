@@ -27,7 +27,7 @@ function CreateNft() {
   const [selectedMintOption, setSelectedMintOption] = useState("");
   const [agreed, setAgreed] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [balance, setBalance] = useState(100);
+  const [balance, setBalance] = useState(10);
   const [modal, setModal] = useState(false);
 
   const handleOptionSelect = (option: string) => {
