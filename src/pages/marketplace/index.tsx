@@ -39,10 +39,7 @@ const Marketplace = () => {
   const [activeFilter, setActiveFilter] = useState("");
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="show"
-      variants={containerVariants}
+    <div
       className="bg-redark-navy grid grid-cols-5 md:grid-cols-8 lg:grid-cols-12 lg:gap-5 md:gap-5 gap-2 h-auto"
     >
       <motion.div variants={itemVariants} className="lg:col-span-3 xl:col-span-2 col-span-1">
@@ -142,7 +139,11 @@ const Marketplace = () => {
             </motion.div>
 
             {/* trending NFTS */}
-            <motion.div variants={itemVariants} className="flex items-center justify-between mb-4">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }} className="flex items-center justify-between mb-4">
               <p className="lg:text-4xl md:text-2xl text-xs -mb-1 text-white font-mokoto adjust-mokoto lg:py-10 pb-4">
                 Trending NFTs
               </p>
@@ -180,7 +181,10 @@ const Marketplace = () => {
             </motion.div>
 
             <motion.div
-              variants={containerVariants}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="md:grid md:grid-cols-6 lg:grid-cols-12 md:gap-6 gap-3 lg:my-12 my-4"
             >
               {/* Mobile cards */}
@@ -234,7 +238,7 @@ const Marketplace = () => {
           </motion.div>
         </div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -38,12 +38,6 @@ export default function ArtistDetailPage() {
     TotalEarnings: "271.98 SOL",
   };
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 40 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" }
-  };
-
   const dummyAvatars = Array.from({ length: 18 }, (_, i) => ({
     id: i + 1,
     name: "Nicolaus Kozlowsky",
@@ -59,24 +53,28 @@ export default function ArtistDetailPage() {
         className="lg:col-span-3 xl:col-span-2 col-span-1"
       />
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
         className="lg:col-span-9 xl:col-span-10 md:col-span-7 col-span-4 2xl:px-14">
         <div className="col-span-10">
-          <Header searchBar={true} wallet={true}/>
+          <Header searchBar={true} wallet={true} />
         </div>
         <div className="col-span-12 grid grid-cols-12 gap-5 gap-y-8 md:py-10 pt-5 2xl:pt-20">
           <div className="col-span-12 grid grid-cols-4 md:col-span-12 gap-3 md:pr-8 pr-3">
             {/* Mobile title */}
-            <motion.div initial="initial"
-              animate="animate"
-              variants={fadeInUp}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="text-center space-y-1 flex-col gap-6 items-start md:hidden flex col-span-4">
               <motion.div
-                initial="initial"
-                animate="animate"
-                variants={fadeInUp}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="flex md:flex-row flex-col w-full md:justify-between gap-4">
                 <p className="md:hidden font-mokoto text-redark-purple text-center">Artist Details</p>
                 <h1 className="text-xl m-0 font-mokoto text-start -mb-3">
@@ -97,9 +95,10 @@ export default function ArtistDetailPage() {
               </motion.div>
             </motion.div>
             <motion.div className="md:col-span-2 col-span-4 relative aspect-square"
-              initial="initial"
-              animate="animate"
-              variants={fadeInUp}>
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}>
               <Image
                 src="/assets/img/NFT-art.png"
                 alt="NFT ARTWORK"
@@ -109,10 +108,11 @@ export default function ArtistDetailPage() {
             </motion.div>
             <div className="text-white md:col-span-2 col-span-4 pb-8 md: space-y-6">
               {/* Desktop title */}
-              <motion.div initial="initial"
-                animate="animate"
-                variants={fadeInUp}
-                transition={{ delay: 0.2, duration: 0.6 }}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="text-center space-y-1 flex-col gap-6 items-start hidden md:flex md:pl-3">
                 <div className="flex w-full justify-between">
                   <p className="text-redark-purple hidden md:inline">Marketplace/Collection/Category/Artist</p>
@@ -134,9 +134,10 @@ export default function ArtistDetailPage() {
               </motion.div>
               {/* Personal info */}
               <motion.div
-                initial="initial"
-                animate="animate"
-                variants={fadeInUp}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="md:bg-redark-purple/13 bg-transparent py-4 md:px-8 px-4 rounded-xl space-y-2 md:mx-3">
                 <p className="md:text-md text-sm text-center md:text-start font-mokoto border-b pb-3 pt-1 border-b-gray-500">
                   Personal Intro
@@ -154,9 +155,10 @@ export default function ArtistDetailPage() {
               </motion.div>
               {/* Details */}
               <motion.div
-                initial="initial"
-                animate="animate"
-                variants={fadeInUp}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="bg-[#474747]/13 p-4 rounded-xl mr-2 ml-3">
                 <div className="border-b border-b-gray-500 flex items-center gap-4 pb-3">
                   <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -221,13 +223,23 @@ export default function ArtistDetailPage() {
           </div>
           <div className="flex flex-col col-span-12 xl:max-w-[85%]">
             <div className=" md:pt-12 text-white pr-4 pl-2">
-              <div className="flex items-center md:pb-12 pb-2">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="flex items-center md:pb-12 pb-2">
                 <h2 className="lg:text-3xl text-lg font-mokoto grow m-0">
                   Top sellers
                 </h2>
                 <SortDropdown className="hidden md:flex" />
-              </div>
-              <div className="hidden xl:grid grid-cols-12 gap-10">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="hidden xl:grid grid-cols-12 gap-10">
                 {[...Array(4)].map((_, index) => (
                   <div key={index} className="col-span-3">
                     <NFTCard
@@ -239,16 +251,31 @@ export default function ArtistDetailPage() {
                     />
                   </div>
                 ))}
-              </div>
-              <span className="sm:hidden inline">
+              </motion.div>
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="sm:hidden inline">
                 <PaginatedNFTGallery itemsPerPage={1} />
-              </span>
-              <span className="hidden sm:inline md:hidden">
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="hidden sm:inline md:hidden">
                 <PaginatedNFTGallery itemsPerPage={2} />
-              </span>
-              <span className="hidden md:inline xl:hidden">
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="hidden md:inline xl:hidden">
                 <PaginatedNFTGallery itemsPerPage={3} />
-              </span>
+              </motion.span>
             </div>
           </div>
           <div className="flex flex-col col-span-12 xl:max-w-[85%]">
@@ -262,9 +289,11 @@ export default function ArtistDetailPage() {
                   <div className="lg:gap-2 gap-1 hidden md:flex">
                     {["category", "artist", "status", "pricing"].map((filter) => (
                       <motion.button
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.2 }}
                         key={filter}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
                         onClick={() => {
                           setActiveFilter(filter);
                           if (filter === "artist") setOpen(!open);
@@ -295,15 +324,30 @@ export default function ArtistDetailPage() {
                   </div>
                 ))}
               </div>
-              <span className="sm:hidden inline">
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="sm:hidden inline">
                 <PaginatedNFTGallery itemsPerPage={1} />
-              </span>
-              <span className="hidden sm:inline md:hidden">
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="hidden sm:inline md:hidden">
                 <PaginatedNFTGallery itemsPerPage={2} />
-              </span>
-              <span className="hidden md:inline xl:hidden">
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="hidden md:inline xl:hidden">
                 <PaginatedNFTGallery itemsPerPage={3} />
-              </span>
+              </motion.span>
             </div>
           </div>
         </div>

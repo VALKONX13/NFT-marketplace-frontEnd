@@ -61,29 +61,26 @@ const accesslevels = [
     },
 ];
 
-const fadeInUp = {
-    initial: { opacity: 0, y: 40 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.1, ease: "easeOut" }
-};
-
 const AccessLevels = () => {
     return (
         <section className="text-whitpx-4 lg:px-4 lg:py-10 py-4 space-y-6">
             {/* Section Heading */}
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="flex flex-col gap-4 lg:mt-16">
                 <h2 className="lg:text-3xl text-xs font-mokoto tracking-widest">ARK STATUS REPORT</h2>
                 <p className="lg:text-xl text-xs lg:font-mokoto tracking-widest mt-1">ACCESS LEVELS</p>
             </motion.div>
 
             {/* Tier Summary Card */}
-            <motion.div initial="initial"
-                animate="animate"
-                variants={fadeInUp}
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="lg:border-2 lg:border-white rounded-[20px] lg:p-4 flex flex-col md:flex-row justify-between lg:items-center gap-4">
                 <div className="flex items-center lg:gap-3 gap-2 w-[30%]">
                     <div className="bg-redark-purple/25 rounded-full lg:h-[80px] lg:w-[80px] w-[50px] h-[50px] aspect-square flex items-center justify-center">
@@ -104,7 +101,12 @@ const AccessLevels = () => {
                 </div>
 
                 {/* Progress Bar */}
-                <div className="flex-1">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="2xl:w-[50%] xl:w-[60%] lg:w-[50%] md:w-[60%]">
                     <div className="text-sm font-azeret flex justify-between items-center lg:mb-3 mb-7">
                         <p>Progress to Next Tier: </p>
                         <p className="text-redark-purple font-mokoto">54%</p>
@@ -123,16 +125,22 @@ const AccessLevels = () => {
                         <p className="text-[10px] lg:text-md">ASCEND</p>
                         <p className="text-[10px] lg:text-md">GENESIS</p>
                     </div>
-                </div>
+                </motion.div>
             </motion.div>
 
             {/* Tier Cards */}
-            <motion.div initial="initial"
-                animate="animate"
-                variants={fadeInUp}
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="hidden lg:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 ">
                 {accesslevels.map((tier, index) => (
-                    <div key={tier.title} className="flex flex-col">
+                    <motion.div initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        key={tier.title} className="flex flex-col lg:col-span-2 xl:col-span-1">
                         <div
                             className={`${index === 0 ? 'bg-redark-purple/25' : index === 1 ? 'bg-gradient-to-r from-redark-purple/25 to-redark-navy' : 'bg-redark-navy'}
                          border-2 border-white rounded-[20px] pt-10 pb-16 px-10 flex flex-col justify-between min-h-[320px] relative`}>
@@ -164,7 +172,12 @@ const AccessLevels = () => {
                             </div>
 
                             {/* Requirements */}
-                            <div className="font-azeret">
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                className="font-azeret">
                                 <div className="mt-4 text-sm space-y-1">
                                     <p className="font-semibold">Requirements:</p>
                                     {tier.requirements.map((req) => (
@@ -179,22 +192,24 @@ const AccessLevels = () => {
                                         <p key={ben} className="text-gray-400">{ben}</p>
                                     ))}
                                 </div>
-
-                            </div>
+                            </motion.div>
                         </div>
                         {/* Button */}
-                        <button className="bg-gradient-to-r from-redark-purple to-[#543199] hover:bg-purple-900 mx-auto -mt-6 z-10 rounded-full px-8 pt-2.5 pb-1.5 text-white text-md self-start font-mokoto border-2 border-white">
+                        <button className="bg-gradient-to-r from-redark-purple to-[#543199] hover:bg-purple-900 mx-auto -mt-6 z-10 rounded-full px-8 pt-2.5 pb-1.5 text-white text-sm self-start font-mokoto border-2 border-white">
                             TIER DETAILS
                         </button>
-                    </div>
+                    </motion.div>
                 ))}
             </motion.div>
+
             {/* Mobile Tier Cards */}
             <PaginationContainer itemsPerPage={1} className="bg-transparent lg:hidden" title="">
                 {accesslevels.map((tier, index) => (
-                    <motion.div initial="initial"
-                        animate="animate"
-                        variants={fadeInUp} 
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.2 }}
                         key={tier.title} className="flex flex-col">
                         <div
                             className={`${index === 0 ? 'bg-redark-purple/25' : index === 1 ? 'bg-gradient-to-r from-redark-purple/25 to-redark-navy' : 'bg-redark-navy'}
@@ -202,7 +217,12 @@ const AccessLevels = () => {
 
                             {/* Icon */}
                             {/* Title */}
-                            <div className="flex flex-col justify-center items-center">
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                className="flex flex-col justify-center items-center">
                                 <div className={`${tier.title === "ASCEND" ? 'bg-redark-purple/25' : tier.title === "QUANTUM" ? "bg-redark-purple/25 border-2 border-white" : tier.title === "GENESIS" ? 'bg-white border-2 border-redark-purple' : 'bg-redark-purple'}
                                  rounded-full p-3 w-[50px] h-[50px] flex items-center justify-center`}>
                                     <Image src={tier.icon} alt={`${tier.title} icon`} width={34} height={34} />
@@ -224,10 +244,15 @@ const AccessLevels = () => {
                                         )}
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* Requirements */}
-                            <div className="font-azeret -mt-7">
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                className="font-azeret -mt-7">
                                 <div className="mt-4 text-xs space-y-1">
                                     <p className="font-semibold">Requirements:</p>
                                     {tier.requirements.map((req) => (
@@ -242,13 +267,18 @@ const AccessLevels = () => {
                                         <p key={ben} className="text-gray-400">{ben}</p>
                                     ))}
                                 </div>
-
-                            </div>
+                            </motion.div>
                         </div>
+
                         {/* Button */}
-                        <button className="bg-gradient-to-r from-redark-purple to-[#543199] hover:bg-purple-900 mx-auto -mt-6 z-10 rounded-full px-6 pt-2.5 pb-1.5 text-white text-xs self-start font-mokoto border-2 border-white">
+                        <motion.button
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            className="bg-gradient-to-r from-redark-purple to-[#543199] hover:bg-purple-900 mx-auto -mt-6 z-10 rounded-full px-6 pt-2.5 pb-1.5 text-white text-xs self-start font-mokoto border-2 border-white">
                             TIER DETAILS
-                        </button>
+                        </motion.button>
                     </motion.div>
                 ))}
             </PaginationContainer>

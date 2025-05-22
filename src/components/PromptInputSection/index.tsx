@@ -15,12 +15,6 @@ const validationSchema = Yup.object({
     .required("Royalties required"),
 });
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
-};
-
 export default function PromptInputSection() {
   const formik = useFormik({
     initialValues: {
@@ -43,9 +37,10 @@ export default function PromptInputSection() {
       {/* Mobile attempts */}
       {(!variant) ? (
         <motion.div
-          initial="initial"
-          animate="animate"
-          variants={fadeInUp}>
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}>
           <p className="font-azeret text-gray-400 text-[10px] text-center">Click Variant to step forward</p>
           <div className="grid-cols-3 gap-2 mt-4 font-azeret lg:hidden grid mb-4">
             {[1, 2, 3].map((num) => (
@@ -70,9 +65,11 @@ export default function PromptInputSection() {
       />
       {/* Mobile Buttons */}
       {(!variant) ? (
-        <motion.div initial="initial"
-          animate="animate"
-          variants={fadeInUp}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           className="mt-4 space-x-4 justify-between lg:hidden flex mb-3">
           <button className="rounded-full bg-gradient-to-r from-redark-purple to-[#543199] font-mokoto border border-white text-white text-[10px] h-fit pt-2 pb-1 px-5 tracking-wide">
             AUTO
@@ -81,9 +78,10 @@ export default function PromptInputSection() {
         </motion.div>
       ) : null}
       <motion.div
-        initial="initial"
-        animate="animate"
-        variants={fadeInUp}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
         className="justify-between mt-4 space-x-4 hidden lg:flex xl:!text-sm">
         <button className="rounded-full bg-gradient-to-r from-redark-purple to-[#543199] font-mokoto border border-white text-white text-[16px] pt-3 pb-2.5 px-5 tracking-wide">
           AUTOGENERATE
@@ -91,9 +89,11 @@ export default function PromptInputSection() {
         <RedarkButton title="GENERATE BY PROMPT" className="!px-5 " />
       </motion.div>
 
-      <motion.div initial="initial"
-        animate="animate"
-        variants={fadeInUp}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
         className="hidden lg:flex items-center justify-between mt-6 text-sm text-white font-mono">
         <button>{"<"}</button>
         <span>Click to zoom generated Artwork (Attempt 01)</span>
@@ -101,9 +101,10 @@ export default function PromptInputSection() {
       </motion.div>
 
       <motion.div
-        initial="initial"
-        animate="animate"
-        variants={fadeInUp}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
         className="grid-cols-3 gap-4 mt-4 font-azeret hidden lg:grid">
         {[1, 2, 3].map((num) => (
           <div
@@ -118,9 +119,10 @@ export default function PromptInputSection() {
       {variant ? (
         <div>
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className={`lg:col-span-1 col-span-2 flex flex-col gap-4 h-[100%] lg:hidden`}>
             <input
               type="text"
@@ -152,7 +154,12 @@ export default function PromptInputSection() {
                 </div>
               )}
 
-            <div className="lg:grid flex flex-col grid-cols-7 lg:gap-1 gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="lg:grid flex flex-col grid-cols-7 lg:gap-1 gap-4">
               <div className="flex col-start-1 col-end-4 h-[72px] items-center bg-white/25 focus:ring-2 focus:ring-redark-purple rounded-full">
                 <svg
                   className="lg:ml-5 min-w-[20%]"
@@ -188,7 +195,7 @@ export default function PromptInputSection() {
                 value={formik.values.royalties}
                 className="bg-white/25 p-4 h-[72px] lg:text-start text-center rounded-full col-start-5 col-end-8 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-redark-purple"
               />
-            </div>
+            </motion.div>
             <div className="flex gap-4 text-sm text-red-400">
               {formik.touched.price && formik.errors.price && (
                 <span>{formik.errors.price}</span>
@@ -199,9 +206,10 @@ export default function PromptInputSection() {
             </div>
           </motion.div>
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className={`flex lg:hidden lg:flex-row flex-col gap-4 m-0 col-start-1 col-end-3 justify-between items-center text-center lg:text-start text-[10px] lg:text-md`}>
             <p className="font-azeret">
               You need promotion? Drop a line to{" "}

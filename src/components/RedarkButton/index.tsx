@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ButtonHTMLAttributes } from "react";
 import { ReactNode } from "react";
+import { motion } from 'framer-motion';
 
 interface ButtonProps {
   title: string;
@@ -9,7 +10,7 @@ interface ButtonProps {
   disabled?: boolean;
   className?: string;
   children?: ReactNode;
-    type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
+  type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
 }
 
 export default function RedarkButton({
@@ -28,14 +29,22 @@ export default function RedarkButton({
   if (href) {
     return (
       <Link href={href}>
-        <button type={type} disabled={disabled} className={combinedClass}>{title}</button>
+        <motion.button
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }} type={type} disabled={disabled} className={combinedClass}>{title}</motion.button>
       </Link>
     );
   }
 
   return (
-    <button type={type} disabled={disabled} className={combinedClass} onClick={onClick}>
+    <motion.button
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }} type={type} disabled={disabled} className={combinedClass} onClick={onClick}>
       {title}
-    </button>
+    </motion.button>
   );
 }

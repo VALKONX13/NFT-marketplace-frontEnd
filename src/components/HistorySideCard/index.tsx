@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from 'framer-motion';
 
 type HistoryItem = {
   id: string;
@@ -14,7 +15,12 @@ type Props = {
 
 export default function HistorySideCard({ items }: Props) {
   return (
-    <div className="bg-redark-purple/13 mb-6 text-white p-4 rounded-tl-3xl rounded-bl-3xl w-full space-y-6 md:max-w-[60%] xl:max-w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      className="bg-redark-purple/13 mb-6 text-white p-4 rounded-tl-3xl rounded-bl-3xl w-full space-y-6 md:max-w-[60%] xl:max-w-full">
       <h2 className="lg:text-xl font-mokoto w-fit mx-auto tracking-widest mb-6 mt-2">
         HISTORY
       </h2>
@@ -50,6 +56,6 @@ export default function HistorySideCard({ items }: Props) {
           </div>
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 }

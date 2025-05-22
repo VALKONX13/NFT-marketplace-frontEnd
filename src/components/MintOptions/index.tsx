@@ -6,29 +6,25 @@ interface MintOptionsProps {
   onSelect: (option: string) => void;
 };
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
-};
-
 export default function MintOptions({ onSelect }: MintOptionsProps) {
   return (
     <div className="items-center text-center text-white font-azeret lg:px-4 lg:py-6 py-3 md:flex-row md:justify-center gap-6">
       <div className="grid xl:grid-cols-12 grid-cols-4 lg:gap-8">
         {/* Mint Your Own NFT Section */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           className="bg-redark-purple/13 rounded-2xl lg:p-6 w-full lg:col-span-6 col-span-4 lg:mb-0 mb-4">
           <h2 className="tracking-wider font-mokoto lg:text-xl lg:py-8 pt-5 pb-3 px-6 xl:px-2 text-xs text-start border-b border-b-white/25">
             MINT YOUR OWN NFT
           </h2>
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="flex lg:gap-4 gap-2 justify-around lg:py-8 py-4 px-2">
             <Image
               src="/assets/img/NFT-art.png"
@@ -57,9 +53,10 @@ export default function MintOptions({ onSelect }: MintOptionsProps) {
             properties, and mint directly to the blockchain.
           </p>
           <motion.ul
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-left space-y-2 mb-6 lg:text-sm text-xs px-3 text-gray-400">
             <li className="flex items-center lg:gap-5 gap-3 mb-3">
               <svg className="w-[8%] lg:w-fit"
@@ -118,17 +115,19 @@ export default function MintOptions({ onSelect }: MintOptionsProps) {
         </motion.div>
         {/* AI Generated Artwork Section */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           className="bg-redark-purple/13 rounded-2xl lg:p-6 w-full lg:col-span-6 col-span-4">
           <h2 className="tracking-wider font-mokoto lg:text-xl lg:py-8 pt-5 pb-3 px-6 xl:px-2 text-xs text-start border-b border-b-white/25">
             AI GENERATED ARTWORK MINTING
           </h2>
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="flex lg:gap-4 gap-2 justify-around lg:py-8 py-4 px-2">
             <Image
               src="/assets/img/NFT-art.png"
@@ -157,9 +156,10 @@ export default function MintOptions({ onSelect }: MintOptionsProps) {
             your vision into stunning digital art.
           </p>
           <motion.ul
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-left space-y-2 mb-6 lg:text-sm text-xs text-gray-400 lg:px-0 px-3">
             <li className="flex items-center gap-5 mb-3">
               <svg className="w-[8%] lg:w-fit"
@@ -222,9 +222,10 @@ export default function MintOptions({ onSelect }: MintOptionsProps) {
 
       {/* Wallet Info */}
       <motion.p
-        initial="initial"
-        animate="animate"
-        variants={fadeInUp}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
         className="lg:text-sm text-xs text-gray-300 w-full text-center lg:mt-12 mt-6">
         Your current wallet Balance is{" "}
         <span className="text-redark-purple">107.68 ARKV</span> – you

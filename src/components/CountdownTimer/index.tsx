@@ -2,6 +2,7 @@
 
 import moment from "moment";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { motion } from 'framer-motion';
 
 // Simplified props interface
 interface CountdownTimerProps {
@@ -124,7 +125,11 @@ const CountdownTimer = ({
     const displayTime = isStatic ? staticTimeLeft : timeLeft;
 
     return (
-        <div
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className={`flex scale-100 flex-col items-center text-center text-white md:text-[#8C52FF] ${type === "comingsoon" && "!text-[#8C52FF]"} text-2xl lg:text-4xl font-bold`}
         >
 
@@ -163,7 +168,7 @@ const CountdownTimer = ({
                     }) || "00:00:00:00"}
                 </div>
             )}
-        </div>
+        </motion.div>
     );
 };
 

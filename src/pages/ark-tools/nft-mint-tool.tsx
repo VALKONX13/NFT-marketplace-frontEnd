@@ -16,18 +16,12 @@ const tabTitles = [
   "3. Step: Set Collections",
 ];
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
-};
-
 function CreateNft() {
   const [activeTab, setActiveTab] = useState(0);
   const [selectedMintOption, setSelectedMintOption] = useState("");
   const [agreed, setAgreed] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [balance, setBalance] = useState(10);
+  const [balance, setBalance] = useState(100);
   const [modal, setModal] = useState(false);
 
   const handleOptionSelect = (option: string) => {
@@ -59,9 +53,10 @@ function CreateNft() {
 
           {/* Tabs Header */}
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="gap-4 mb-6 hidden lg:flex">
             {tabTitles.map((title, index) => (
               <button
@@ -83,9 +78,10 @@ function CreateNft() {
           <PaginationContainer title="" itemsPerPage={1} className="bg-transparent lg:hidden relative" nextButton="absolute top-[20%] left-[0%]" prevButton="absolute top-[20%] right-[0%]" indicators="hidden">
             {tabTitles.map((title, index) => (
               <motion.button
-                initial="initial"
-                animate="animate"
-                variants={fadeInUp}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 key={index}
                 onClick={() => {
                   // Only allow going back to previous steps
@@ -108,23 +104,30 @@ function CreateNft() {
             {modal ? <BalanceWarningModal /> : null}
             {/* Tab 2 */}
             {activeTab === 1 && (
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}>
                 <ArtworkDetailsForm
                   selectedMintOption={selectedMintOption}
                   onSuccess={handleArtworkSubmitSuccess}
                 />
-              </div>
+              </motion.div>
             )}
             {/* Tab 3 */}
             {activeTab === 2 && (
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="rounded-xl text-white mx-auto space-y-6 lg:px-12">
-                <motion.div initial="initial"
-                  animate="animate"
-                  variants={fadeInUp}
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.2 }}
                   className="grid grid-cols-2 lg:gap-8 gap-4 lg:mb-10">
                   {/* Existing Collections */}
                   <Dropdown
@@ -156,9 +159,10 @@ function CreateNft() {
 
                   {/* New Collection Input */}
                   <motion.div
-                    initial="initial"
-                    animate="animate"
-                    variants={fadeInUp}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}
                     className="relative col-span-2 lg:col-span-1">
                     <input
                       type="text"
@@ -172,9 +176,10 @@ function CreateNft() {
 
                   {/* New Category Input */}
                   <motion.div
-                    initial="initial"
-                    animate="animate"
-                    variants={fadeInUp}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}
                     className="relative col-span-2 lg:col-span-1">
                     <input
                       type="text"
@@ -187,9 +192,10 @@ function CreateNft() {
                   </motion.div>
                 </motion.div>
                 <motion.div
-                  initial="initial"
-                  animate="animate"
-                  variants={fadeInUp}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.2 }}
                   className="flex items-center gap-2 font-azeret text-white lg:mb-10 mb-6 lg:mt-0 mt-10 px-2">
                   <label className="flex items-center space-x-2 cursor-pointer gap-2">
                     <input

@@ -5,58 +5,58 @@ import { motion } from "framer-motion";
 import Table from "@/components/Table";
 import Header from "@/components/Header";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
-};
-
 function MyPurchases() {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
       className="bg-redark-navy grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 md:gap-8 gap-2 h-auto">
       <Sidebar
         dividerTitles={["My Account"]}
         navItems={[MockData.userAccountSideBarItems]}
         button={false}
-        className="col-span-1 md:col-span-2 lg:col-span-3"
+        className="col-span-1 lg:col-span-3 2xl:col-span-2"
       />
       <motion.div
-        initial="initial"
-        animate="animate"
-        variants={fadeInUp}
-        className="md:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+        className="md:col-span-11 2xl:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4 xl:-ml-9 2xl:ml-0"
       >
         <Header searchBar={false} wallet={false} />
         <motion.div
-          className="lg:p-10 min-h-screen text-white col-span-9 py-4 flex flex-col lg:justify-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="min-h-screen text-white col-span-9 py-4 flex flex-col lg:justify-center lg:pr-16 md:pr-8"
         >
           <motion.p
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="flex lg:hidden font-mokoto text-xs pb-6 pt-2">My Account</motion.p>
           <motion.p
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="mb-2 flex lg:hidden">My Purchases</motion.p>
           <div className="flex flex-col  col-span-12">
             <motion.div
-              initial="initial"
-              animate="animate"
-              variants={fadeInUp}
-              className="space-y-10 lg:p-8 py-4 pr-4 pl-2">
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="space-y-10 lg:py-8 lg:pr-8 py-4 pr-4 pl-2">
               <h1 className="text-3xl hidden lg:flex font-medium mb-10 font-mokoto uppercase">
                 Purchase History
               </h1>
-              <Table
+              <Table className="lg:ml-10 !w-auto"
                 columns={[
                   "Item",
                   "Title",

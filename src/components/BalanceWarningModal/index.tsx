@@ -8,9 +8,10 @@ export default function BalanceWarningModal() {
     <>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }} 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center">
           <div className="bg-gradient-to-br from-[#EBE0FF] to-[#FFFFFF] text-center border border-redark-purple text-[#543199] sm:mx-5 sm:rounded-[40px] h-full sm:h-auto w-full max-w-2xl px-6 py-16 shadow-lg relative">
             {/* Close Button */}

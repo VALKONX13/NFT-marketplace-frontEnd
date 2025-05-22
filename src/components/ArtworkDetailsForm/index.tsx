@@ -44,12 +44,6 @@ const ArtworkDetailsForm: React.FC<Props> = ({
     formik.setFieldValue("file", file);
   };
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 40 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" }
-  };
-
   return (
     <motion.form
       initial={{ opacity: 0 }}
@@ -61,10 +55,11 @@ const ArtworkDetailsForm: React.FC<Props> = ({
       {/* Upload Box */}
       {selectedMintOption === "Mint Your Own NFT" ? (
         <motion.div
-          initial="initial"
-          animate="animate"
-          variants={fadeInUp}
-          className="bg-white/13 lg:col-span-1 col-span-2 border-2 border-redark-purple rounded-[40px] flex flex-col items-center justify-center text-center lg:h-[700px] lg:py-16 py-10 px-4 lg:px-6">
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="bg-white/13 xl:col-span-1 col-span-2 border-2 border-redark-purple rounded-[40px] flex flex-col items-center justify-center text-center lg:h-[700px] lg:py-16 py-10 px-4 lg:px-6">
           <div className="text-4xl mb-4">
             <svg
               width="48"
@@ -111,9 +106,10 @@ const ArtworkDetailsForm: React.FC<Props> = ({
 
       {/* Form Fields */}
       <motion.div
-        initial="initial"
-        animate="animate"
-        variants={fadeInUp}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
         className={`xl:col-span-1 col-span-2 flex flex-col gap-4 justify-between h-[100%] ${(selectedMintOption === 'AI GENERATED ARTWORK MINTING') ? 'lg:flex hidden' : 'flex'}`}>
         <input
           type="text"
@@ -146,9 +142,11 @@ const ArtworkDetailsForm: React.FC<Props> = ({
           )}
 
         <div className="lg:grid flex flex-col grid-cols-7 lg:gap-1 gap-4">
-          <motion.div initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="flex col-start-1 col-end-4 h-[72px] items-center bg-white/25 focus:ring-2 focus:ring-redark-purple rounded-full">
             <svg
               className="lg:ml-5 min-w-[20%]"
@@ -175,9 +173,11 @@ const ArtworkDetailsForm: React.FC<Props> = ({
               className="lg:p-4 py-4 w-[80%] placeholder-gray-400 lg:text-start text-center focus:outline-none "
             />
           </motion.div>
-          <motion.input initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+          <motion.input
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             type="number"
             name="royalties"
             placeholder="Set Royalties (Max. 10%)"
@@ -198,9 +198,10 @@ const ArtworkDetailsForm: React.FC<Props> = ({
       </motion.div>
       {/* Action Buttons */}
       <motion.div
-        initial="initial"
-        animate="animate"
-        variants={fadeInUp}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
         className={`flex xl:flex-row flex-col gap-4 m-0 col-start-1 col-end-3 justify-between items-center text-center lg:text-start text-xs lg:text-md ${(selectedMintOption === 'AI GENERATED ARTWORK MINTING') ? 'lg:flex hidden' : 'flex'}`}>
         <p className="font-azeret">
           You need promotion? Drop a line to{" "}

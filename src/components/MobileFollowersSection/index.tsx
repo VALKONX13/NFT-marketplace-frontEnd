@@ -1,5 +1,6 @@
 import PaginationContainer from '@/components/PaginationContainer';
 import UserCard from '@/components/UserCard';
+import { motion } from 'framer-motion';
 
 
 type ListItem = {
@@ -23,7 +24,12 @@ const dummyAvatars = Array.from({ length: 18 }, (_, i) => ({
 
 export default function MobileFollowersSection({ title }: Props) {
   return (
-    <div className="mb-6 inline md:hidden text-white w-max space-y-6">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      className="mb-6 inline md:hidden text-white w-max space-y-6">
       <h2 className="lg:text-xl font-mokoto text-center uppercase w-fit mx-auto tracking-widest mb-6 mt-2">
         {title} ({dummyAvatars.length})
       </h2>
@@ -37,6 +43,6 @@ export default function MobileFollowersSection({ title }: Props) {
           />
         ))}
       </PaginationContainer>
-    </div>
+    </motion.div>
   );
 }

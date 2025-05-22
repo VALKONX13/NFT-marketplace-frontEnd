@@ -2,23 +2,19 @@ import Image from "next/image";
 import React from "react";
 import { motion } from 'framer-motion';
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
-};
-
 function ScoreAnalysis() {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
       className="bg-redark-purple/6 lg:border lg:border-redark-purple border-t border-b border-t-redark-purple border-b-redark-purple lg:rounded-[20px] px-8 py-5 w-full lg:max-w-3xl text-center relative">
       <motion.div
-        initial="initial"
-        animate="animate"
-        variants={fadeInUp}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
         className="pb-4">
         <p className="text-xs mb-1 font-azeret text-gray-400">Analysis</p>
         <p className="text-sm font-semibold tracking-wide font-azeret lg:mb-0 mb-4">
@@ -27,9 +23,11 @@ function ScoreAnalysis() {
       </motion.div>
 
       {/* Progress Bar */}
-      <motion.div initial="initial"
-        animate="animate"
-        variants={fadeInUp}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
         className="mt-6 flex items-center justify-center relative">
         <div className="w-[90%] h-8 bg-[#3A3457] rounded-full overflow-hidden relative flex">
           <div className="w-[30%] bg-[#C9AEFF]" />
@@ -38,7 +36,11 @@ function ScoreAnalysis() {
         </div>
 
         {/* Astronaut & Label */}
-        <div className="absolute -top-5 lg:left-[58%] left-[60%] right-[20%] flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }} className="absolute -top-5 lg:left-[58%] left-[60%] right-[20%] flex flex-col items-center">
           <div className="absolute top-[-20%] left-[20%] right-[10%]">
             <p className="text-xs font-mokoto absolute bottom-[10%] sm:left-[75px] left-[55px] xl:left-[85px]">
               801
@@ -61,13 +63,15 @@ function ScoreAnalysis() {
             width={40}
             height={40}
           />
-        </div>
+        </motion.div>
       </motion.div>
 
       {/* Labels */}
-      <motion.div initial="initial"
-        animate="animate"
-        variants={fadeInUp}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
         className="mt-4 flex lg:flex-row flex-col justify-between gap-2 lg:gap-0 text-xs lg:px-12 font-azeret">
         <div className="flex flex-col">
           <p>EXPLORER TIER</p>

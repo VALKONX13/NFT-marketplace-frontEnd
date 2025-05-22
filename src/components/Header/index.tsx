@@ -16,7 +16,7 @@ function Header({ className, searchBar, wallet, searchIcon = false, userIcon = t
     const isActive = pathname?.startsWith('/user-account');
 
     return (
-        <div className={`flex justify-between lg:gap-12 lg:pt-8 pt-4 lg:pr-10 pr-4 ${className} ${!searchBar ? 'justify-end' : ""}`}>
+        <div className={`flex justify-between lg:gap-12 lg:pt-8 pt-4 lg:pr-10 pr-4 text-white ${className} ${!searchBar ? 'justify-end' : ""}`}>
             {/* Search */}
             {searchBar ? (<div className="max-w-md w-full hidden lg:inline">
                 <div className="flex items-center space-x-2 bg-white/25 font-azeret rounded-[10px] px-5 py-4">

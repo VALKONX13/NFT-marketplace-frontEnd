@@ -2,20 +2,16 @@ import MockData from "@/utils/mockData";
 import ScoreAnalysis from "../ScoreAnalysis";
 import { motion } from 'framer-motion';
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
-};
 
 const ScanReport = () => {
   return (
     <div className="relative flex flex-col items-center justify-center pt-20 text-white">
       {/* Central Score Box */}
       <motion.div
-        initial="initial"
-        animate="animate"
-        variants={fadeInUp}
+        initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
         className="text-center relative z-20 px-3">
         <h2 className="text-white tracking-widest font-mokoto lg:text-2xl uppercase mb-2">
           Scan Report
@@ -53,9 +49,11 @@ const ScanReport = () => {
       {/* Report Cards */}
       <div className="grid grid-cols-1 xl:grid-cols-4 xl:gap-10 2xl:mt-14 xl:mt-[4.6%] xl:!mb-2 z-10 px-3">
         {MockData.scanCardData.map((card, index) => (
-          <motion.div initial="initial"
-          animate="animate"
-          variants={fadeInUp} 
+          <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           key={index} className="flex flex-col items-center">
             <div
               className="bg-redark-purple/13 h-full w-full lg:p-6 px-2 pt-4 lg:gap-4 rounded-[20px] flex flex-col text-white text-sm items-start max-w-2xs"

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from 'framer-motion';
 
 type RecentItem = {
   id: number | string;
@@ -20,7 +21,12 @@ type RecentlyAddedSideCardProps = {
 
 export default function RecentlyAddedSideCard({ title, mainImage, items }: RecentlyAddedSideCardProps) {
   return (
-    <div className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-5 w-full text-white md:max-w-[60%] xl:max-w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-5 w-full text-white md:max-w-[60%] xl:max-w-full">
       {/* Header */}
       <h2 className="lg:text-lg w-fit mx-auto font-mokoto tracking-widest mb-4">{title}</h2>
 
@@ -57,6 +63,6 @@ export default function RecentlyAddedSideCard({ title, mainImage, items }: Recen
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -70,7 +70,7 @@ export default function Sidebar({
     });
 
   return (
-    <div className={`${className} h-full`}>
+    <div className={`${className} h-full lg:max-w-[300px]`}>
       {/* <!-- Component Start --> */}
       <div className="flex flex-col items-center w-full h-full py-8 overflow-hidden text-white lg:bg-[#1F144F] bg-[#4B309F] rounded">
         <Link
@@ -97,7 +97,7 @@ export default function Sidebar({
           <p className="ml-2 text-sm font-mokoto hidden lg:block">ARKHIVE</p>
         </Link>
         {button ? <RedarkButton title="CREATE NFT" href="/ark-tools/nft-mint-tool" className="!mx-3 xl:px-4 2xl:px-7 hidden lg:block" /> : null}
-        <div className="w-full lg:pt-12 pt-5 mb-5 flex flex-col h-[-webkit-fill-available]">
+        <div className="w-full lg:pt-12 lg:pr-6 pt-5 mb-5 flex flex-col h-[-webkit-fill-available]">
           <div className="flex flex-col items-baseline w-full mt-3 gap-4 grow ">
             <p className="text-white text-[14px] lg:pl-10 hidden lg:flex">
               {dividerTitles[0] || ""}

@@ -45,12 +45,6 @@ export default function UserAccount() {
     },
   });
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 40 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" }
-  };
-
   const handleAvatarClick = (avatar: string) => {
     setSelectedAvatar(avatar);
   };
@@ -74,16 +68,16 @@ export default function UserAccount() {
         dividerTitles={["My Account"]}
         navItems={[MockData.userAccountSideBarItems]}
         button={false}
-        className="col-span-1 md:col-span-2 lg:col-span-3"
+        className="col-span-1 lg:col-span-3 2xl:col-span-2"
       />
-      <div className="md:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4">
+      <div className="md:col-span-11 2xl:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4">
         <Header searchBar={false} wallet={false} />
-
         <motion.div
           className="md:py-10 min-h-screen text-white col-span-9 py-4 flex flex-col"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <p className="block md:hidden mt-2 text-white font-mokoto text-xs uppercase mb-4">
             My Account
@@ -91,9 +85,10 @@ export default function UserAccount() {
           <p className="inline md:hidden text-sm my-6">Personal Details</p>
           <h1 className="md:text-3xl text-xl font-medium mb-10 font-mokoto uppercase hidden md:inline">USER CREDENTIALS</h1>
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="mb-6 w-full">
             {/* Mobile Title */}
             <p className="block md:hidden text-center text-white font-mokoto text-xs uppercase mb-4">
@@ -104,12 +99,19 @@ export default function UserAccount() {
             </h2>
 
             {/* Avatar Scroll Container */}
-            <motion.div initial="initial"
-              animate="animate"
-              variants={fadeInUp}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="flex md:flex-wrap gap-4 overflow-x-auto md:overflow-visible scroll-snap-x snap-x snap-mandatory px-1 md:px-0">
               {/* Upload Box */}
-              <label className="md:w-[165px] md:h-[165px] snap-start md:bg-white/10 pl-4 md:pl-0 flex items-center justify-center rounded-[20px] cursor-pointer shrink-0">
+              <motion.label
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="md:w-[165px] md:h-[165px] snap-start md:bg-white/10 pl-4 md:pl-0 flex items-center justify-center rounded-[20px] cursor-pointer shrink-0">
                 <span className="text-3xl font-bold">
                   <svg
                     width="39"
@@ -131,14 +133,15 @@ export default function UserAccount() {
                   className="hidden"
                   onChange={handleImageUpload}
                 />
-              </label>
+              </motion.label>
 
               {/* Avatar Images */}
               {avatars.map((avatar, index) => (
                 <motion.div
-                  initial="initial"
-                  animate="animate"
-                  variants={fadeInUp}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.2 }}
                   key={index}
                   className={`min-w-[130px] h-[130px] md:w-[165px] md:h-[165px] snap-start shrink-0 rounded-[20px] overflow-hidden border-4 ${selectedAvatar === avatar
                     ? "border-redark-purple"
@@ -161,9 +164,10 @@ export default function UserAccount() {
 
           <form onSubmit={formik.handleSubmit} className="space-y-6 md:pr-6 pr-2 flex flex-col items-center lg:items-baseline">
             <motion.div
-              initial="initial"
-              animate="animate"
-              variants={fadeInUp}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="xl:max-w-[60%] 2xl:max-w-[50%] w-[80%] px-3">
               <h2 className="md:text-xl text-center md:text-start text-xs font-medium mt-14 md:mb-16 mb-4 font-mokoto">
                 PERSONAL DETAILS
@@ -200,9 +204,11 @@ export default function UserAccount() {
               )}
             </motion.div>
 
-            <motion.div initial="initial"
-              animate="animate"
-              variants={fadeInUp}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="flex items-center font-azeret text-gray-400 px-4">
               <label className="flex items-center gap-2 space-x-2 cursor-pointer">
                 <input

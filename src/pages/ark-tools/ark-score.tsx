@@ -26,12 +26,6 @@ export default function ArkScore() {
     },
   });
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 40 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" }
-  };
-
   const [isScanning, setIsScanning] = useState(false);
 
   return (
@@ -43,9 +37,10 @@ export default function ArkScore() {
         className="col-span-1 lg:col-span-3 2xl:col-span-2"
       />
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
         className="md:col-span-11 lg:col-span-9 2xl:col-span-10 sm:col-span-7 col-span-4">
         <Header className="hidden lg:flex" searchBar={true} wallet={true} searchIcon={false} />
         {/* Mobile Header */}
@@ -54,17 +49,19 @@ export default function ArkScore() {
         <div className="col-span-10 text-white min-h-screen flex flex-col items-center lg:justify-center py-8 lg:pr-8">
           <p className="font-azeret pl-2 text-gray-400 self-baseline mb-5 lg:text-md text-xs">ARKHive / Art Tools / ARK Score</p>
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="mx-4 w-full px-3">
             <MainBanner />
           </motion.div>
           {!isScanning ? (
             <motion.div
-              initial="initial"
-              animate="animate"
-              variants={fadeInUp}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="2xl:w-[68%] lg:w-[90%] w-[-webkit-fill-available] flex flex-col items-center">
               <h2 className="lg:text-2xl text-sm font-mokoto uppercase tracking-widest lg:mt-20 mt-9 lg:mb-8 mb-4">
                 Create New Score
@@ -72,9 +69,10 @@ export default function ArkScore() {
 
               {/* Form Box */}
               <motion.form
-                initial="initial"
-                animate="animate"
-                variants={fadeInUp}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 onSubmit={formik.handleSubmit}
                 className="bg-redark-purple/6 lg:border lg:border-redark-purple border-t border-b border-t-redark-purple border-b-redark-purple lg:rounded-[20px] lg:px-8 md:px-12 sm:px-10 px-4 lg:py-14 py-4 w-full"
               >
@@ -133,9 +131,10 @@ export default function ArkScore() {
 
               {/* Button */}
               <motion.div
-                initial="initial"
-                animate="animate"
-                variants={fadeInUp}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="relative flex flex-col items-center mt-10">
                 {/* Vertical Line */}
                 <div className="w-[1px] h-10 bg-redark-purple absolute top-[-40px]"></div>
@@ -157,9 +156,10 @@ export default function ArkScore() {
             <div className="w-full">
               <ScanReport />
               <motion.div
-                initial="initial"
-                animate="animate"
-                variants={fadeInUp} 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="relative flex flex-col items-center mt-10">
                 {/* Vertical Line */}
                 <div className="w-[1px] h-10 bg-redark-purple/25 absolute top-[-40px] "></div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import RedarkButton from "@/components/RedarkButton/index";
 import { slugify } from "@/utils/slugify";
 import Link from "next/link";
+import { motion } from 'framer-motion';
 
 type NFTCardProps = {
   creatorName: string;
@@ -24,7 +25,12 @@ export default function NFTCard({
 
   return (
     <Link href={href} passHref>
-      <div className="bg-redark-purple/13 grid rounded-2xl shadow-lg py-5 pl-6 pr-3 mb-3 text-white font-sans !box-content">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+        className="bg-redark-purple/13 grid rounded-2xl shadow-lg py-5 pl-6 pr-3 mb-3 text-white font-sans !box-content">
         {/* Creator Info */}
         <div className="flex items-center space-x-3 mb-4">
           <div className="w-8 h-8 bg-gray-400 rounded-full"></div>
@@ -62,7 +68,7 @@ export default function NFTCard({
             PLACE BID
           </RedarkButton>
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 }

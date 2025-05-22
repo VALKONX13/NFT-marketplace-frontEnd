@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from 'framer-motion';
 
 type Creator = {
   id: number | string;
@@ -13,7 +14,12 @@ type TopCreatorsProps = {
 
 export default function TopCreators({ title, creators }: TopCreatorsProps) {
   return (
-    <div className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-4 w-full text-white md:max-w-[60%] xl:max-w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      className="bg-redark-purple/13 rounded-tl-3xl rounded-bl-3xl p-4 w-full text-white md:max-w-[60%] xl:max-w-full">
       <h2 className="lg:text-xl font-mokoto w-fit mx-auto tracking-widest mb-6 mt-2">{title}</h2>
       <div className="space-y-5">
         {creators.map((creator) => (
@@ -32,6 +38,6 @@ export default function TopCreators({ title, creators }: TopCreatorsProps) {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
