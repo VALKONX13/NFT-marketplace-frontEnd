@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -101,7 +103,7 @@ const ArtworkDetailsForm: React.FC<Props> = ({
           )}
         </motion.div>
       ) : (
-        <PromptInputSection />
+        <PromptInputSection onSuccess={onSuccess}/>
       )}
 
       {/* Form Fields */}

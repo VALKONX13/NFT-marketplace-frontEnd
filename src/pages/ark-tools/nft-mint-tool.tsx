@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import MockData from "@/utils/mockData";

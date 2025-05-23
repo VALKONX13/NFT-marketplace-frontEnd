@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import RedarkButton from "@/components/RedarkButton";
 import { useFormik } from "formik";
@@ -15,7 +17,11 @@ const validationSchema = Yup.object({
     .required("Royalties required"),
 });
 
-export default function PromptInputSection() {
+type Props = {
+  onSuccess: () => void;
+};
+
+const PromptInputSection: React.FC<Props> = ({ onSuccess }) => {
   const formik = useFormik({
     initialValues: {
       file: null,
@@ -26,7 +32,7 @@ export default function PromptInputSection() {
     },
     validationSchema,
     onSubmit: () => {
-      // onSuccess();
+      onSuccess();
     },
   });
 
@@ -237,3 +243,5 @@ export default function PromptInputSection() {
     </div>
   );
 }
+
+export default PromptInputSection;
