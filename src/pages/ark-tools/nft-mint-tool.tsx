@@ -26,8 +26,8 @@ function CreateNft() {
 
   const handleOptionSelect = (option: string) => {
     setSelectedMintOption(option);
-    if (balance >= 100) setActiveTab(1);
-    else setModal(!modal); // move to next step
+    if (balance >= 100) setActiveTab(1); // move to next step
+    else setModal(!modal); // if balance is not enough
   };
 
   const handleArtworkSubmitSuccess = () => {
@@ -35,7 +35,7 @@ function CreateNft() {
   };
 
   return (
-    <div className="bg-redark-navy grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 lg:gap-8 gap-2 h-auto min-h-screen">
+    <div className="bg-redark-navy text-white grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 lg:gap-8 gap-2 h-auto min-h-screen">
       <Sidebar
         dividerTitles={["Marketplace", "Account"]}
         navItems={[MockData.marketplaceSidebar, MockData.accountItems]}
@@ -46,7 +46,7 @@ function CreateNft() {
         <Header className="hidden xl:flex" searchBar={true} wallet={true} searchIcon={false} />
         {/* Mobile Header */}
         <Header className="xl:hidden" searchBar={false} wallet={false} searchIcon={true} />
-        <div className="col-span-10 lg:pr-8 lg:py-16 pl-1 pr-2 py-4">
+        <div className="col-span-10 2xl:pl-9 2xl:pr-16 xl:pr-14 xl:py-12 lg:pr-8 pr-2 py-4">
           <h1 className="font-mokoto lg:text-4xl text-xs lg:text-start text-center font-medium lg:mt-10 lg:mb-8 my-5">
             Create Your Unique NFT
           </h1>
@@ -75,7 +75,7 @@ function CreateNft() {
             ))}
           </motion.div>
           {/* Mobile tab Headers */}
-          <PaginationContainer title="" itemsPerPage={1} className="bg-transparent lg:hidden relative" nextButton="absolute top-[20%] left-[0%]" prevButton="absolute top-[20%] right-[0%]" indicators="hidden">
+          <PaginationContainer activetab={activeTab} title="" itemsPerPage={1} className="bg-transparent lg:hidden relative" nextButton="absolute top-[20%] left-[0%]" prevButton="absolute top-[20%] right-[0%]" indicators="hidden">
             {tabTitles.map((title, index) => (
               <motion.button
                 initial={{ opacity: 0, y: 50 }}

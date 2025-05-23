@@ -30,7 +30,7 @@ export default function Table({ columns, data, title, icon, className }: TablePr
             {columns.map((col) => (
               <th
                 key={col}
-                className={`px-4 py-2 uppercase tracking-wide font-azeret ${col === "Items" ? 'min-w-[170px]' : ''}`}
+                className={`px-4 pb-3 pt-5 uppercase tracking-wide font-azeret ${col === "Items" ? 'min-w-[170px]' : ''}`}
               >
                 {col}
               </th>
@@ -44,7 +44,7 @@ export default function Table({ columns, data, title, icon, className }: TablePr
               className="border-b border-gray-700 hover:bg-[#1a1040] text-gray-500 font-azeret"
             >
               {columns.map((col) => (
-                <td key={col} className="py-3 aspect-square">
+                <td key={col} className="py-4 aspect-square">
                   {col === "Items" && Array.isArray(row[col]) ? (
                     <OverlappingAvatars images={row[col]} />
                   ) : (

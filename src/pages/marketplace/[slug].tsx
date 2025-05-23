@@ -25,7 +25,7 @@ export default function NFTDetailPage() {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-redark-navy grid grid-cols-5 md:grid-cols-8 lg:grid-cols-12 lg:gap-5 md:gap-5 gap-2">
+      className="bg-redark-navy text-white grid grid-cols-5 md:grid-cols-8 lg:grid-cols-12 lg:gap-5 md:gap-5 gap-2">
       <Sidebar
         dividerTitles={["Marketplace", "Account"]}
         navItems={[MockData.mainPageSidebar, MockData.accountItems]}
@@ -36,7 +36,7 @@ export default function NFTDetailPage() {
         <div className="col-span-8">
           <Header searchBar={true} wallet={true} />
         </div>
-        <div className="col-span-8 gap-6 pt-14">
+        <div className="col-span-8 gap-6 xl:pt-14">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function NFTDetailPage() {
                 viewport={{ once: true, amount: 0.2 }}
                 className="flex justify-between">
                 <div>
-                  <p className="lg:hidden block font-mokoto text-xs mb-4 pt-8">ARTWORK Details</p>
+                  <p className="lg:hidden block font-mokoto text-xs text-start mb-4 pt-8">ARTWORK Details</p>
                   <Link href="#" className="text-sm text-redark-purple">
                     @JACKODREEYCollection05
                   </Link>
@@ -127,7 +127,7 @@ export default function NFTDetailPage() {
               </motion.div>
             </div>
             <div className="lg:col-span-4 col-span-8">
-              <PaginationContainer title="" itemsPerPage={1} className="!bg-transparent lg:hidden" height="h-[240px]">
+              <PaginationContainer title="" itemsPerPage={1} className="!bg-transparent lg:hidden" height="md:h-[400px] h-[240px]">
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -321,13 +321,13 @@ export default function NFTDetailPage() {
                     Sale Ends 2025 May 22 07:30 AM EST
                   </p>
                 </div>
-                <div className="flex justify-between items-center py-3 gap-4 flex-col md:flex-row">
+                <div className="flex justify-between items-center xl:items-end py-3 gap-4 flex-col md:flex-row">
                   <div>
                     <p className="text-xs text-gray-400 font-azeret mb-3">Current Price</p>
                     <p className="text-3xl 2xl:text-4xl font-bold">32.027 SOL</p>
                     <p className="text-xs text-gray-500 text-center md:text-start">$841.07</p>
                   </div>
-                  <RedarkButton title="PLACE BID" className="text-xs" />
+                  <RedarkButton title="PLACE BID" className="text-xs 2xl:!px-16" />
                 </div>
               </motion.div>
 
@@ -338,7 +338,7 @@ export default function NFTDetailPage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}
                 className="bg-redark-purple/13 p-4 rounded-xl">
-                <h2 className="text-lg border-b py-4 border-b-white/25 mb-2 font-mokoto">
+                <h2 className="text-lg border-b py-4 border-b-white/25 mb-2 font-mokoto lg:text-start text-center">
                   DESCRIPTION
                 </h2>
                 <p className="text-sm text-gray-400 py-3 font-azeret">
@@ -353,7 +353,7 @@ export default function NFTDetailPage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}
                 className="bg-[#474747]/13 p-4 rounded-xl">
-                <div className="flex gap-6 items-center pt-3 pb-4 border-b border-b-white/25">
+                <div className="flex lg:justify-start justify-center gap-6 items-center pt-3 pb-4 border-b border-b-white/25">
                   <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14 1.3125C14.2406 1.3125 14.4375 1.50937 14.4375 1.75V9.625C14.4375 9.86563 14.2406 10.0625 14 10.0625H9.20117C9.19297 10.0625 9.18477 10.0625 9.1793 10.0625H6.57617C6.56797 10.0625 6.55977 10.0625 6.5543 10.0625H1.75C1.50937 10.0625 1.3125 9.86563 1.3125 9.625V1.75C1.3125 1.50937 1.50937 1.3125 1.75 1.3125H14ZM1.75 11.375H5.78867L5.56992 12.6875H4.15625C3.79258 12.6875 3.5 12.9801 3.5 13.3438C3.5 13.7074 3.79258 14 4.15625 14H6.125H9.625H11.5938C11.9574 14 12.25 13.7074 12.25 13.3438C12.25 12.9801 11.9574 12.6875 11.5938 12.6875H10.1801L9.96133 11.375H14C14.9652 11.375 15.75 10.5902 15.75 9.625V1.75C15.75 0.784766 14.9652 0 14 0H1.75C0.784766 0 0 0.784766 0 1.75V9.625C0 10.5902 0.784766 11.375 1.75 11.375ZM6.89883 12.6875L7.11758 11.375H8.62969L8.84844 12.6875H6.89883ZM10.2812 2.625C9.91758 2.625 9.625 2.91758 9.625 3.28125C9.625 3.64492 9.91758 3.9375 10.2812 3.9375H10.8855L8.3125 6.51055L6.58984 4.78789C6.33281 4.53086 5.91719 4.53086 5.66289 4.78789L2.81641 7.62891C2.55938 7.88594 2.55938 8.30156 2.81641 8.55586C3.07344 8.81016 3.48906 8.81289 3.74336 8.55586L6.12227 6.17695L7.84492 7.89961C7.96797 8.02266 8.13477 8.09102 8.30977 8.09102C8.48477 8.09102 8.65156 8.02266 8.77461 7.89961L11.8098 4.86445V5.46875C11.8098 5.83242 12.1023 6.125 12.466 6.125C12.8297 6.125 13.1223 5.83242 13.1223 5.46875V3.28125C13.1223 2.91758 12.8297 2.625 12.466 2.625H10.2785H10.2812Z" fill="white" />
                   </svg>
@@ -371,11 +371,11 @@ export default function NFTDetailPage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}
                 className="bg-[#474747]/13 py-4 px-6 rounded-xl">
-                <div className="flex gap-6 items-center pt-3 pb-4 border-b border-b-white/25">
+                <div className="flex lg:justify-start justify-center gap-6 items-center pt-3 pb-4 border-b border-b-white/25">
                   <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10 2H8.75H8.45C8.21875 0.859375 7.20937 0 6 0C4.79063 0 3.78125 0.859375 3.55 2H3.25H2C0.896875 2 0 2.89687 0 4V14C0 15.1031 0.896875 16 2 16H10C11.1031 16 12 15.1031 12 14V4C12 2.89687 11.1031 2 10 2ZM2.5 3.5V4.25C2.5 4.66563 2.83437 5 3.25 5H6H8.75C9.16562 5 9.5 4.66563 9.5 4.25V3.5H10C10.275 3.5 10.5 3.725 10.5 4V14C10.5 14.275 10.275 14.5 10 14.5H2C1.725 14.5 1.5 14.275 1.5 14V4C1.5 3.725 1.725 3.5 2 3.5H2.5ZM5.25 2.5C5.25 2.30109 5.32902 2.11032 5.46967 1.96967C5.61032 1.82902 5.80109 1.75 6 1.75C6.19891 1.75 6.38968 1.82902 6.53033 1.96967C6.67098 2.11032 6.75 2.30109 6.75 2.5C6.75 2.69891 6.67098 2.88968 6.53033 3.03033C6.38968 3.17098 6.19891 3.25 6 3.25C5.80109 3.25 5.61032 3.17098 5.46967 3.03033C5.32902 2.88968 5.25 2.69891 5.25 2.5ZM4.25 8.5C4.25 8.40151 4.2306 8.30398 4.19291 8.21299C4.15522 8.12199 4.09997 8.03931 4.03033 7.96967C3.96069 7.90003 3.87801 7.84478 3.78701 7.80709C3.69602 7.7694 3.59849 7.75 3.5 7.75C3.40151 7.75 3.30398 7.7694 3.21299 7.80709C3.12199 7.84478 3.03931 7.90003 2.96967 7.96967C2.90003 8.03931 2.84478 8.12199 2.80709 8.21299C2.7694 8.30398 2.75 8.40151 2.75 8.5C2.75 8.59849 2.7694 8.69602 2.80709 8.78701C2.84478 8.87801 2.90003 8.96069 2.96967 9.03033C3.03931 9.09997 3.12199 9.15522 3.21299 9.19291C3.30398 9.2306 3.40151 9.25 3.5 9.25C3.59849 9.25 3.69602 9.2306 3.78701 9.19291C3.87801 9.15522 3.96069 9.09997 4.03033 9.03033C4.09997 8.96069 4.15522 8.87801 4.19291 8.78701C4.2306 8.69602 4.25 8.59849 4.25 8.5ZM5.5 8C5.225 8 5 8.225 5 8.5C5 8.775 5.225 9 5.5 9H8.5C8.775 9 9 8.775 9 8.5C9 8.225 8.775 8 8.5 8H5.5ZM5.5 11C5.225 11 5 11.225 5 11.5C5 11.775 5.225 12 5.5 12H8.5C8.775 12 9 11.775 9 11.5C9 11.225 8.775 11 8.5 11H5.5ZM3.5 12.25C3.69891 12.25 3.88968 12.171 4.03033 12.0303C4.17098 11.8897 4.25 11.6989 4.25 11.5C4.25 11.3011 4.17098 11.1103 4.03033 10.9697C3.88968 10.829 3.69891 10.75 3.5 10.75C3.30109 10.75 3.11032 10.829 2.96967 10.9697C2.82902 11.1103 2.75 11.3011 2.75 11.5C2.75 11.6989 2.82902 11.8897 2.96967 12.0303C3.11032 12.171 3.30109 12.25 3.5 12.25Z" fill="white" />
                   </svg>
-                  <h2 className="text-lg font-semibold mb-2">Details</h2>
+                  <h2 className="text-lg font-semibold">Details</h2>
                 </div>
                 <div className="text-sm space-y-1  text-gray-500 pt-5 pb-1 flex justify-between font-azeret">
                   <div className="flex flex-col gap-3">

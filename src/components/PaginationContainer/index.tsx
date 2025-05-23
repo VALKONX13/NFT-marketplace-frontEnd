@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 type PaginationContainerProps = {
   title?: string;
   children: React.ReactNode[];
   itemsPerPage?: number;
+  activetab?: number;
   className?: string;
   height?: string;
   display?: string;
@@ -18,6 +19,7 @@ export default function PaginationContainer({
   title,
   children,
   itemsPerPage = 5,
+  activetab = 0,
   className,
   height,
   display,
@@ -26,7 +28,12 @@ export default function PaginationContainer({
   prevButton,
   indicators,
 }: PaginationContainerProps) {
-  const [currentPage, setCurrentPage] = useState(0);
+
+  useEffect(() => {
+    setCurrentPage(activetab);
+  }, [activetab]);
+
+  const [currentPage, setCurrentPage] = useState(activetab);
   const totalPages = Math.ceil(children.length / itemsPerPage);
 
   const start = currentPage * itemsPerPage;
@@ -37,6 +44,10 @@ export default function PaginationContainer({
       setCurrentPage(page);
     }
   };
+
+  if (children.length === 0) {
+    return <div className="text-center text-gray-400">No items to display.</div>;
+  }
 
   return (
     <motion.div
@@ -81,6 +92,7 @@ export default function PaginationContainer({
 
       <div className={`flex justify-center items-center mt-4 gap-2 ${position}`}>
         <motion.button
+          aria-label="Go to next page"
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.95 }}
           className={`fill-redark-purple transition disabled:fill-gray-500 disabled:cursor-not-allowed disabled:opacity-50 ${nextButton}`}
@@ -102,7 +114,6 @@ export default function PaginationContainer({
               fill="white"
             />
           </svg>)}
-
         </motion.button>
 
         {Array.from({ length: totalPages }, (_, i) => (
@@ -125,6 +136,7 @@ export default function PaginationContainer({
         ))}
 
         <motion.button
+          aria-label="Go to previous page"
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.95 }}
           className={`fill-redark-purple transition disabled:fill-gray-500 disabled:opacity-15 disabled:cursor-not-allowed scale-x-[-1] ${prevButton}`}
