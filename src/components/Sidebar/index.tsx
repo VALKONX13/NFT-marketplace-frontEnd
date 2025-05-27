@@ -75,7 +75,7 @@ export default function Sidebar({
         <Link
           className="flex items-center justify-center gap-4 w-full md:px-3 mt-3 lg:mb-16"
           href="/">
-          <div className="relative lg:w-[42px] lg:h-[42px] w-[33px] h-[33px] flex items-center justify-center">
+          <div className="relative lg:w-[42px] lg:h-[42px] w-[33px] h-[33px] aspect-square flex items-center justify-center">
             <div className="absolute inset-0 lg:bg-redark-purple bg-white rounded-full" />
             <svg
               className="z-10"
