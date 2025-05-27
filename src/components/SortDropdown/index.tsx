@@ -4,6 +4,7 @@ import {
   ThemeProvider,
 } from "flowbite-react";
 import { useState } from "react";
+import { motion } from 'framer-motion';
 
 type DropDownProps = {
   className?: string;
@@ -14,7 +15,12 @@ export default function Component({ className }: DropDownProps) {
   const [SortMode, setSortMode] = useState("Recently Added");
   return (
     <ThemeProvider >
-      <div className={`${className} flex items-center border-1 lg:py-2 py-1.5 md:gap-3 lg:px-6 px-2 lg:gap-3 !bg-transparent p-0 border-redark-purple rounded-[40px] w-fit`}>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+        className={`${className} flex items-center border-1 lg:py-2 py-1.5 md:gap-3 lg:px-6 px-2 lg:gap-3 !bg-transparent p-0 border-redark-purple rounded-[40px] w-fit`}>
         <svg
           width="17"
           height="14"
@@ -51,7 +57,7 @@ export default function Component({ className }: DropDownProps) {
             Alphabetical
           </DropdownItem>
         </Dropdown>
-      </div>
+      </motion.div>
     </ThemeProvider>
   );
 }

@@ -65,7 +65,12 @@ const Marketplace = () => {
             <motion.div variants={itemVariants}><ArtistFilter state={open} /></motion.div>
 
             {/* trending NFTS */}
-            <motion.div variants={itemVariants} className="flex items-center justify-between mb-4">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="flex items-center justify-between mb-4">
               <p className="lg:text-4xl md:text-2xl text-xs -mb-1 text-white font-mokoto adjust-mokoto lg:py-10 pb-4">
                 Trending NFTs
               </p>
@@ -75,7 +80,12 @@ const Marketplace = () => {
             </motion.div>
 
             {/* Filter Options */}
-            <motion.div variants={itemVariants} className="flex items-center gap-2">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="flex items-center gap-2">
               <div className="flex items-center gap-2 grow justify-center md:justify-start pr-2">
                 <div className="flex lg:gap-2 gap-1">
                   {["category", "artist", "status", "pricing"].map((filter) => (
