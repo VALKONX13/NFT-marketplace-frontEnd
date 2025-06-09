@@ -26,6 +26,10 @@
     format("truetype");
 }
 
+.mokoto-regular {
+  font-family: "Mokoto", sans-serif !important;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
