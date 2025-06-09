@@ -98,11 +98,11 @@ export default function Sidebar({
         {button ? <RedarkButton title="CREATE NFT" href="/ark-tools/nft-mint-tool" className="!mx-3 xl:!px-4 2xl:!px-12 hidden lg:block" /> : null}
         <div className="w-full lg:pt-12 lg:pr-6 pt-5 mb-5 flex flex-col h-[-webkit-fill-available]">
           <div className="flex flex-col items-baseline w-full mt-3 gap-4 grow ">
-            <p className="text-white text-[14px] lg:pl-10 hidden lg:flex">
+            <p className="text-white text-[16px] lg:pl-10 hidden lg:flex">
               {dividerTitles[0] || ""}
             </p>
             {renderNavSection(navItems[0])}
-            <p className="text-white text-[14px] lg:pl-10 hidden lg:flex">
+            <p className="text-white text-[16px] lg:pl-10 hidden lg:flex">
               {dividerTitles[1] || ''}
             </p>
             {dividerTitles[1] ? renderNavSection(navItems[1]) : null}
