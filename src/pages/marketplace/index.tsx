@@ -42,7 +42,7 @@ const Marketplace = () => {
     <div
       className="bg-redark-navy text-white grid grid-cols-5 md:grid-cols-8 lg:grid-cols-12 lg:gap-5 md:gap-5 gap-2 h-auto"
     >
-      <motion.div variants={itemVariants} className="lg:col-span-3 xl:col-span-2 col-span-1">
+      <motion.div variants={itemVariants} className="lg:col-span-3 xl:col-span-2 col-span-1 w-fit">
         <Sidebar
           dividerTitles={["Marketplace", "Account"]}
           navItems={[MockData.mainPageSidebar, MockData.accountItems]}

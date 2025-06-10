@@ -1,9 +1,10 @@
+'use client';
+
 import Link from "next/link";
-import { ReactElement } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import RedarkButton from "@/components/RedarkButton/index";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-
 
 type NavItem = {
   title: string;
@@ -24,34 +25,42 @@ export default function Sidebar({
   dividerTitles,
   navItems,
 }: SidebarProps) {
-
   const pathname = usePathname();
+  const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCollapsed(true);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const toggleSidebar = () => setCollapsed(prev => !prev);
 
   const renderNavSection = (items: NavItem[]) =>
     items.map(({ title, icon, href }, index) => {
-
-      if (href === '/user-account') { href = '/user-account/personal-details' };
-      const isActive = pathname === href;
+      const normalizedHref = href === '/user-account' ? '/user-account/personal-details' : href;
+      const isActive = pathname === normalizedHref;
 
       return (
         <Link
           key={index}
-          href={href}
+          href={normalizedHref}
           className={clsx(
-            "relative lg:pl-10 mx-auto lg:mx-0 group flex items-center gap-3 py-2 rounded-md text-white hover:text-redark-purple transition-all",
-            isActive && "text-redark-purple font-semibold"
+            "relative group flex items-center py-2 rounded-md text-white hover:text-redark-purple transition-all duration-300",
+            collapsed ? "justify-center px-4" : "lg:pl-10 lg:mx-0 gap-3"
           )}
         >
-          {/* Left active/hover bar */}
-          <span className="lg:absolute hidden lg:flex left-0 h-full items-center">
-            <span
-              className={clsx(
-                "w-6 h-8 bg-redark-purple rounded-r-[10px] transition-transform origin-left",
-                isActive ? "scale-100" : "scale-0 group-hover:scale-100"
-              )}
-            />
-          </span>
-          {/* Icon */}
+          {!collapsed && (
+            <span className="lg:absolute hidden lg:flex left-0 h-full items-center">
+              <span
+                className={clsx(
+                  "w-6 h-8 bg-redark-purple rounded-r-[10px] transition-transform origin-left duration-300",
+                  isActive ? "scale-100" : "scale-0 group-hover:scale-100"
+                )}
+              />
+            </span>
+          )}
           <span
             className={clsx(
               "text-xl transition-colors",
@@ -60,23 +69,41 @@ export default function Sidebar({
           >
             {icon}
           </span>
-          {/* Title */}
-          <span className={clsx(
-            "transition-colors hidden lg:flex",
-            isActive ? "text-redark-purple" : "group-hover:text-redark-purple"
-          )}>{title}</span>
+          <span
+            className={clsx(
+              "hidden lg:inline-block transition-opacity duration-300",
+              collapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100 ml-2"
+            )}
+          >
+            {title}
+          </span>
         </Link>
       );
     });
 
   return (
-    <div className={`${className} h-full lg:max-w-[300px]`}>
-      <div className="flex flex-col items-center w-full h-full py-8 overflow-hidden text-white lg:bg-[#1F144F] bg-[#4B309F] rounded">
-        <Link
+    <div
+      className={clsx(
+        className,
+        "h-full transition-all duration-300",
+        collapsed ? "lg:w-[80px]" : "lg:w-[auto]"
+      )}
+    >
+      <div className="flex flex-col items-center w-full h-full py-24 overflow-hidden text-white lg:bg-[#1F144F] bg-[#4B309F] rounded relative transition-all duration-300">
+        {/* Toggle Button */}
+        <button
+          onClick={toggleSidebar}
+          className="absolute top-4 -right-4 z-50 w-[60px] bg-redark-purple text-white p-1 rounded-full shadow-md"
+        >
+          {collapsed ? <img src="/assets/img/icons/icons8-expand-30.png" /> : <img className="scale-x-[-1]" src="/assets/img/icons/icons8-expand-30.png" />}
+        </button>
+
+        {/* <Link
           className="flex items-center justify-center gap-4 w-full md:px-3 mt-3 lg:mb-16"
-          href="/">
+          href="/"
+        >
           <div className="relative lg:w-[42px] lg:h-[42px] w-[33px] h-[33px] flex items-center justify-center">
-            <div className="absolute inset-0 lg:bg-redark-purple bg-white rounded-full" />
+            <div className="absolute inset-0 lg:bg-redark-purple bg-white rounded-full transition-colors" />
             <svg
               className="z-10"
               width="21"
@@ -93,23 +120,44 @@ export default function Sidebar({
               />
             </svg>
           </div>
-          <p className="ml-2 text-sm font-mokoto hidden lg:block">ARKHIVE</p>
-        </Link>
-        {button ? <RedarkButton title="CREATE NFT" href="/ark-tools/nft-mint-tool" className="!mx-3 xl:!px-4 2xl:!px-12 hidden lg:block" /> : null}
-        <div className="w-full lg:pt-12 lg:pr-6 pt-5 mb-5 flex flex-col h-[-webkit-fill-available]">
-          <div className="flex flex-col items-baseline w-full mt-3 gap-4 grow ">
-            <p className="text-white text-[16px] lg:pl-10 hidden lg:flex">
-              {dividerTitles[0] || ""}
-            </p>
-            {renderNavSection(navItems[0])}
-            <p className="text-white text-[16px] lg:pl-10 hidden lg:flex">
-              {dividerTitles[1] || ''}
-            </p>
-            {dividerTitles[1] ? renderNavSection(navItems[1]) : null}
-          </div>
-          <p className="max-w-[155px] ml-12 mr-3 mt-18 font-azeret text-[14px] text-gray-400 hidden lg:block">
-            © 2025 RedArk Made By Dapponics
+          <p className={clsx(
+            "ml-2 text-sm font-mokoto hidden lg:block transition-opacity duration-300",
+            collapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100"
+          )}>
+            ARKHIVE
           </p>
+        </Link> */}
+
+        {button && !collapsed && (
+          <RedarkButton
+            title="CREATE NFT"
+            href="/ark-tools/nft-mint-tool"
+            className="!mx-3 xl:!px-4 2xl:!px-12 hidden lg:block transition-opacity duration-300"
+          />
+        )}
+
+        <div className={`w-full lg:pt-12 ${!collapsed ? 'lg:pr-6' : ""} pt-5 mb-5 flex flex-col h-[-webkit-fill-available] transition-all duration-300`}>
+          <div className={`flex flex-col ${!collapsed ? 'items-baseline' : "items-center"} w-full mt-3 gap-4 grow`}>
+            {!collapsed && (
+              <p className="text-white text-[16px] lg:pl-10 hidden lg:flex transition-opacity duration-300">
+                {dividerTitles[0] || ""}
+              </p>
+            )}
+            {renderNavSection(navItems[0])}
+            {!collapsed && dividerTitles[1] && (
+              <p className="text-white text-[16px] lg:pl-10 hidden lg:flex transition-opacity duration-300">
+                {dividerTitles[1]}
+              </p>
+            )}
+            {!collapsed && dividerTitles[1] && renderNavSection(navItems[1])}
+          </div>
+
+          {!collapsed && (
+            <p className="max-w-[155px] ml-12 mr-3 mt-18 font-azeret text-[14px] text-gray-400 hidden lg:block transition-opacity duration-300">
+              © 2025 RedArk Made By Dapponics
+            </p>
+          )}
+
           <div className="inline lg:hidden w-fit mx-auto">
             <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0.906425 10.9091L0 10.0027L0.906425 9.09624L9.09624 0.906425L10.0027 0L11.8102 1.80752L10.9038 2.71394L4.90003 8.72301H22.5433H23.823V11.2823H22.5433H4.90003L10.9091 17.2861L11.8155 18.1925L10.008 20L9.10157 19.0936L0.906425 10.9091Z" fill="white" />
