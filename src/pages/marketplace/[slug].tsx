@@ -25,14 +25,14 @@ export default function NFTDetailPage() {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-redark-navy text-white grid grid-cols-5 md:grid-cols-8 lg:grid-cols-12 lg:gap-5 md:gap-5 gap-2">
+      className="bg-redark-navy text-white flex lg:gap-5 md:gap-5 gap-2">
       <Sidebar
         dividerTitles={["Marketplace", "Account"]}
         navItems={[MockData.mainPageSidebar, MockData.accountItems]}
         button={true}
-        className="lg:col-span-3 xl:col-span-2 col-span-1"
+        className="lg:col-span-3 xl:col-span-2 col-span-1 !h-auto"
       />
-      <div className="xl:col-span-10 lg:col-span-9 md:col-span-7 col-span-4 grid grid-cols-8 gap-5 lg:px-8">
+      <div className="xl:col-span-10 lg:col-span-9 md:col-span-7 col-span-4 grid grid-cols-8 gap-5 lg:px-8 w-full">
         <div className="col-span-8">
           <Header searchBar={true} wallet={true} />
         </div>

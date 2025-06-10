@@ -12,19 +12,19 @@ function MyWatchlist() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
-      className="bg-redark-navy grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 md:gap-8 gap-2 h-auto">
+      className="bg-redark-navy inline-flex md:gap-8 gap-2 h-auto w-full">
       <Sidebar
         dividerTitles={["My Account"]}
         navItems={[MockData.userAccountSideBarItems]}
         button={false}
-        className="col-span-1 lg:col-span-3 2xl:col-span-2"
+        className="col-span-1 lg:col-span-3 2xl:col-span-2 !h-auto"
       />
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}
-        className="md:col-span-11 2xl:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4 xl:-ml-9 2xl:ml-0">
+        className="pl-4 md:col-span-11 2xl:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4 xl:-ml-9 2xl:ml-0 w-full overflow-auto">
         <Header searchBar={false} wallet={false} />
         <motion.div
           className="min-h-screen text-white col-span-9 py-4 flex flex-col lg:justify-center lg:pr-16 md:pr-8"

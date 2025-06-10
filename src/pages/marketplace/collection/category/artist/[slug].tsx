@@ -45,19 +45,19 @@ export default function ArtistDetailPage() {
   }));
 
   return (
-    <div className="bg-redark-navy text-white grid grid-cols-5 md:grid-cols-8 lg:grid-cols-12 lg:gap-5 md:gap-5 gap-2 h-auto">
+    <div className="bg-redark-navy text-white flex lg:gap-5 md:gap-5 gap-2 h-auto">
       <Sidebar
         dividerTitles={["Marketplace", "Account"]}
         navItems={[MockData.mainPageSidebar, MockData.accountItems]}
         button={true}
-        className="lg:col-span-3 xl:col-span-2 col-span-1"
+        className="lg:col-span-3 xl:col-span-2 col-span-1 !h-auto"
       />
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}
-        className="lg:col-span-9 xl:col-span-10 md:col-span-7 col-span-4 2xl:px-14">
+        className="lg:col-span-9 xl:col-span-10 md:col-span-7 col-span-4 2xl:px-14 w-full">
         <div className="col-span-10">
           <Header searchBar={true} wallet={true} />
         </div>

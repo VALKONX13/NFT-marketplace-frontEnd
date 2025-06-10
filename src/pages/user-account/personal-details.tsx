@@ -63,14 +63,14 @@ export default function UserAccount() {
   };
 
   return (
-    <div className="bg-redark-navy grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 md:gap-8 gap-2 h-auto">
+    <div className="bg-redark-navy flex md:gap-8 gap-2 h-auto">
       <Sidebar
         dividerTitles={["My Account"]}
         navItems={[MockData.userAccountSideBarItems]}
         button={false}
-        className="col-span-1 lg:col-span-3 2xl:col-span-2"
+        className="col-span-1 lg:col-span-3 2xl:col-span-2 !h-auto"
       />
-      <div className="md:col-span-11 2xl:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4">
+      <div className="md:col-span-11 2xl:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4 w-full">
         <Header searchBar={false} wallet={false} />
         <motion.div
           className="md:py-10 min-h-screen text-white col-span-9 py-4 flex flex-col"

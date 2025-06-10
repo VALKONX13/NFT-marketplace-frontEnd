@@ -35,23 +35,23 @@ export default function CreatePostEntry() {
     };
 
     return (
-        <div className="bg-redark-navy grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 md:gap-8 gap-2 h-auto min-h-screen">
+        <div className="bg-redark-navy flex md:gap-8 gap-2 h-auto min-h-screen">
             <Sidebar
                 dividerTitles={["Admin Settings", "Blog Settings"]}
                 navItems={[MockData.adminSettingsSideBarItems, MockData.blogSettingsSideBarItems]}
                 button={false}
-                className="col-span-1 lg:col-span-3 2xl:col-span-2"
+                className="col-span-1 lg:col-span-3 2xl:col-span-2 !h-auto"
             />
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}
-                className="md:col-span-11 2xl:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4 grid grid-cols-2 gap-6">
+                className="md:col-span-11 2xl:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4 grid grid-cols-2 gap-6 w-full">
                 {/* inputs */}
                 <div className="lg:col-span-1 col-span-2 py-6 px-4 lg:pr-4 pr-8 text-white space-y-6 pt-14 lg:mb-18">
                     {/* Title */}
-                    <h2 className="text-xl md:text-4xl tracking-widest mokoto-regular mb-10">Create blog entry</h2>
+                    <h2 className="text-xl md:text-4xl tracking-widest mokoto-regular mb-10 w-max">Create blog entry</h2>
                     {/* Create blog entry */}
                     <section>
                         <RedarkInput placeholder="Title" className="!px-6" />
@@ -67,7 +67,7 @@ export default function CreatePostEntry() {
                 {/* upload box */}
                 <div className="lg:col-span-1 col-span-2 lg:mt-32 mb-14 lg:pr-0 lg:pl-0 pl-4 pr-8">
                     <FileUploadBox
-                    className="lg:!w-[370px] lg:!h-[340px] lg:!pb-5 lg:!pt-14 gap-3"
+                    className="xl:!w-[370px] lg:!w-[320px] lg:!h-[340px] lg:!pb-5 lg:!pt-14 gap-3"
                         title="Upload File"
                         onFileChange={handleFileChange}
                         error={formik.touched.file && formik.errors.file ? formik.errors.file : undefined}

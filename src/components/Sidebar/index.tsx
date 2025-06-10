@@ -109,10 +109,10 @@ export default function Sidebar({
       className={clsx(
         className,
         "h-full transition-all duration-300",
-        isLargeScreen ? (collapsed ? "lg:w-[80px]" : "w-[300px]") : "w-[50px] md:w-[60px]"
+        isLargeScreen ? (collapsed ? "lg:w-[80px]" : "2xl:w-[300px] xl:[280px] lg:w-[250px]") : "w-[50px] md:w-[60px]"
       )}
     >
-      <div className="flex flex-col items-center w-full h-full lg:py-24 overflow-hidden text-white lg:bg-[#1F144F] bg-[#4B309F] rounded relative transition-all duration-300">
+      <div className="flex flex-col items-center w-[inherit] h-full lg:py-24 overflow-hidden text-white lg:bg-[#1F144F] bg-[#4B309F] rounded relative transition-all duration-300">
         {/* Toggle Button */}
         <button
           onClick={toggleSidebar}
@@ -186,7 +186,7 @@ export default function Sidebar({
                 {dividerTitles[1]}
               </p>
             )}
-            {dividerTitles[1] && isLargeScreen && renderNavSection(navItems[1])}
+            {dividerTitles[1] && renderNavSection(navItems[1])}
           </div>
 
           {!collapsed && (

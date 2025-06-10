@@ -63,7 +63,7 @@ const accesslevels = [
 
 const AccessLevels = () => {
     return (
-        <section className="text-whitpx-4 lg:px-4 lg:py-10 py-4 space-y-6">
+        <section className="text-whitpx-4 2xl:px-4 xl:pl-8 xl:pr-4 lg:py-10 py-4 space-y-6">
             {/* Section Heading */}
             <motion.div
                 initial={{ opacity: 0, y: 50 }}

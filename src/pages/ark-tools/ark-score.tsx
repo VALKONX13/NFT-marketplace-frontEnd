@@ -29,19 +29,19 @@ export default function ArkScore() {
   const [isScanning, setIsScanning] = useState(false);
 
   return (
-    <div className="bg-redark-navy grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 lg:gap-8">
+    <div className="bg-redark-navy flex lg:gap-8">
       <Sidebar
         dividerTitles={["Marketplace", "Account"]}
         navItems={[MockData.marketplaceSidebar, MockData.accountItems]}
         button={true}
-        className="col-span-1 lg:col-span-3 2xl:col-span-2"
+        className="col-span-1 lg:col-span-3 2xl:col-span-2 !h-auto"
       />
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}
-        className="md:col-span-11 lg:col-span-9 2xl:col-span-10 sm:col-span-7 col-span-4">
+        className="md:col-span-11 lg:col-span-9 2xl:col-span-10 sm:col-span-7 col-span-4 w-full">
         <Header className="hidden lg:flex" searchBar={true} wallet={true} searchIcon={false} />
         {/* Mobile Header */}
         <Header className="lg:hidden pl-2" userIcon={false} searchBar={false} wallet={false} searchIcon={false} />

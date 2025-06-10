@@ -37,14 +37,14 @@ function CreateNft() {
   };
 
   return (
-    <div className="bg-redark-navy text-white grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 lg:gap-8 gap-2 h-auto min-h-screen">
+    <div className="bg-redark-navy text-white flex lg:gap-8 gap-2 h-auto min-h-screen">
       <Sidebar
         dividerTitles={["Marketplace", "Account"]}
         navItems={[MockData.marketplaceSidebar, MockData.accountItems]}
         button={true}
-        className="col-span-1 lg:col-span-3 2xl:col-span-2"
+        className="col-span-1 lg:col-span-3 2xl:col-span-2 !h-auto"
       />
-      <div className="md:col-span-11 lg:col-span-9 2xl:col-span-10 sm:col-span-7 col-span-4">
+      <div className="md:col-span-11 lg:col-span-9 2xl:col-span-10 sm:col-span-7 col-span-4 w-full">
         <Header className="hidden xl:flex" searchBar={true} wallet={true} searchIcon={false} />
         {/* Mobile Header */}
         <Header className="xl:hidden" searchBar={false} wallet={false} searchIcon={true} />

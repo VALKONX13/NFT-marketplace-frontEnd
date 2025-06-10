@@ -17,14 +17,14 @@ function ArkStatusReport() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}
-            className='bg-redark-navy grid md:grid-cols-12 sm:grid-cols-8 grid-cols-5 md:gap-8 gap-2 h-auto'>
+            className='bg-redark-navy flex md:gap-8 gap-2 h-auto'>
             <Sidebar
                 dividerTitles={["My Account"]}
                 navItems={[MockData.userAccountSideBarItems]}
                 button={false}
-                className="col-span-1 lg:col-span-3 2xl:col-span-2"
+                className="col-span-1 lg:col-span-3 2xl:col-span-2 !h-auto"
             />
-            <div className='md:col-span-11 2xl:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4 xl:-ml-9 2xl:ml-0'>
+            <div className='md:col-span-11 2xl:col-span-10 lg:col-span-9 sm:col-span-7 col-span-4 xl:-ml-9 2xl:ml-0 w-full'>
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -116,8 +116,8 @@ function ArkStatusReport() {
                                 viewport={{ once: true, amount: 0.2 }}>
                                 <h2 className="lg:text-xl text-xs text-center lg:text-start font-mokoto tracking-wider mb-6">VESTED TOKENS</h2>
                                 <div className='bg-white/13 rounded-[16px] pt-8 pb-6'>
-                                    <div className='flex justify-between'>
-                                        <div className="lg:flex items-center hidden gap-4 mb-4 bg-redark-purple/25 w-fit py-3 pl-12 pr-9 rounded-tr-full rounded-br-full">
+                                    <div className='flex justify-between items-center'>
+                                        <div className="lg:flex items-center hidden gap-4 mb-4 bg-redark-purple/25 w-fit py-3 2xl:pl-12 xl:pl-6 pl-4 pr-9 rounded-tr-full rounded-br-full">
                                             <Image src="/assets/img/astronaut.png" alt="User Character" width={48} height={48} />
                                             <div className='flex flex-col gap-2'>
                                                 <p className="text-sm">User Level: <span className="font-semibold">ORBITER</span></p>
@@ -125,7 +125,7 @@ function ArkStatusReport() {
                                             </div>
                                         </div>
                                         {/* Countdown */}
-                                        <div className='flex-col w-fit pl-5 2xl:pr-16 pr-10 hidden xl:flex'>
+                                        <div className='flex-col w-fit pl-5 2xl:pr-10 pr-6 hidden xl:flex'>
                                             <p>Countdown to  Unlock 100%</p>
                                             <CountdownTimer
                                                 startTime={Date.now()}
@@ -151,7 +151,7 @@ function ArkStatusReport() {
                                                     <p className="text-white">$127,557.67</p>
                                                 </div>
                                             </div>
-                                            <div className='absolute top-[50%] xl:right-[50%] lg:right-[35%] sm:right-[25%] right-[12%]'>
+                                            <div className='absolute top-[50%] xl:right-[50%] lg:right-[29%] sm:right-[25%] right-[12%]'>
                                                 <svg className='scale-y-[-1]' width="183" height="63" viewBox="0 0 183 63" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M1 62L61.3721 1L182.5 1" stroke="white" />
                                                 </svg>

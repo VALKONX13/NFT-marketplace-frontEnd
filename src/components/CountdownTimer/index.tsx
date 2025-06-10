@@ -152,7 +152,7 @@ const CountdownTimer = ({
                                 key={index}
                                 className="relative last:w-[50px] last:md:w-[85px]"
                             >
-                                <div className=" mokoto-regular text-xl xl:text-[36px]">
+                                <div className="mokoto-regular text-xl 2xl:text-[28px] xl:text-[24px]">
                                     <span style={{ lineHeight: '1' }} className="drop-shadow-[0px_0px_10px_#FFFFFF50] md:drop-shadow-[0px_0px_10px_#FFFFFF80] ">
                                         {time}
                                     </span>

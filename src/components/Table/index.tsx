@@ -44,7 +44,7 @@ export default function Table({ columns, data, title, icon, className }: TablePr
               className="border-b border-gray-700 hover:bg-[#1a1040] text-gray-500 font-azeret"
             >
               {columns.map((col) => (
-                <td key={col} className="py-4 px-4 aspect-square">
+                <td key={col} className="py-4 pl-2 aspect-square">
                   {col === "Items" && Array.isArray(row[col]) ? (
                     <OverlappingAvatars images={row[col]} />
                   ) : (
