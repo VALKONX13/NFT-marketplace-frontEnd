@@ -40,7 +40,7 @@ const Marketplace = () => {
 
   return (
     <div
-      className="bg-redark-navy text-white grid grid-cols-5 md:grid-cols-8 lg:grid-cols-12 lg:gap-5 md:gap-5 gap-2 h-auto"
+      className="bg-redark-navy text-white flex lg:gap-5 md:gap-5 gap-2 h-auto"
     >
       <motion.div variants={itemVariants} className="lg:col-span-3 xl:col-span-2 col-span-1 w-fit">
         <Sidebar
@@ -50,7 +50,7 @@ const Marketplace = () => {
         />
       </motion.div>
 
-      <motion.div variants={itemVariants} className="xl:col-span-10 lg:col-span-9 md:col-span-7 col-span-4">
+      <motion.div variants={itemVariants} className="xl:col-span-10 lg:col-span-9 md:col-span-7 col-span-4 w-full">
         <Header searchBar={true} wallet={true} />
         <div className="lg:grid lg:grid-cols-8 gap-6">
           <motion.div variants={itemVariants} className="flex flex-col items-center mx-auto">

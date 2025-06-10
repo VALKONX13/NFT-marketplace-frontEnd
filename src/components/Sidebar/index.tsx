@@ -5,6 +5,7 @@ import { ReactElement, useEffect, useState } from "react";
 import RedarkButton from "@/components/RedarkButton/index";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import Image from "next/image";
 
 type NavItem = {
   title: string;
@@ -26,8 +27,25 @@ export default function Sidebar({
   navItems,
 }: SidebarProps) {
   const pathname = usePathname();
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false); 
+  const [isLargeScreen, setIsLargeScreen] = useState(true);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      const large = window.innerWidth >= 1024;
+      setIsLargeScreen(large);
+      
+      if (!large) {
+        setCollapsed(true); // Force collapse on small screens
+      }
+    };
 
+    handleResize(); // run on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setCollapsed(true);
@@ -35,7 +53,11 @@ export default function Sidebar({
     return () => clearTimeout(timer);
   }, []);
 
-  const toggleSidebar = () => setCollapsed(prev => !prev);
+  const toggleSidebar = () => {
+    if (isLargeScreen) {
+      setCollapsed(prev => !prev);
+    }
+  };
 
   const renderNavSection = (items: NavItem[]) =>
     items.map(({ title, icon, href }, index) => {
@@ -48,7 +70,7 @@ export default function Sidebar({
           href={normalizedHref}
           className={clsx(
             "relative group flex items-center py-2 rounded-md text-white hover:text-redark-purple transition-all duration-300",
-            collapsed ? "justify-center px-4" : "lg:pl-10 lg:mx-0 gap-3"
+            collapsed ? "justify-center px-4" : isLargeScreen ? "pl-10 mx-0 gap-3" : ""
           )}
         >
           {!collapsed && (
@@ -72,7 +94,8 @@ export default function Sidebar({
           <span
             className={clsx(
               "hidden lg:inline-block transition-opacity duration-300",
-              collapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100 ml-2"
+              collapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100 ml-2",
+              isActive ? "text-redark-purple" : "group-hover:text-redark-purple"
             )}
           >
             {title}
@@ -86,16 +109,30 @@ export default function Sidebar({
       className={clsx(
         className,
         "h-full transition-all duration-300",
-        collapsed ? "lg:w-[80px]" : "lg:w-[auto]"
+        isLargeScreen ? (collapsed ? "lg:w-[80px]" : "w-[300px]") : "w-[50px] md:w-[60px]"
       )}
     >
-      <div className="flex flex-col items-center w-full h-full py-24 overflow-hidden text-white lg:bg-[#1F144F] bg-[#4B309F] rounded relative transition-all duration-300">
+      <div className="flex flex-col items-center w-full h-full lg:py-24 overflow-hidden text-white lg:bg-[#1F144F] bg-[#4B309F] rounded relative transition-all duration-300">
         {/* Toggle Button */}
         <button
           onClick={toggleSidebar}
-          className="absolute top-4 -right-4 z-50 w-[60px] bg-redark-purple text-white p-1 rounded-full shadow-md"
+          className="absolute hidden lg:flex top-4 -right-4 z-50 w-[60px] bg-redark-purple text-white p-1 rounded-full shadow-md"
         >
-          {collapsed ? <img src="/assets/img/icons/icons8-expand-30.png" /> : <img className="scale-x-[-1]" src="/assets/img/icons/icons8-expand-30.png" />}
+          {collapsed ?
+            <Image
+              src="/assets/img/icons/icons8-expand-30.png"
+              alt="Expand icon"
+              width={30}
+              height={30}
+            />
+            :
+            <Image
+              className="scale-x-[-1]"
+              src="/assets/img/icons/icons8-expand-30.png"
+              alt="Expand icon"
+              width={30}
+              height={30}
+            />}
         </button>
 
         {/* <Link
@@ -149,7 +186,7 @@ export default function Sidebar({
                 {dividerTitles[1]}
               </p>
             )}
-            {!collapsed && dividerTitles[1] && renderNavSection(navItems[1])}
+            {dividerTitles[1] && isLargeScreen && renderNavSection(navItems[1])}
           </div>
 
           {!collapsed && (
